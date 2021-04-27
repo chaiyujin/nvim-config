@@ -8,59 +8,6 @@ require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
-  use {
-    'akinsho/nvim-bufferline.lua',
-    requires = 'kyazdani42/nvim-web-devicons',
-    config = function()
-      require('bufferline').setup{
-        options = {
-          view = "default", -- "multiwindow" | "default"
-          numbers = "both", -- "none" | "ordinal" | "buffer_id" | "both",
-          number_style = "superscript", -- | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
-          mappings = true,  -- | false,
-          buffer_close_icon= '',
-          modified_icon = '●',
-          close_icon = '',
-          left_trunc_marker = '',
-          right_trunc_marker = '',
-          max_name_length = 18,
-          max_prefix_length = 15, -- prefix used when a buffer is deduplicated
-          tab_size = 18,
-          diagnostics = false,  -- false | "nvim_lsp"
-          -- diagnostics_indicator = function(count, level, diagnostics_dict)
-          --   return "("..count..")"
-          -- end,
-          diagnostics_indicator = function(count, level, diagnostics_dict)
-            local icon = level:match("error") and " " or " "
-            return " " .. icon .. count
-          end,
-          -- diagnostics_indicator = function(_, _, diagnostics_dict)
-          --   local s = " "
-          --   for e, n in pairs(diagnostics_dict) do
-          --     local sym = e == "error" and " "
-          --       or (e == "warning" and " " or "" )
-          --     s = s .. n .. sym
-          --   end
-          --   return s
-          -- end,
-          show_buffer_close_icons = true, -- | false,
-          show_close_icon = true, -- | false,
-          show_tab_indicators = true, -- | false,
-          persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
-          -- can also be a table containing 2 custom separators
-          -- [focused and unfocused]. eg: { '|', '|' }
-          separator_style = "thin",  --  | "thick" | "thin" | { 'any', 'any' },
-          enforce_regular_tabs = false,  -- | true,
-          always_show_bufferline = true,  -- | false,
-          sort_by = 'extension',  -- | 'relative_directory' | 'directory' | function(buffer_a, buffer_b)
-            -- add custom logic
-            -- return buffer_a.modified > buffer_b.modified
-          -- end
-        }
-      }
-    end
-  }
-
   -- Status line
   use {
     'hoob3rt/lualine.nvim',
@@ -68,7 +15,7 @@ require('packer').startup(function()
     config = function()
       require('lualine').setup{
         options = {
-          theme = 'gruvbox',
+          theme = 'material',
           section_separators = {'', ''},
           component_separators = {'', ''},
           icons_enabled = true,
@@ -93,5 +40,52 @@ require('packer').startup(function()
       }
     end
   }
+
+  use {
+    'akinsho/nvim-bufferline.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('bufferline').setup{
+        options = {
+          view = "default", -- "multiwindow" | "default"
+          numbers = "ordinal", -- "none" | "ordinal" | "buffer_id" | "both",
+          number_style = "", -- | "" | { "none", "subscript" }, -- buffer_id at index 1, ordinal at index 2
+          mappings = false,
+          buffer_close_icon= '',
+          modified_icon = '●',
+          close_icon = '',
+          left_trunc_marker = '',
+          right_trunc_marker = '',
+          max_name_length = 18,
+          max_prefix_length = 15, -- prefix used when a buffer is deduplicated
+          tab_size = 18,
+          diagnostics = "nvim_lsp",  -- false | "nvim_lsp"
+          diagnostics_indicator = function(count, level, diagnostics_dict)
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+          end,
+          show_buffer_close_icons = true, -- | false,
+          show_close_icon = true, -- | false,
+          show_tab_indicators = true, -- | false,
+          persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+          -- can also be a table containing 2 custom separators
+          -- [focused and unfocused]. eg: { '|', '|' }
+          separator_style = "slant",  -- "slant" | "thick" | "thin" | { 'any', 'any' },
+          enforce_regular_tabs = false,  -- | true,
+          always_show_bufferline = true,  -- | false,
+          sort_by = function(buffer_a, buffer_b)
+            -- add custom logic
+            if (buffer_a.modified == buffer_b.modified)
+            then
+              return buffer_a.id < buffer_b.id
+            else
+              return buffer_a.modified > buffer_b.modified
+            end
+          end
+        }
+      }
+    end
+  }
+
 end)
 

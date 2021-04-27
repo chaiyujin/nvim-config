@@ -1,115 +1,13 @@
-call plug#begin(stdpath('data') . '/plugged')
-
-" Comment code
-Plug 'tpope/vim-commentary'
-
-if !exists('g:vscode')
-  " Themes
-  Plug 'markvincze/panda-vim'
-  Plug 'tomasiser/vim-code-dark'
-  Plug 'ayu-theme/ayu-vim' " or other package manager
-  Plug 'joshdick/onedark.vim'
-  " Indent
-  Plug 'Yggdroot/indentLine'
-  " File tree and icons
-  Plug 'preservim/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
-  " Beautiful status line
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-  " Git helper
-  Plug 'tpope/vim-fugitive'
-  " Conquer of Completion 
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-endif
-
-call plug#end()
-
-" ============================================================================ "
-" Common settings
-" ============================================================================ "
-
-set nowrap
-set encoding=UTF-8
-set virtualedit=block
-
-" Soft tab: insert spaces 
-set      tabstop=4 shiftwidth=4 softtabstop=4 expandtab
-setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab  " 2 spaces for init.vim
-
-" Navigate windows
-if !exists('g:vscode')
-  set number
-  tnoremap <A-h> <C-\><C-N><C-w>h
-  tnoremap <A-j> <C-\><C-N><C-w>j
-  tnoremap <A-k> <C-\><C-N><C-w>k
-  tnoremap <A-l> <C-\><C-N><C-w>l
-  inoremap <A-h> <C-\><C-N><C-w>h
-  inoremap <A-j> <C-\><C-N><C-w>j
-  inoremap <A-k> <C-\><C-N><C-w>k
-  inoremap <A-l> <C-\><C-N><C-w>l
-  nnoremap <A-h> <C-w>h
-  nnoremap <A-j> <C-w>j
-  nnoremap <A-k> <C-w>k
-  nnoremap <A-l> <C-w>l
-endif
 
 " ============================================================================ "
 " Color Themes & Appearance
 " ============================================================================ "
-
-if !exists('g:vscode')
-  syntax enable
-  set termguicolors   " enable true colors support
-
-  " color panda
-  " colorscheme codedark
-  " let ayucolor = "dark"    " light, mirage, dark
-  " colorscheme ayu
-  colorscheme onedark
-
-  " let g:airline_theme ='luna'
-  " let g:airline_theme = 'codedark'
-  " let g:airline_theme = 'ayu'
-  let g:airline_theme = 'onedark'
-
-  " IndentLine {{
-  let g:indentLine_showFirstIndentLevel = 1
-  let g:indentLine_setColors = 0
-  " }}
-endif
 
 " ============================================================================ "
 " File manager
 " ============================================================================ "
 
 if !exists('g:vscode')
-  nnoremap <A-t> :NERDTreeToggle<CR>
-  " Auto refresh when enter NERDTree
-  autocmd BufEnter NERD_tree_* | execute 'normal R'
-
-  " Buffer change
-  " Airline {{
-  let g:airline#extensions#tabline#enabled = 1
-  let g:airline#extensions#tabline#buffer_nr_show = 0
-  let g:airline#extensions#tabline#buffer_idx_mode = 1
-  let g:airline#extensions#branch#enabled = 1
-  let g:airline_powerline_fonts = 1
-  " }}
-
-  nmap <A-1> <Plug>AirlineSelectTab1
-  nmap <A-2> <Plug>AirlineSelectTab2
-  nmap <A-3> <Plug>AirlineSelectTab3
-  nmap <A-4> <Plug>AirlineSelectTab4
-  nmap <A-5> <Plug>AirlineSelectTab5
-  nmap <A-6> <Plug>AirlineSelectTab6
-  nmap <A-7> <Plug>AirlineSelectTab7
-  nmap <A-8> <Plug>AirlineSelectTab8
-  nmap <A-9> <Plug>AirlineSelectTab9
-  nmap <A-0> <Plug>AirlineSelectTab0
-  nmap <A--> <Plug>AirlineSelectPrevTab
-  nmap <A-=> <Plug>AirlineSelectNextTab
-  nnoremap <A-q> :bp \| bd #<CR>
 
   function! IsEditorBuffer(bufname)
     if a:bufname =~ "NERD_tree_\\d\\+" | return v:false | endif
@@ -197,17 +95,6 @@ if !exists('g:vscode')
   nnoremap <C-j> :call ToggleTerminal("g:terminal")<CR>
   inoremap <C-j> <Esc>:call ToggleTerminal("g:terminal")<CR>
   tnoremap <C-j> <C-\><C-N>:call ToggleTerminal("g:terminal")<CR>
-
-  tmap <A-1> <C-\><C-n><Plug>AirlineSelectTab1
-  tmap <A-2> <C-\><C-n><Plug>AirlineSelectTab2
-  tmap <A-3> <C-\><C-n><Plug>AirlineSelectTab3
-  tmap <A-4> <C-\><C-n><Plug>AirlineSelectTab4
-  tmap <A-5> <C-\><C-n><Plug>AirlineSelectTab5
-  tmap <A-6> <C-\><C-n><Plug>AirlineSelectTab6
-  tmap <A-7> <C-\><C-n><Plug>AirlineSelectTab7
-  tmap <A-8> <C-\><C-n><Plug>AirlineSelectTab8
-  tmap <A-9> <C-\><C-n><Plug>AirlineSelectTab9
-  tmap <A-0> <C-\><C-n><Plug>AirlineSelectTab0
 
   " Set default shell on windows
   if has('win32')
