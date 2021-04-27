@@ -73,15 +73,10 @@ require('packer').startup(function()
           separator_style = "slant",  -- "slant" | "thick" | "thin" | { 'any', 'any' },
           enforce_regular_tabs = false,  -- | true,
           always_show_bufferline = true,  -- | false,
-          sort_by = function(buffer_a, buffer_b)
-            -- add custom logic
-            if (buffer_a.modified == buffer_b.modified)
-            then
-              return buffer_a.id < buffer_b.id
-            else
-              return buffer_a.modified > buffer_b.modified
-            end
-          end
+          -- sort_by = function(buffer_a, buffer_b)
+          --   -- add custom logic
+          --   return buffer_a.id < buffer_b.id
+          -- end
         }
       }
     end

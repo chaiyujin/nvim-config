@@ -41,6 +41,9 @@ let g:indentLine_setColors = 0
 " status line, bufferline, file manager
 " ==============================================================================
 
+" Automaticly jump to last known cursor position
+autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+
 if has('nvim-0.5')
   " ----------------------------------------------------------------------------
   " bufferline
@@ -59,6 +62,20 @@ if has('nvim-0.5')
   nnoremap <A--> :BufferLineCyclePrev<CR>
   nnoremap <A-=> :BufferLineCycleNext<CR>
   nnoremap <A-q> :bp \| bd #<CR>
+
+  " alter buffer in terminal
+  tnoremap <A-1> <C-\><C-n>:lua require"bufferline".go_to_buffer(1)<CR>
+  tnoremap <A-2> <C-\><C-n>:lua require"bufferline".go_to_buffer(2)<CR>
+  tnoremap <A-3> <C-\><C-n>:lua require"bufferline".go_to_buffer(3)<CR>
+  tnoremap <A-4> <C-\><C-n>:lua require"bufferline".go_to_buffer(4)<CR>
+  tnoremap <A-5> <C-\><C-n>:lua require"bufferline".go_to_buffer(5)<CR>
+  tnoremap <A-6> <C-\><C-n>:lua require"bufferline".go_to_buffer(6)<CR>
+  tnoremap <A-7> <C-\><C-n>:lua require"bufferline".go_to_buffer(7)<CR>
+  tnoremap <A-8> <C-\><C-n>:lua require"bufferline".go_to_buffer(8)<CR>
+  tnoremap <A-9> <C-\><C-n>:lua require"bufferline".go_to_buffer(9)<CR>
+  tnoremap <A-0> <C-\><C-n>:lua require"bufferline".go_to_buffer(0)<CR>
+  tnoremap <A--> <C-\><C-n>:BufferLineCyclePrev<CR>
+  tnoremap <A-=> <C-\><C-n>:BufferLineCycleNext<CR>
 
   " ----------------------------------------------------------------------------
   " nvim-tree
@@ -156,6 +173,7 @@ else
   nmap <A-0> <Plug>AirlineSelectTab0
   nmap <A--> <Plug>AirlineSelectPrevTab
   nmap <A-=> <Plug>AirlineSelectNextTab
+
   tmap <A-1> <C-\><C-n><Plug>AirlineSelectTab1
   tmap <A-2> <C-\><C-n><Plug>AirlineSelectTab2
   tmap <A-3> <C-\><C-n><Plug>AirlineSelectTab3
@@ -166,10 +184,31 @@ else
   tmap <A-8> <C-\><C-n><Plug>AirlineSelectTab8
   tmap <A-9> <C-\><C-n><Plug>AirlineSelectTab9
   tmap <A-0> <C-\><C-n><Plug>AirlineSelectTab0
+  nmap <A--> <C-\><C-n><Plug>AirlineSelectPrevTab
+  nmap <A-=> <C-\><C-n><Plug>AirlineSelectNextTab
+
   nnoremap <A-q> :bp \| bd #<CR>
 
+  " ---------------------------------------------------------------------------
+  " NERDTree
+  " ---------------------------------------------------------------------------
+
   nnoremap <A-t> :NERDTreeToggle<CR>
-  " Auto refresh when enter NERDTree
-  autocmd BufEnter NERD_tree_* | execute 'normal R'
+  augroup MyNERDTree
+    autocmd!
+    " Start NERDTree and put the cursor back in the other window
+    " autocmd VimEnter * NERDTree | wincmd p
+    " Start NERDTree when Vim starts with a directory argument.
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
+        \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+
+    " Auto refresh when enter NERDTree
+    autocmd BufEnter NERD_tree_* | execute 'normal R'
+
+    " Exit Vim if NERDTree is the only window left.
+    autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+      \ quit | endif
+  augroup END
 
 endif
