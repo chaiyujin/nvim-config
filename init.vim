@@ -5,6 +5,7 @@ if !exists('g:vscode')
   syntax enable
   set termguicolors
   set nowrap
+  set number
   set encoding=UTF-8
   set virtualedit=block
   " TextEdit might fail if hidden is not set.
@@ -13,12 +14,13 @@ if !exists('g:vscode')
   set nobackup
   set nowritebackup
   " Give more space for displaying messages.
-  set cmdheight=4
+  set cmdheight=2
 
   " Soft tab: insert spaces 
-  set      tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-  setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab  " 2 spaces for init.vim
-  set number
+  set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+
+  autocmd FileType vim setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+  autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
   " Navigate windows
   tnoremap <A-h> <C-\><C-N><C-w>h
@@ -44,10 +46,9 @@ if !exists('g:vscode')
   if has('nvim-0.5')
     " nightly config
     luafile $NVIM_CONFIG_DIR/nightly.lua
-  else
-    " stable config
-    source $NVIM_CONFIG_DIR/stable.vim
   endif
+
+  source $NVIM_CONFIG_DIR/stable.vim
 
   colorscheme onedark
 endif

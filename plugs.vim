@@ -24,9 +24,10 @@ else
   " Beautiful status line
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  " Conquer of Completion 
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
+
+" Conquer of Completion 
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 

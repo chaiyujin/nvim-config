@@ -15,7 +15,7 @@ require('packer').startup(function()
     config = function()
       require('lualine').setup{
         options = {
-          theme = 'material',
+          theme = 'onedark',
           section_separators = {'', ''},
           component_separators = {'', ''},
           icons_enabled = true,
@@ -36,7 +36,7 @@ require('packer').startup(function()
           lualine_y = {  },
           lualine_z = {   }
         },
-        extensions = { 'fzf' }
+        extensions = { 'nvim-tree' }
       }
     end
   }
