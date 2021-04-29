@@ -57,6 +57,7 @@ function! ToggleTerminal(terminal_ref)
     call termopen(&shell, {a:terminal_ref})
     set bufhidden=hide
     set nobuflisted
+    set nonumber
     let {a:terminal_ref}.loaded = v:true
     let {a:terminal_ref}.termbufferid = bufnr('')
     let {a:terminal_ref}.termwinid = win_getid()
