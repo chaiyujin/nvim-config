@@ -1,11 +1,11 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 " Themes
-Plug 'markvincze/panda-vim'
-Plug 'tomasiser/vim-code-dark'
-Plug 'ayu-theme/ayu-vim' " or other package manager
-Plug 'joshdick/onedark.vim'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+" Plug 'markvincze/panda-vim'
+" Plug 'tomasiser/vim-code-dark'
+" Plug 'ayu-theme/ayu-vim' " or other package manager
+" Plug 'joshdick/onedark.vim'
+" Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 " Indent
 Plug 'Yggdroot/indentLine'

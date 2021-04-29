@@ -1,9 +1,13 @@
 " init.vim
 
-if !exists('g:vscode')
+if exists('g:vscode')
+  " comment
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+else
   filetype plugin indent on
-  syntax enable
-  set termguicolors
   set nowrap
   set number
   set encoding=UTF-8
@@ -50,7 +54,12 @@ if !exists('g:vscode')
 
   source $NVIM_CONFIG_DIR/stable.vim
 
-  colorscheme onedark
+  " ==================================
+  syntax enable
+  set termguicolors
+  " colorscheme onedark
+  " source $NVIM_CONFIG_DIR/panda.vim
+  source $NVIM_CONFIG_DIR/onedark.vim
 
   hi BlackBg guibg=#242424
   au TermOpen * :set winhighlight=Normal:BlackBg
