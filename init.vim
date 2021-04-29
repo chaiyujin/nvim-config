@@ -51,5 +51,9 @@ if !exists('g:vscode')
   source $NVIM_CONFIG_DIR/stable.vim
 
   colorscheme onedark
+
+  hi BlackBg guibg=#242424
+  au TermOpen * :set winhighlight=Normal:BlackBg
+  au BufHidden term://* :set winhighlight=Normal:Normal
 endif
 
