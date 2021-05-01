@@ -11,6 +11,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'Yggdroot/indentLine'
 " Comment code
 Plug 'tpope/vim-commentary'
+Plug 'vim-python/python-syntax'
 
 " Plugs for deferent 
 if has('nvim-0.5')
