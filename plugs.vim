@@ -35,8 +35,11 @@ call plug#end()
 " indentLine
 " ==============================================================================
 
+let g:indentLine_char = '▏'  "  ¦, ┆, │, ⎸, or ▏
+let g:indentLine_setColors = 1
+let g:indentLine_color_gui = '#3E4452'
+let g:indentLine_color_term = 237
 let g:indentLine_showFirstIndentLevel = 0
-let g:indentLine_setColors = 0
 
 " ==============================================================================
 " status line, bufferline, file manager
