@@ -15,7 +15,7 @@ require('packer').startup(function()
     config = function()
       require('lualine').setup{
         options = {
-          theme = 'onedark',
+          theme = 'codedark',
           section_separators = {'', ''},
           component_separators = {'', ''},
           icons_enabled = true,
