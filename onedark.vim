@@ -132,7 +132,7 @@ let s:overrides = get(g:, "onedark_color_overrides", {
   \ "black":        { "gui": "#292A2B", "cterm": "235", "cterm16": "0"  },
   \ "purple":       { "gui": "#FF75B5", "cterm": "211", "cterm16": "5"  },
   \ "cursor_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "8" },
-  \ "visual_grey":  { "gui": "#333539", "cterm": "59",  "cterm16": "15" },
+  \ "visual_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "15" },
   \ "comment_grey": { "gui": "#676b79", "cterm": "60",  "cterm16": "15" }, 
 \})
 
