@@ -18,7 +18,7 @@ else
   set nobackup
   set nowritebackup
   " Give more space for displaying messages.
-  set cmdheight=2
+  " set cmdheight=2
 
   " Soft tab: insert spaces 
   set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
