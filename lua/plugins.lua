@@ -19,17 +19,21 @@ return require("packer").startup(function (use)
     -- use {"glepnir/lspsaga.nvim", opt=true}
     -- lsp based auto completion
     use {"nvim-lua/completion-nvim"}
+    -- autopairs based on completion
+    use {"windwp/nvim-autopairs"}
 
     -- treesitter
     use {"nvim-treesitter/nvim-treesitter", run=":TSUpdate"}
-    -- autopairs based treesitter
-    use {"windwp/nvim-autopairs"}
     -- commentary in lua
     use {"terrortylor/nvim-comment"}
 
     -- icons and file explorer
     use {"kyazdani42/nvim-web-devicons"}
     use {"kyazdani42/nvim-tree.lua"}
+
+    -- terminal
+    -- use {"akinsho/nvim-toggleterm.lua"}
+    use {"numtostr/FTerm.nvim"}
 
     -- buffer line and status line
     use {"romgrk/barbar.nvim"}
@@ -38,14 +42,23 @@ return require("packer").startup(function (use)
     -- Colorschemes
     use {"christianchiarulli/nvcode-color-schemes.vim"}
 
+    -- indentline
+    use {"lukas-reineke/indent-blankline.nvim"}
+    use {"Yggdroot/indentLine"}
+
     -- config plugins
     require("config.lsp")
     require("config.treesitter")
     require("config.completion-nvim")
+    require("config.nvim-autopairs")
+
     require("config.nvim-tree")
+    -- require("config.nvim-toggleterm")
+    require("config.FTerm")
     require("config.barbar")
     require("config.galaxyline")
     require("config.nvim-comment")
+    require("config.indentLine")
 
     -- config lsp servers
     require("config.lsp-servers.python")

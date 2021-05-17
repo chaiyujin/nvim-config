@@ -1,5 +1,6 @@
 O = {
+    cmdheight = 2,
+    pumheight = 10,  -- popup menu height
     colorscheme = 'panda',
-    popup_menu_height = 10,
-    cmd_height = 2,
+    guifont = 'FiraCode Nerd Font:h9'
 }
