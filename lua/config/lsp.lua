@@ -63,9 +63,11 @@ local function DocumentHighlight(client, bufnr)
 end
 
 local lsp_config = {}
+local completion = require('completion')
 
 function lsp_config.common_on_attach(client, bufnr)
     DocumentHighlight(client, bufnr)
+    completion.on_attach(client, bufnr)
 end
 
 return lsp_config

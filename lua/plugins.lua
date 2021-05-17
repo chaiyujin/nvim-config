@@ -41,6 +41,7 @@ return require("packer").startup(function (use)
     -- config plugins
     require("config.lsp")
     require("config.treesitter")
+    require("config.completion-nvim")
     require("config.nvim-tree")
     require("config.barbar")
     require("config.galaxyline")

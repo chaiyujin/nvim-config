@@ -53,3 +53,7 @@ vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    {noremap = true, 
 -- CommentToggle, besides gc/gcc
 vim.api.nvim_set_keymap('n', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
+
+-- completion-nvim: Use <Tab> and <S-Tab> to navigate through popup menu
+vim.api.nvim_set_keymap('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   {noremap = true, expr = true})
+vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', {noremap = true, expr = true})
