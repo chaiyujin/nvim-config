@@ -35,6 +35,9 @@ vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silen
 vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
 
+-- no highlight
+vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true, silent = true})
+
 -- ------------------------------------------------------------------------------------------------------------------ --
 --                                                 Keymaps for Plugins                                                --
 -- ------------------------------------------------------------------------------------------------------------------ --
@@ -51,8 +54,8 @@ vim.api.nvim_set_keymap('n', '<A-->',   ':BufferPrevious<CR>', {noremap = true, 
 vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    {noremap = true, silent = true})
 
 -- CommentToggle, besides gc/gcc
-vim.api.nvim_set_keymap('n', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<Leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<Leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
 
 -- completion-nvim: Use <Tab> and <S-Tab> to navigate through popup menu
 vim.api.nvim_set_keymap('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   {noremap = true, expr = true})
