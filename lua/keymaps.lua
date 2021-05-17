@@ -51,5 +51,5 @@ vim.api.nvim_set_keymap('n', '<A-->',   ':BufferPrevious<CR>', {noremap = true, 
 vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    {noremap = true, silent = true})
 
 -- CommentToggle, besides gc/gcc
-vim.api.nvim_set_keymap('n', '<leader>k', ':CommentToggle<CR>',    {noremap = true, silent = true})
-vim.api.nvim_set_keymap('v', '<leader>k', ':CommentToggle<CR>',    {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})

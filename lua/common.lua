@@ -23,7 +23,3 @@ vim.wo.wrap = false -- always in one line
 vim.wo.number = true -- set numbered lines
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.wo.relativenumber = true -- set relative number
-
--- TODO: in ft
--- autocmd FileType vim setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
--- autocmd FileType lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab

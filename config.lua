@@ -1,1 +1,1 @@
-print("user-configuration")
+O.colorscheme = 'nvcode'
