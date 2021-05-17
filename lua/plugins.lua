@@ -35,7 +35,7 @@ return require("packer").startup(function (use)
     use {"romgrk/barbar.nvim"}
     use {"glepnir/galaxyline.nvim"}
 
-    -- Color
+    -- Colorschemes
     use {"christianchiarulli/nvcode-color-schemes.vim"}
 
     -- config plugins
