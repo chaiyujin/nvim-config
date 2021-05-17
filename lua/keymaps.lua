@@ -1,3 +1,7 @@
+-- Change leader to <Space>
+vim.api.nvim_set_keymap('n', '<Space>', '<NOP>', {noremap = true, silent = true})
+vim.g.mapleader = ' '
+
 -- Better window movement
 vim.api.nvim_set_keymap('n', '<A-h>', '<C-w>h', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-j>', '<C-w>j', {noremap = true, silent = true})
@@ -23,6 +27,18 @@ vim.api.nvim_set_keymap('t', '<C-Down>',  '<C-\\><C-n>:resize -2<CR>',          
 vim.api.nvim_set_keymap('t', '<C-Left>',  '<C-\\><C-n>:vertical resize -2<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<C-Right>', '<C-\\><C-n>:vertical resize +2<CR>', {noremap = true, silent = true})
 
+-- Move selected line / block of text in visual mode
+vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+
+-- Indenting without de-selection
+vim.api.nvim_set_keymap('v', '<', '<gv', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '>', '>gv', {noremap = true, silent = true})
+
+-- ------------------------------------------------------------------------------------------------------------------ --
+--                                                 Keymaps for Plugins                                                --
+-- ------------------------------------------------------------------------------------------------------------------ --
+
 -- nvim-tree
 vim.api.nvim_set_keymap('n', '<A-e>',   ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
@@ -34,6 +50,6 @@ vim.api.nvim_set_keymap('n', '<A-=>',   ':BufferNext<CR>',     {noremap = true, 
 vim.api.nvim_set_keymap('n', '<A-->',   ':BufferPrevious<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    {noremap = true, silent = true})
 
--- Move selected line / block of text in visual mode
-vim.api.nvim_set_keymap('x', 'K', ':move \'<-2<CR>gv-gv', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('x', 'J', ':move \'>+1<CR>gv-gv', {noremap = true, silent = true})
+-- CommentToggle, besides gc/gcc
+vim.api.nvim_set_keymap('n', '<leader>k', ':CommentToggle<CR>',    {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<leader>k', ':CommentToggle<CR>',    {noremap = true, silent = true})

@@ -38,10 +38,10 @@ return require("packer").startup(function (use)
     -- config plugins
     require("config.lsp")
     require("config.treesitter")
-    require('nvim_comment').setup()
     require("config.nvim-tree")
     require("config.barbar")
     require("config.galaxyline")
+    require("config.nvim-comment")
 
     -- config lsp servers
     require("config.lsp-servers.python")
