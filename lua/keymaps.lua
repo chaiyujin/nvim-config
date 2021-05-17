@@ -14,10 +14,14 @@ vim.api.nvim_set_keymap('t', '<A-l>', '<C-\\><C-N><C-w>l', {noremap = true, sile
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', {noremap = true, silent = true})
 
 -- resize with arrows
-vim.api.nvim_set_keymap('n', '<C-Up>',    ':resize +2<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<C-Down>',  ':resize -2<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-Up>',    ':resize +2<CR>',          {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<C-Down>',  ':resize -2<CR>',          {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-Left>',  ':vertical resize -2<CR>', {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<C-Right>', ':vertical resize +2<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<C-Up>',    '<C-\\><C-n>:resize +2<CR>',          {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<C-Down>',  '<C-\\><C-n>:resize -2<CR>',          {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<C-Left>',  '<C-\\><C-n>:vertical resize -2<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<C-Right>', '<C-\\><C-n>:vertical resize +2<CR>', {noremap = true, silent = true})
 
 -- nvim-tree
 vim.api.nvim_set_keymap('n', '<A-e>',   ':NvimTreeToggle<CR>', { noremap = true, silent = true })

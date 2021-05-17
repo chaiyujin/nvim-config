@@ -13,17 +13,17 @@ return require("packer").startup(function (use)
     use "wbthomason/packer.nvim"
 
     -- lsp config and install
-    use {"neovim/nvim-lspconfig", opt=true}
-    use {"kabouzeid/nvim-lspinstall", opt=true}
+    use {"neovim/nvim-lspconfig"}
+    use {"kabouzeid/nvim-lspinstall"}
     -- lsp based tools
     -- use {"glepnir/lspsaga.nvim", opt=true}
     -- lsp based auto completion
-    use {"nvim-lua/completion-nvim", opt=true}
+    use {"nvim-lua/completion-nvim"}
 
     -- treesitter
     use {"nvim-treesitter/nvim-treesitter", run=":TSUpdate"}
     -- autopairs based treesitter
-    use {"windwp/nvim-autopairs", opt=true}
+    use {"windwp/nvim-autopairs"}
     -- commentary in lua
     use {"terrortylor/nvim-comment"}
 
@@ -36,7 +36,13 @@ return require("packer").startup(function (use)
     use {"glepnir/galaxyline.nvim"}
 
     -- config plugins
+    require("config.lsp")
+    require("config.treesitter")
+    require('nvim_comment').setup()
     require("config.nvim-tree")
     require("config.barbar")
     require("config.galaxyline")
+
+    -- config lsp servers
+    require("config.lsp-servers.python")
 end)

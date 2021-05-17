@@ -10,9 +10,13 @@ set virtualedit=block
 set hidden
 set nobackup
 set nowritebackup
+set cmdheight=2
+set noshowmode
 set tabstop=4 shiftwidth=4 softtabstop=4 expandtab
 ]])
 
+vim.o.updatetime = 300  -- faster completion
+vim.o.timeoutlen = 100
 -- vim.o.termguicolors = true -- set term gui colors most terminals support this
 -- vim.o.t_Co = "256"
 

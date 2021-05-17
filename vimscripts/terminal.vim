@@ -58,6 +58,7 @@ function! ToggleTerminal(terminal_ref)
     set bufhidden=hide
     set nobuflisted
     set nonumber
+    set norelativenumber
     let {a:terminal_ref}.loaded = v:true
     let {a:terminal_ref}.termbufferid = bufnr('')
     let {a:terminal_ref}.termwinid = win_getid()
