@@ -2,7 +2,6 @@
 " Terminal settings
 " ============================================================================ "
 
-tnoremap <Esc> <C-\><C-n>
 nnoremap <C-j> :call ToggleTerminal("g:terminal")<CR>
 inoremap <C-j> <Esc>:call ToggleTerminal("g:terminal")<CR>
 tnoremap <C-j> <C-\><C-N>:call ToggleTerminal("g:terminal")<CR>
@@ -12,10 +11,18 @@ if has('win32')
   set shell=powershell.exe
 endif
 
+hi BlackBg guibg=#242424
 augroup AutoStartInsertTerminal
   autocmd!
-  autocmd TermOpen * startinsert
+  if has('nvim')
+    autocmd TermOpen * startinsert
+    autocmd TermOpen * :set winhighlight=Normal:BlackBg
+  else
+    autocmd TerminalOpen * startinsert
+    autocmd TerminalOpen * :set winhighlight=Normal:BlackBg
+  endif
   autocmd BufEnter term://* startinsert!
+  autocmd BufHidden term://* :set winhighlight=Normal:Normal
 augroup END
 
 " Terminal toggle
