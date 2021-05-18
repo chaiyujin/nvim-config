@@ -2,27 +2,28 @@
 " Terminal settings
 " ============================================================================ "
 
-nnoremap <C-j> :call ToggleTerminal("g:terminal")<CR>
-inoremap <C-j> <Esc>:call ToggleTerminal("g:terminal")<CR>
-tnoremap <C-j> <C-\><C-N>:call ToggleTerminal("g:terminal")<CR>
+nnoremap <Leader>j :call ToggleTerminal("g:terminal")<CR>
+inoremap <Leader>j <Esc>:call ToggleTerminal("g:terminal")<CR>
+tnoremap <Leader>j <C-\><C-N>:call ToggleTerminal("g:terminal")<CR>
 
 " Set default shell on windows
 if has('win32')
   set shell=powershell.exe
 endif
 
-hi BlackBg guibg=#242424
+hi TermBg guibg=#242424
 augroup AutoStartInsertTerminal
   autocmd!
   if has('nvim')
     autocmd TermOpen * startinsert
-    autocmd TermOpen * :set winhighlight=Normal:BlackBg
+    autocmd TermOpen * :set winhighlight=Normal:TermBg
+    autocmd BufEnter term://* startinsert!
+    autocmd BufHidden term://* :set winhighlight=Normal:Normal
   else
-    autocmd TerminalOpen * startinsert
-    autocmd TerminalOpen * :set winhighlight=Normal:BlackBg
+    autocmd TerminalOpen * startinsert!
+    autocmd TerminalWinOpen * startinsert!
+    autocmd BufWinEnter,WinEnter * if &buftype == 'terminal' | silent! normal i | endif
   endif
-  autocmd BufEnter term://* startinsert!
-  autocmd BufHidden term://* :set winhighlight=Normal:Normal
 augroup END
 
 " Terminal toggle
@@ -39,13 +40,10 @@ let s:default_terminal = {
 let g:preserve_alternate_buffer = get(g:, 'preserve_alternate_buffer', 1)
 
 function! CreateTerminalWindow()
-  exe "below new | resize 10"
+  exe "below new | resize 12"
 endfunction
 
 function! ToggleTerminal(terminal_ref)
-  if !has('nvim')
-    return v:false
-  endif
   
   if !exists(a:terminal_ref)
     let {a:terminal_ref} = copy(s:default_terminal)
@@ -61,10 +59,17 @@ function! ToggleTerminal(terminal_ref)
     let {a:terminal_ref}.prev_winid = win_getid()
 
     call CreateTerminalWindow()
-    call termopen(&shell, {a:terminal_ref})
+    " open term for nvim / vim in current window
+    if has('nvim')
+      call termopen(&shell, {a:terminal_ref})
+    else
+      call term_start(&shell, {'curwin': 1})
+    endif
+
     set bufhidden=hide
     set nobuflisted
     set nonumber
+    set norelativenumber
     let {a:terminal_ref}.loaded = v:true
     let {a:terminal_ref}.termbufferid = bufnr('')
     let {a:terminal_ref}.termwinid = win_getid()
@@ -87,12 +92,11 @@ function! ToggleTerminal(terminal_ref)
     if l:res == 1
       silent execute 'keepjumps buffer' l:id
     else
-      " echo "Failed to find terminal window! Create a new one."
+      echo "Failed to find terminal window! Create a new one."
       call CreateTerminalWindow()
       let {a:terminal_ref}.termwinid = win_getid()
       silent execute 'buffer' l:id
       silent execute 'bd #'
-      execute "startinsert"
     endif
   endif 
 

@@ -127,14 +127,16 @@ endfunction
 
 " Color Variables {{{
 
-let s:overrides = get(g:, "onedark_color_overrides", {
-  \ "white":        { "gui": "#E6E6E6", "cterm": "254", "cterm16": "7"  },
-  \ "black":        { "gui": "#292A2B", "cterm": "235", "cterm16": "0"  },
-  \ "purple":       { "gui": "#FF75B5", "cterm": "211", "cterm16": "5"  },
-  \ "cursor_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "8" },
-  \ "visual_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "15" },
-  \ "comment_grey": { "gui": "#676b79", "cterm": "60",  "cterm16": "15" }, 
-\})
+" let s:overrides = get(g:, "onedark_color_overrides", {
+"   \ "white":        { "gui": "#E6E6E6", "cterm": "254", "cterm16": "7"  },
+"   \ "black":        { "gui": "#292A2B", "cterm": "235", "cterm16": "0"  },
+"   \ "purple":       { "gui": "#FF75B5", "cterm": "211", "cterm16": "5"  },
+"   \ "cursor_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "8" },
+"   \ "visual_grey":  { "gui": "#393f4b", "cterm": "236",  "cterm16": "15" },
+"   \ "comment_grey": { "gui": "#676b79", "cterm": "60",  "cterm16": "15" }, 
+" \})
+
+let s:overrides = get(g:, "onedark_color_overrides", {})
 
 let s:colors = {
   \ "red": get(s:overrides, "red", { "gui": "#E06C75", "cterm": "204", "cterm16": "1" }),
