@@ -46,6 +46,9 @@ return require("packer").startup(function (use)
     use {"lukas-reineke/indent-blankline.nvim"}
     use {"Yggdroot/indentLine"}
 
+    -- which key
+    use {"folke/which-key.nvim"}
+
     -- config plugins
     require("config.lsp")
     require("config.treesitter")
@@ -59,6 +62,7 @@ return require("packer").startup(function (use)
     require("config.galaxyline")
     require("config.nvim-comment")
     require("config.indentLine")
+    require("config.which-key")
 
     -- config lsp servers
     require("config.lsp-servers.python")
