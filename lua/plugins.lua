@@ -38,7 +38,7 @@ return require("packer").startup(function (use)
     -- buffer line and status line
     use {"romgrk/barbar.nvim"}
     use {"glepnir/galaxyline.nvim"}
-    use {"famiu/bufdelete.nvim"}
+    -- use {"famiu/bufdelete.nvim"}
 
     -- Colorschemes
     use {"christianchiarulli/nvcode-color-schemes.vim"}
