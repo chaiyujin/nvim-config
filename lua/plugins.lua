@@ -38,9 +38,12 @@ return require("packer").startup(function (use)
     -- buffer line and status line
     use {"romgrk/barbar.nvim"}
     use {"glepnir/galaxyline.nvim"}
+    use {"famiu/bufdelete.nvim"}
 
     -- Colorschemes
     use {"christianchiarulli/nvcode-color-schemes.vim"}
+    use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
+    -- use {"sunjon/shade.nvim", config=function() require'shade'.setup({overlay_opacity = 20}) end}
 
     -- indentline
     use {"lukas-reineke/indent-blankline.nvim"}

@@ -48,10 +48,10 @@ vim.api.nvim_set_keymap('n', '<A-e>',   ':NvimTreeToggle<CR>', { noremap = true,
 -- barbar: Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>',   ':BufferNext<CR>',     { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-x>',   ':BufferClose<CR>',    { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<S-x>',   ':Bdelete<CR>',        { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<A-=>',   ':BufferNext<CR>',     {noremap = true, silent = true})
 vim.api.nvim_set_keymap('n', '<A-->',   ':BufferPrevious<CR>', {noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<A-q>',   ':Bdelete<CR>',        {noremap = true, silent = true})
 
 -- CommentToggle, besides gc/gcc
 vim.api.nvim_set_keymap('n', '<Leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
