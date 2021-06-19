@@ -30,6 +30,7 @@ return require("packer").startup(function (use)
     -- icons and file explorer
     use {"kyazdani42/nvim-web-devicons"}
     use {"kyazdani42/nvim-tree.lua"}
+    -- use {"kevinhwang91/rnvimr"}
 
     -- terminal
     -- use {"akinsho/nvim-toggleterm.lua"}
@@ -41,7 +42,7 @@ return require("packer").startup(function (use)
     -- use {"famiu/bufdelete.nvim"}
 
     -- Colorschemes
-    use {"christianchiarulli/nvcode-color-schemes.vim"}
+    -- use {"christianchiarulli/nvcode-color-schemes.vim"}
     use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
     -- use {"sunjon/shade.nvim", config=function() require'shade'.setup({overlay_opacity = 20}) end}
 
@@ -59,6 +60,7 @@ return require("packer").startup(function (use)
     require("config.nvim-autopairs")
 
     require("config.nvim-tree")
+    -- require("config.rnvimr")
     -- require("config.nvim-toggleterm")
     require("config.FTerm")
     require("config.barbar")

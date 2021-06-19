@@ -15,7 +15,6 @@ vim.o.timeoutlen = O.timeoutlen  -- enough time for key sequence
 vim.o.clipboard = "unnamedplus" -- Copy paste between vim and everything else
 vim.o.fileencoding = "utf-8" -- The encoding written to file
 vim.o.termguicolors = true -- set term gui colors most terminals support this
-vim.o.t_Co = "256"
 vim.o.cmdheight = O.cmdheight
 vim.o.pumheight = O.pumheight
 vim.o.guifont = O.guifont
