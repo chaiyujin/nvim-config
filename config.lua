@@ -1,1 +1,1 @@
-O.colorscheme = 'nvcode'
+O.colorscheme = 'panda'
