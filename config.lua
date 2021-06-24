@@ -1,1 +1,1 @@
-O.colorscheme = 'lunar'
+O.colorscheme = 'panda'
