@@ -30,6 +30,7 @@ return require("packer").startup(function (use)
     -- icons and file explorer
     use {"kyazdani42/nvim-web-devicons"}
     use {"kyazdani42/nvim-tree.lua"}
+    use {"ahmedkhalf/lsp-rooter.nvim", config=function() require'lsp-rooter'.setup() end} -- with this nvim-tree will follow you
     -- use {"kevinhwang91/rnvimr"}
 
     -- terminal

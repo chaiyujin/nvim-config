@@ -15,12 +15,17 @@ let g:nvim_tree_show_icons = {
 "if nvim-web-devicons is installed and on your runtimepath ]] -- vim.g.nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
 
 vim.g.nvim_tree_disable_netrw = 0 -- "1 by default, disables netrw
--- vim.g.nvim_tree_hijack_netrw = 0 --"1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+vim.g.nvim_tree_hijack_netrw = 1 --"1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
 vim.g.nvim_tree_hide_dotfiles = 1 -- 0 by default, this option hides files and folders starting with a dot `.`
 vim.g.nvim_tree_indent_markers = 1 -- "0 by default, this option shows indent markers when folders are open
 vim.g.nvim_tree_follow = 1 -- "0 by default, this option allows the cursor to be updated when entering a buffer
 vim.g.nvim_tree_auto_open = 1 -- 0 by default, opens the tree when typing `vim $DIR` or `vim`
 vim.g.nvim_tree_auto_close = 1 -- 0 by default, closes the tree when it's the last window
+vim.g.nvim_tree_quit_on_open = 0 -- 0 by default, closes the tree when you open a file
+vim.g.nvim_tree_root_folder_modifier = ':t' -- ':~' is the default. See :help filename-modifiers for more options
+vim.g.nvim_tree_hijack_cursor = 1  -- 1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+vim.g.nvim_tree_update_cwd = 1  -- 0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
+
 vim.g.nvim_tree_ignore = {
     '__pycache__'
 }
@@ -36,7 +41,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       -- default mappings
       ["<CR>"]           = tree_cb("edit"),
       ["o"]              = tree_cb("edit"),
-      -- ["l"]              = tree_cb("edit"),
+      ["l"]              = tree_cb("edit"),
       ["<2-LeftMouse>"]  = tree_cb("edit"),
       ["<2-RightMouse>"] = tree_cb("cd"),
       ["<C-]>"]          = tree_cb("cd"),
@@ -46,7 +51,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       ["<"]              = tree_cb("prev_sibling"),
       [">"]              = tree_cb("next_sibling"),
       ["<BS>"]           = tree_cb("close_node"),
-      -- ["h"]              = tree_cb("close_node"),
+      ["h"]              = tree_cb("close_node"),
       ["<S-CR>"]         = tree_cb("close_node"),
       ["<Tab>"]          = tree_cb("preview"),
       ["I"]              = tree_cb("toggle_ignored"),
@@ -65,7 +70,7 @@ local tree_cb = require'nvim-tree.config'.nvim_tree_callback
       ["q"]              = tree_cb("close"),
     }
 
--- vim.g.nvim_tree_show_icons = {git = 1, folders = 1, files = 1}
+vim.g.nvim_tree_show_icons = {git = 1, folders = 1, files = 1}
 vim.g.nvim_tree_icons = {
     default = '',
     symlink = '',
