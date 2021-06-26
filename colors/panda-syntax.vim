@@ -12,7 +12,7 @@ hi CursorLine                           guifg=NONE    ctermfg=NONE guibg=#31353A
 hi CursorLineNr                         guifg=#757575 ctermfg=NONE guibg=#31353A ctermbg=NONE gui=NONE   cterm=NONE  
 hi LineNr                               guifg=#757575 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
 hi Visual                               guifg=NONE    ctermfg=NONE guibg=#FFB86C ctermbg=NONE gui=NONE   cterm=NONE  
-hi MatchParen                           guifg=#E6E6E6 ctermfg=NONE guibg=#FF4B82 ctermbg=NONE gui=bold   cterm=bold  
+hi MatchParen                           guifg=#E6E6E6 ctermfg=NONE guibg=#FF4B82 ctermbg=NONE gui=NONE   cterm=NONE  
 hi Search                               guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
 hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
 hi SignColumn                           guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
