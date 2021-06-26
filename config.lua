@@ -1,1 +1,1 @@
-O.colorscheme = 'panda'
+O.colorscheme = 'panda-syntax'
