@@ -114,6 +114,12 @@ def convert(src_json, dst_vim):
     _highlight_from_color('SignColumn',     'editorCursor.foreground', 'editorCursor.background')
     _highlight_from_color('VertSplit',      'sideBar.border', None)
     _highlight_from_color('NonText',        'editor.background', None)
+    _highlight_from_color('Pmenu',          '#CFD0D5', '#333435')
+    _highlight_from_color('PmenuSel',       '#232425', '#7dc1ff')
+    _highlight_from_color('PmenuSbar',      None, '#3b4048')
+    _highlight_from_color('PmenuThumb',     None, '#abb2bf')
+    _highlight_from_color('StatusLine',     '#e6e6e6', '#232425', 'bold')
+    _highlight_from_color('StatusLineNC',   '#e6e6e6', '#232425')
 
     # * Comment
     _highlight_from_token('Comment', 'comment')

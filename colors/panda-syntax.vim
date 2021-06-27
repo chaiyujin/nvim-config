@@ -18,6 +18,12 @@ hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#FFCC95
 hi SignColumn                           guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi VertSplit                            guifg=#222223 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NonText                              guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
+hi Pmenu                                guifg=#CFD0D5 ctermfg=NONE guibg=#333435 ctermbg=NONE gui=NONE   cterm=NONE  
+hi PmenuSel                             guifg=#232425 ctermfg=NONE guibg=#7DC1FF ctermbg=NONE gui=NONE   cterm=NONE  
+hi PmenuSbar                            guifg=NONE    ctermfg=NONE guibg=#3B4048 ctermbg=NONE gui=NONE   cterm=NONE  
+hi PmenuThumb                           guifg=NONE    ctermfg=NONE guibg=#ABB2BF ctermbg=NONE gui=NONE   cterm=NONE  
+hi StatusLine                           guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=bold   cterm=bold  
+hi StatusLineNC                         guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
 hi Comment                              guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
 hi Constant                             guifg=#FFB86C ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi String                               guifg=#19F9D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
