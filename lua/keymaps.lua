@@ -64,5 +64,5 @@ vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"'
 -- FTerm
 vim.api.nvim_set_keymap('n', '<C-j>',     '<CMD>lua require("FTerm").toggle()<CR>',            { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<C-j>',     '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>j', '<CMD>lua require("FTerm").toggle()<CR>',            { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<Leader>j', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<Leader>j', '<CMD>lua require("FTerm").toggle()<CR>',            { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('t', '<Leader>j', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
