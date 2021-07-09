@@ -49,10 +49,17 @@ return require("packer").startup(function (use)
 
     -- indentline
     use {"lukas-reineke/indent-blankline.nvim"}
-    use {"Yggdroot/indentLine"}
+    -- use {"Yggdroot/indentLine"}
 
     -- which key
     use {"folke/which-key.nvim"}
+
+    -- markdown
+    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+
+    -- input
+    -- use {"rlue/vim-barbaric"}
+    use {"kevinhwang91/vim-ibus-sw"}
 
     -- config plugins
     require("config.lsp")
@@ -69,6 +76,7 @@ return require("packer").startup(function (use)
     require("config.nvim-comment")
     require("config.indentLine")
     require("config.which-key")
+    -- require("config.vim-barbaric")
 
     -- config lsp servers
     require("config.lsp-servers.python")
