@@ -25,6 +25,3 @@ vim.wo.number = true -- set numbered lines
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.wo.relativenumber = true -- set relative number
 
-if vim.fn.exists('g:gonvim_running') then
-  vim.o.laststatus = 0
-end

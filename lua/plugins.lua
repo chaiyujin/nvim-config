@@ -37,15 +37,18 @@ return require("packer").startup(function (use)
     -- use {"akinsho/nvim-toggleterm.lua"}
     use {"numtostr/FTerm.nvim"}
 
+    -- git
+    use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}, config=function() require("gitsigns").setup() end}
+
     -- buffer line and status line
     use {"romgrk/barbar.nvim"}
     use {"glepnir/galaxyline.nvim"}
-    -- use {"famiu/bufdelete.nvim"}
 
     -- Colorschemes
     -- use {"christianchiarulli/nvcode-color-schemes.vim"}
-    use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
     -- use {"sunjon/shade.nvim", config=function() require'shade'.setup({overlay_opacity = 20}) end}
+    use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
+    use {"projekt0n/github-nvim-theme"}
 
     -- indentline
     use {"lukas-reineke/indent-blankline.nvim"}
@@ -77,6 +80,7 @@ return require("packer").startup(function (use)
     require("config.indentLine")
     require("config.which-key")
     -- require("config.vim-barbaric")
+    require("config.github-theme")
 
     -- config lsp servers
     require("config.lsp-servers.python")
