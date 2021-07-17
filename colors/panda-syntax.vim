@@ -16,7 +16,7 @@ hi Visual                               guifg=NONE    ctermfg=NONE guibg=#42404C
 hi Search                               guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
 hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
 hi SignColumn                           guifg=#E6E6E6 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
-hi VertSplit                            guifg=#222223 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
+hi VertSplit                            guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NonText                              guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi Pmenu                                guifg=#CFD0D5 ctermfg=NONE guibg=#333435 ctermbg=NONE gui=NONE   cterm=NONE  
 hi PmenuSel                             guifg=#232425 ctermfg=NONE guibg=#7DC1FF ctermbg=NONE gui=NONE   cterm=NONE  
@@ -79,6 +79,7 @@ hi LspDiagnosticsVirtualTextError       guifg=#FF4B82 ctermfg=NONE guibg=NONE   
 hi LspDiagnosticsVirtualTextWarning     guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi LspDiagnosticsVirtualTextInformation guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
 hi LspDiagnosticsVirtualTextHint        guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
+hi NvimTreeNormal                       guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
 hi NvimTreeImageFile                    guifg=#B084EB ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NvimTreeGitDirty                     guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NvimTreeGitDeleted                   guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
@@ -87,7 +88,9 @@ hi NvimTreeGitMerge                     guifg=#81B88B ctermfg=NONE guibg=NONE   
 hi NvimTreeGitRenamed                   guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NvimTreeGitNew                       guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NvimTreeSymlink                      guifg=#29B8D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeRootFolder                   guifg=#BBBBBB ctermfg=NONE guibg=#757575 ctermbg=NONE gui=NONE   cterm=NONE  
+hi NvimTreeRootFolder                   guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=bold   cterm=bold  
 hi GitSignsAdd                          guifg=#19F9D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi GitSignsChange                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi GitSignsDelete                       guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
+hi Floaterm                             guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
+hi FloatermNC                           guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  

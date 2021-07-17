@@ -36,7 +36,8 @@ return require("packer").startup(function (use)
 
     -- terminal
     -- use {"akinsho/nvim-toggleterm.lua"}
-    use {"numtostr/FTerm.nvim"}
+    -- use {"numtostr/FTerm.nvim"}
+    use {"voldikss/vim-floaterm"}
 
     -- git
     use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}, config=function() require("gitsigns").setup() end}
@@ -75,7 +76,8 @@ return require("packer").startup(function (use)
     require("config.nvim-tree")
     -- require("config.rnvimr")
     -- require("config.nvim-toggleterm")
-    require("config.FTerm")
+    -- require("config.FTerm")
+    require("config.vim-floaterm")
     require("config.barbar")
     require("config.galaxyline")
     require("config.nvim-comment")

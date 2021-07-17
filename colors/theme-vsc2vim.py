@@ -105,7 +105,7 @@ def convert(src_json, dst_vim):
     _highlight_from_color('Search',         None, '#FFCC95')
     _highlight_from_color('IncSearch',      None, '#FFCC95')
     _highlight_from_color('SignColumn',     colors.fg, colors.bg)
-    _highlight_from_color('VertSplit',      '#222223', None)
+    _highlight_from_color('VertSplit',      colors.bg, None)
     _highlight_from_color('NonText',        colors.bg, None)
     _highlight_from_color('Pmenu',          '#CFD0D5', '#333435')
     _highlight_from_color('PmenuSel',       '#232425', '#7dc1ff')
@@ -193,6 +193,7 @@ def convert(src_json, dst_vim):
     _highlight_from_color('LspDiagnosticsVirtualTextHint'       , '#676B79', None, 'italic')
 
     # * NvimTree
+    _highlight_from_color('NvimTreeNormal' ,    None, "#232425")
     _highlight_from_color('NvimTreeImageFile' , "#b084eb", None)
     _highlight_from_color('NvimTreeGitDirty'  , "#81b88b", None)
     _highlight_from_color('NvimTreeGitDeleted', "#81b88b", None)
@@ -201,12 +202,17 @@ def convert(src_json, dst_vim):
     _highlight_from_color('NvimTreeGitRenamed', "#81b88b", None)
     _highlight_from_color('NvimTreeGitNew'    , "#81b88b", None)
     _highlight_from_color('NvimTreeSymlink'   , "#29b8d8", None)
-    _highlight_from_color('NvimTreeRootFolder', "#BBBBBB", '#757575')
+    _highlight_from_color('NvimTreeRootFolder', "#FFCC95", None, "bold")
 
     # * GitSigns
     _highlight_from_color('GitSignsAdd'   , "#19f9d8", None)
     _highlight_from_color('GitSignsChange', "#FFCC95", None)
     _highlight_from_color('GitSignsDelete', "#FF4B82", None)
+
+    # * Floaterm
+    _highlight_from_color('Floaterm', None, '#232425')
+    _highlight_from_color('FloatermNC', None, '#232425')
+    # _highlight_from_color('FloatermBorder', '#19f9d8', '#19f9d8')
 
     if len(lines) == 0:
         print("Failed to convert!")
