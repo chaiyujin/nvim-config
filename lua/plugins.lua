@@ -39,6 +39,7 @@ return require("packer").startup(function (use)
 
     -- git
     use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}, config=function() require("gitsigns").setup() end}
+    use {"sindrets/diffview.nvim"}
 
     -- buffer line and status line
     use {"romgrk/barbar.nvim"}
@@ -81,6 +82,7 @@ return require("packer").startup(function (use)
     require("config.which-key")
     -- require("config.vim-barbaric")
     require("config.github-theme")
+    require("config.diffview")
 
     -- config lsp servers
     require("config.lsp-servers.python")
