@@ -13,8 +13,8 @@ hi CursorLineNr                         guifg=#757575 ctermfg=NONE guibg=#31353A
 hi MatchParen                           guifg=#E6E6E6 ctermfg=NONE guibg=#FF4B82 ctermbg=NONE gui=NONE   cterm=NONE  
 hi LineNr                               guifg=#757575 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
 hi Visual                               guifg=NONE    ctermfg=NONE guibg=#42404C ctermbg=NONE gui=NONE   cterm=NONE  
-hi Search                               guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
-hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#FFCC95 ctermbg=NONE gui=NONE   cterm=NONE  
+hi Search                               guifg=NONE    ctermfg=NONE guibg=#62679A ctermbg=NONE gui=NONE   cterm=NONE  
+hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#62679A ctermbg=NONE gui=NONE   cterm=NONE  
 hi SignColumn                           guifg=#E6E6E6 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
 hi VertSplit                            guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi NonText                              guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
@@ -24,6 +24,7 @@ hi PmenuSbar                            guifg=NONE    ctermfg=NONE guibg=#3B4048
 hi PmenuThumb                           guifg=NONE    ctermfg=NONE guibg=#ABB2BF ctermbg=NONE gui=NONE   cterm=NONE  
 hi StatusLine                           guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=bold   cterm=bold  
 hi StatusLineNC                         guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
+hi MsgArea                              guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
 hi Comment                              guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
 hi Constant                             guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi Number                               guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
@@ -56,6 +57,8 @@ hi TSStringRegex                        guifg=#6FC1FF ctermfg=NONE guibg=NONE   
 hi TSString                             guifg=#19F9D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi TSStringEscape                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi TSCharacter                          guifg=#19F9D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
+hi TSVariable                           guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
+hi TSVariableBuiltin                    guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
 hi TSConstBuiltin                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi TSConstructor                        guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
 hi TSType                               guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  

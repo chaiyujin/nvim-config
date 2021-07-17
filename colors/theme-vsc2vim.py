@@ -60,39 +60,42 @@ def dump_vim(dst_vim, lines, background, theme_name):
             fp.write(f"{x}\n")
 
 
-def convert(src_json, dst_vim):
-    # Load and check keys
-    with open(src_json) as fp:
-        vsc = json.load(fp)
-    # - check keys
-    assert 'colors' in vsc, "Failed to find 'colors' in {}".format(src_json)
-    assert 'tokenColors' in vsc, "Failed to find 'tokenColors' in {}".format(src_json)
-
+def convert(dst_vim):
     lines = []
 
-    def _highlight_from_color(name, fg_key, bg_key, dec='NONE'):
-        fg, bg = 'NONE', 'NONE'
-        if fg_key is not None:
-            fg = vsc['colors'].get(fg_key, 'NONE').upper() if not fg_key.startswith('#') else fg_key.upper()
-        if bg_key is not None:
-            bg = vsc['colors'].get(bg_key, 'None').upper() if not bg_key.startswith('#') else bg_key.upper()
+    def _highlight_from_color(name, *args):
+        assert 1 <= len(args) <= 3
 
-        if len(fg) > 7:
-            fg = fg[:7]
-        if len(bg) > 7:
-            bg = bg[:7]
-        cfg = 'NONE'
-        cbg = 'NONE'
+        fg = "NONE"
+        bg = "NONE"
+        cfg = "NONE"
+        cbg = "NONE"
+        style = "NONE"
+
+        if len(args) == 1:
+            if isinstance(args[0], str):
+                fg = str(args[0]).upper()
+            else:
+                assert isinstance(args[0], DictConfig)
+                fg = str(args[0].fg).upper()
+                bg = str(args[0].bg).upper()
+                style = str(args[0].get('style')).upper()
+
+        elif len(args) == 2:
+            fg = str(args[0]).upper()
+            bg = str(args[1]).upper()
+        elif len(args) == 3:
+            fg = str(args[0]).upper()
+            bg = str(args[1]).upper()
+            style = str(args[2])
 
         line = (
             f"hi {name} "
             f"guifg={fg:7} ctermfg={cfg:7} "
             f"guibg={bg:7} ctermbg={cbg:7} "
-            f"gui={dec} cterm={dec}"
+            f"gui={style} cterm={style}"
         )
         lines.append(line)
-
-    # TODO: todo test
 
     # * Normal
     _highlight_from_color('Normal',         colors.fg, colors.bg)
@@ -102,8 +105,8 @@ def convert(src_json, dst_vim):
     _highlight_from_color('MatchParen',     colors.fg, '#FF4B82')
     _highlight_from_color('LineNr',         '#757575', colors.bg)
     _highlight_from_color('Visual',         None, '#42404c')
-    _highlight_from_color('Search',         None, '#FFCC95')
-    _highlight_from_color('IncSearch',      None, '#FFCC95')
+    _highlight_from_color('Search',         None, '#62679A')
+    _highlight_from_color('IncSearch',      None, '#62679A')
     _highlight_from_color('SignColumn',     colors.fg, colors.bg)
     _highlight_from_color('VertSplit',      colors.bg, None)
     _highlight_from_color('NonText',        colors.bg, None)
@@ -113,74 +116,77 @@ def convert(src_json, dst_vim):
     _highlight_from_color('PmenuThumb',     None, '#abb2bf')
     _highlight_from_color('StatusLine',     '#e6e6e6', '#232425', 'bold')
     _highlight_from_color('StatusLineNC',   '#e6e6e6', '#232425')
+    _highlight_from_color('MsgArea',        None, '#232425')
 
     # * Comment
     _highlight_from_color('Comment', '#676B79', None, 'italic')
 
     # * Constant
-    _highlight_from_color('Constant' , colors.constant.fg, colors.constant.bg)  # any constant
-    _highlight_from_color('Number'   , colors.constant.fg, colors.constant.bg)  # a number constant: 234, 0xff
-    _highlight_from_color('Boolean'  , colors.constant.fg, colors.constant.bg)  # a boolean constant: TRUE, false
-    _highlight_from_color('Float'    , colors.constant.fg, colors.constant.bg)  # a floating point constant: 2.3e10
-    _highlight_from_color('String'   , colors.string.fg, colors.string.bg)  # a string constant: "this is a string"
-    _highlight_from_color('Character', colors.string.fg, colors.string.bg)  # a character constant: 'c', '\n'
+    _highlight_from_color('Constant' , colors.constant)  # any constant
+    _highlight_from_color('Number'   , colors.constant)  # a number constant: 234, 0xff
+    _highlight_from_color('Boolean'  , colors.constant)  # a boolean constant: TRUE, false
+    _highlight_from_color('Float'    , colors.constant)  # a floating point constant: 2.3e10
+    _highlight_from_color('String'   , colors.string)  # a string constant: "this is a string"
+    _highlight_from_color('Character', colors.string)  # a character constant: 'c', '\n'
 
     # * Variable
-    _highlight_from_color('Identifier', colors.variable.fg, colors.variable.bg)  # any variable name
+    _highlight_from_color('Identifier', colors.variable)  # any variable name
 
     # * Function
-    _highlight_from_color('Function', colors.function.fg, colors.function.bg)
+    _highlight_from_color('Function', colors.function)
 
     # * Keyword
-    _highlight_from_color('Statement'  , colors.keyword.fg, colors.keyword.bg)    # any statement
-    _highlight_from_color('Conditional', colors.keyword.fg, colors.keyword.bg)    # if, then, else, endif, switch, etc.
-    _highlight_from_color('Repeat'     , colors.keyword.fg, colors.keyword.bg)    # for, do, while, etc.
-    _highlight_from_color('Label'      , colors.keyword.fg, colors.keyword.bg)    # case, default, etc.
-    _highlight_from_color('Keyword'    , colors.keyword.fg, colors.keyword.bg)    # any other keyword
-    _highlight_from_color('Exception'  , colors.keyword.fg, colors.keyword.bg)    # try, catch, throw
-    _highlight_from_color('Operator'   , colors.operator.fg, colors.operator.bg)  # "sizeof", "+", "*", etc.
+    _highlight_from_color('Statement'  , colors.keyword)    # any statement
+    _highlight_from_color('Conditional', colors.keyword)    # if, then, else, endif, switch, etc.
+    _highlight_from_color('Repeat'     , colors.keyword)    # for, do, while, etc.
+    _highlight_from_color('Label'      , colors.keyword)    # case, default, etc.
+    _highlight_from_color('Keyword'    , colors.keyword)    # any other keyword
+    _highlight_from_color('Exception'  , colors.keyword)    # try, catch, throw
+    _highlight_from_color('Operator'   , colors.operator)  # "sizeof", "+", "*", etc.
 
     # * PreProc
-    _highlight_from_color('PreProc'  , colors.keyword.fg, colors.keyword.bg)    # generic Preprocessor
-    _highlight_from_color('Include'  , colors.keyword.fg, colors.keyword.bg)    # preprocessor #include
-    _highlight_from_color('Define'   , colors.keyword.fg, colors.keyword.bg)    # preprocessor #define
-    _highlight_from_color('Macro'    , colors.keyword.fg, colors.keyword.bg)    # same as Define
-    _highlight_from_color('PreCondit', colors.keyword.fg, colors.keyword.bg)    # preprocessor #if, #else, #endif, etc.
+    _highlight_from_color('PreProc'  , colors.keyword)    # generic Preprocessor
+    _highlight_from_color('Include'  , colors.keyword)    # preprocessor #include
+    _highlight_from_color('Define'   , colors.keyword)    # preprocessor #define
+    _highlight_from_color('Macro'    , colors.keyword)    # same as Define
+    _highlight_from_color('PreCondit', colors.keyword)    # preprocessor #if, #else, #endif, etc.
 
     # * Type
-    _highlight_from_color('Type'        , colors.storage.fg, colors.storage.bg)    # int, long, char, etc.
-    _highlight_from_color('StorageClass', colors.storage.fg, colors.storage.bg)    # static, register, volatile, etc.
-    _highlight_from_color('Structure'   , colors.storage.fg, colors.storage.bg)    # struct, union, enum, etc.
-    _highlight_from_color('Typedef'     , colors.keyword.fg, colors.keyword.bg)    # A typedef
+    _highlight_from_color('Type'        , colors.storage)    # int, long, char, etc.
+    _highlight_from_color('StorageClass', colors.storage)    # static, register, volatile, etc.
+    _highlight_from_color('Structure'   , colors.storage)    # struct, union, enum, etc.
+    _highlight_from_color('Typedef'     , colors.keyword)    # A typedef
 
-    _highlight_from_color('Tag', colors.tag.fg, colors.tag.bg)        # you can use CTRL-] on this
+    _highlight_from_color('Tag', colors.tag)        # you can use CTRL-] on this
     # _highlight_from_token('Special', 'keyword.other.special-method')    # any special symbol #45A9F9
     # _highlight_from_token('Delimiter', )    # character that needs attention
     # _highlight_from_token('SpecialComment', )    # special things inside a comment
     # _highlight_from_token('Debug', )        # debugging statements
 
-    _highlight_from_color('Error', colors.error.fg, colors.error.bg)
+    _highlight_from_color('Error', colors.error)
 
     # * TS and LSP
-    _highlight_from_color('TSParameter'  , colors.parameter.fg, colors.parameter.bg)
-    _highlight_from_color('TSStringRegex', colors.regexp.fg, colors.regexp.bg)
-    _highlight_from_color('TSString'     , colors.string.fg, colors.string.bg)
-    _highlight_from_color('TSStringEscape', colors.storage.fg, colors.storage.bg)
-    _highlight_from_color('TSCharacter'  , colors.string.fg, colors.string.bg)
-    _highlight_from_color('TSConstBuiltin', colors.storage.fg, colors.storage.bg)
-    _highlight_from_color('TSConstructor', colors.storage.fg, colors.storage.bg)
-    _highlight_from_color('TSType'       , colors.storage.fg, colors.storage.bg)
-    _highlight_from_color('TSNamespace'  , colors.keyword.fg, colors.keyword.bg)
-    _highlight_from_color('TSMethod'     , colors.method.fg, colors.method.bg)
-    _highlight_from_color('TSFunction'   , colors.function.fg, colors.function.bg)
-    _highlight_from_color('TSFuncBuiltin', colors.function.fg, colors.function.bg)
+    _highlight_from_color('TSParameter'  , colors.parameter)
+    _highlight_from_color('TSStringRegex', colors.regexp)
+    _highlight_from_color('TSString'     , colors.string)
+    _highlight_from_color('TSStringEscape', colors.storage)
+    _highlight_from_color('TSCharacter'  , colors.string)
+    _highlight_from_color('TSVariable',  colors.variable)
+    _highlight_from_color('TSVariableBuiltin', colors.variable.fg, colors.variable.bg, 'italic')
+    _highlight_from_color('TSConstBuiltin', colors.storage)
+    _highlight_from_color('TSConstructor', colors.storage)
+    _highlight_from_color('TSType'       , colors.storage)
+    _highlight_from_color('TSNamespace'  , colors.keyword)
+    _highlight_from_color('TSMethod'     , colors.method)
+    _highlight_from_color('TSFunction'   , colors.function)
+    _highlight_from_color('TSFuncBuiltin', colors.function)
     _highlight_from_color('TSPunctBracket', colors.fg, None)
     _highlight_from_color('TSPunctDelimiter', colors.fg, None)
-    _highlight_from_color('TSField'      , colors.field.fg, colors.field.bg)
-    _highlight_from_color('TSProperty'   , colors.property.fg, colors.property.bg)
-    _highlight_from_color('TSError'      , colors.error.fg, colors.error.bg)
-    _highlight_from_color('TSTag'        , colors.tag.fg, colors.tag.bg)
-    _highlight_from_color('TSPunctSpecial', colors.special.fg, colors.special.bg)
+    _highlight_from_color('TSField'      , colors.field)
+    _highlight_from_color('TSProperty'   , colors.property)
+    _highlight_from_color('TSError'      , colors.error)
+    _highlight_from_color('TSTag'        , colors.tag)
+    _highlight_from_color('TSPunctSpecial', colors.special)
 
     _highlight_from_color('LspDiagnosticsUnderlineHint'         , '#676B79', None, 'italic')
     _highlight_from_color('LspDiagnosticsSignError'             , '#FF4B82', None)
@@ -222,4 +228,4 @@ def convert(src_json, dst_vim):
     dump_vim(dst_vim, lines, background='dark', theme_name='panda-syntax')
 
 
-convert('Panda.json', 'panda-syntax.vim')
+convert('panda-syntax.vim')
