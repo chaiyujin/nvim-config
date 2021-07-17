@@ -1,6 +1,7 @@
 info:
   name: 'panda-syntax'
   background: dark
+  message: 'Treesitter version based on https://github.com/tinkertrain/panda-syntax-vscode'
 
 # Palette
 white       : '#E6E6E6'
@@ -20,6 +21,7 @@ blue        : '#7DC1FF'  # '#6FC1FF'
 purple      : '#B084EB'
 
 # Groups
+highlights: ${hi}
 hi:
   Normal        : {fg: '${white}',        bg: '${black}'}
   Visual        : {fg: 'NONE',            bg: '#42404c'}
@@ -28,9 +30,9 @@ hi:
   Comment       : {fg: '#676B79',         bg: 'NONE', style: 'italic'}
 
   # hidden groups
-  SignColumn    : {fg: '${white}',        bg: '${black}'}
-  VertSplit     : {fg: '${white}',        bg: '${black}'}
-  NonText       : {fg: '${white}',        bg: '${black}'}
+  SignColumn    : {fg: '${black}',        bg: 'NONE'}
+  VertSplit     : {fg: '${black}',        bg: 'NONE'}
+  NonText       : {fg: '${black}',        bg: 'NONE'}
 
   # cursor related
   Cursor        : {fg: 'NONE',            bg: '${red}'  }
@@ -38,20 +40,16 @@ hi:
   CursorLineNr  : {fg: '${grey_dark}',    bg: '${black_light}'}
   LineNr        : {fg: '${grey_dark}',    bg: '${black}'}
   MatchParen    : {fg: 'NONE',            bg: '${hi.Cursor.bg}'}  # current cursor match bracket
-
   # Pmenu
   Pmenu         : {fg: '#CFD0D5',         bg: '#333435'}
   PmenuSel      : {fg: '${black_dark}',   bg: '${blue}'}
   PmenuSbar     : {fg: 'NONE',            bg: '#3B4048'}
   PmenuThumb    : {fg: 'NONE',            bg: '#ABB2BF'}
-
   # Status Line
   StatusLine    : {fg: '${white}',        bg: '${black_dark}', style: 'bold'}
   StatusLineNC  : {fg: '${white}',        bg: '${black_dark}'}
-
   # Cmdline and mssage area (neovim)
   MsgArea       : {fg: '${white}',        bg: '${black_dark}'}
-
   # Constant
   Constant      : {fg: '${yellow}',       bg: 'NONE'}
   Number        : {fg: '${yellow}',       bg: 'NONE'}
@@ -59,20 +57,85 @@ hi:
   Float         : {fg: '${yellow}',       bg: 'NONE'}
   String        : {fg: '${cyan}',         bg: 'NONE'}
   Character     : {fg: '${cyan}',         bg: 'NONE'}
-
   # Variable
   Identifier    : {fg: '${white}',        bg: 'NONE'}
-
   # Function
   Function      : {fg: '${green_light}',  bg: 'NONE'}
-
+  # Keyword
+  Operator      : {fg: '${pink_light}',   bg: 'NONE'}
   Statement     : {fg: '${pink_light}',   bg: 'NONE'}
   Conditional   : {fg: '${pink_light}',   bg: 'NONE'}
   Repeat        : {fg: '${pink_light}',   bg: 'NONE'}
   Label         : {fg: '${pink_light}',   bg: 'NONE'}
   Keyword       : {fg: '${pink_light}',   bg: 'NONE'}
   Exception     : {fg: '${pink_light}',   bg: 'NONE'}
-  Operator      : {fg: '${pink_light}',   bg: 'NONE'}
+  PreProc       : {fg: '${pink_light}',   bg: 'NONE'}
+  Include       : {fg: '${pink_light}',   bg: 'NONE'}
+  Define        : {fg: '${pink_light}',   bg: 'NONE'}
+  Macro         : {fg: '${pink_light}',   bg: 'NONE'}
+  PreCondit     : {fg: '${pink_light}',   bg: 'NONE'}
+  # Type
+  Type          : {fg: '${yellow}',       bg: 'NONE'}
+  StorageClass  : {fg: '${yellow}',       bg: 'NONE'}
+  Structure     : {fg: '${yellow}',       bg: 'NONE'}
+  Typedef       : {fg: '${pink_light}',   bg: 'NONE'}
+  # Misc
+  Tag           : {fg: '${blue}',         bg: 'NONE'}
+  Error         : {fg: '${red_error}',    bg: 'NONE'}
 
-highlights: ${hi}
+  # -------------------------------------------------------------------------- #
+  # TreeSitter
+  # -------------------------------------------------------------------------- #
+
+  TSParameter       : {fg: '${grey}',         bg: 'NONE'}
+  TSStringRegex     : {fg: '${green_light}',  bg: 'NONE'}
+  TSString          : {fg: '${cyan}',         bg: 'NONE'}
+  TSStringEscape    : {fg: '${yellow}',       bg: 'NONE'}
+  TSCharacter       : {fg: '${cyan}',         bg: 'NONE'}
+  TSVariable        : {fg: '${white}',        bg: 'NONE'}
+  TSVariableBuiltin : {fg: '${white}',        bg: 'NONE', style: 'italic'}
+  TSConstBuiltin    : {fg: '${yellow}',       bg: 'NONE'}
+  TSConstructor     : {fg: '${yellow}',       bg: 'NONE'}
+  TSType            : {fg: '${yellow}',       bg: 'NONE'}
+  TSNamespace       : {fg: '${pink_light}',   bg: 'NONE'}
+  TSMethod          : {fg: '${blue}',         bg: 'NONE'}
+  TSFunction        : {fg: '${green_light}',  bg: 'NONE'}
+  TSFuncBuiltin     : {fg: '${green_light}',  bg: 'NONE'}
+  TSPunctBracket    : {fg: '${white}',        bg: 'NONE'}
+  TSPunctDelimiter  : {fg: '${white}',        bg: 'NONE'}
+  TSField           : {fg: '${white}',        bg: 'NONE'}
+  TSProperty        : {fg: '${white}',        bg: 'NONE'}
+  TSPunctSpecial    : {fg: '${pink_light}',   bg: 'NONE'}
+  TSError           : ${hi.Error}
+  TSTag             : ${hi.Tag}
+
+  # -------------------------------------------------------------------------- #
+  # NvimTree
+  # -------------------------------------------------------------------------- #
+
+  NvimTreeNormal      : {fg: 'NONE',    bg: '${black_dark}'}
+  NvimTreeImageFile   : {fg: '#b084eb', bg: 'NONE'}
+  NvimTreeGitDirty    : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeGitDeleted  : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeGitStaged   : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeGitMerge    : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeGitRenamed  : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeGitNew      : {fg: '#81b88b', bg: 'NONE'}
+  NvimTreeSymlink     : {fg: '#29b8d8', bg: 'NONE'}
+  NvimTreeRootFolder  : {fg: '#FFCC95', bg: 'NONE', style: 'bold'}
+
+  # -------------------------------------------------------------------------- #
+  # GitSigns
+  # -------------------------------------------------------------------------- #
+
+  GitSignsAdd    : {fg: '#19f9d8', bg: 'NONE'}
+  GitSignsChange : {fg: '#FFCC95', bg: 'NONE'}
+  GitSignsDelete : {fg: '#FF4B82', bg: 'NONE'}
+
+  # -------------------------------------------------------------------------- #
+  # Floaterm
+  # -------------------------------------------------------------------------- #
+
+  Floaterm   : {fg: 'NONE', bg: '${black_dark}'}
+  FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
  

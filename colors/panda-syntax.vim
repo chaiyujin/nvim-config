@@ -1,4 +1,4 @@
-
+" Treesitter version based on https://github.com/tinkertrain/panda-syntax-vscode
 hi clear
 if exists('syntax_on')
   syntax reset
@@ -6,94 +6,85 @@ endif
 let g:colors_name='panda-syntax'
 set background=dark
 
-hi Normal                               guifg=#E6E6E6 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
-hi Cursor                               guifg=NONE    ctermfg=NONE guibg=#EC2864 ctermbg=NONE gui=NONE   cterm=NONE  
-hi CursorLine                           guifg=NONE    ctermfg=NONE guibg=#31353A ctermbg=NONE gui=NONE   cterm=NONE  
-hi CursorLineNr                         guifg=#757575 ctermfg=NONE guibg=#31353A ctermbg=NONE gui=NONE   cterm=NONE  
-hi MatchParen                           guifg=NONE    ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LineNr                               guifg=#757575 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Visual                               guifg=NONE    ctermfg=NONE guibg=#42404C ctermbg=NONE gui=NONE   cterm=NONE  
-hi Search                               guifg=NONE    ctermfg=NONE guibg=#62679A ctermbg=NONE gui=NONE   cterm=NONE  
-hi IncSearch                            guifg=NONE    ctermfg=NONE guibg=#62679A ctermbg=NONE gui=NONE   cterm=NONE  
-hi SignColumn                           guifg=#E6E6E6 ctermfg=NONE guibg=#292A2B ctermbg=NONE gui=NONE   cterm=NONE  
-hi VertSplit                            guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NonText                              guifg=#292A2B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Pmenu                                guifg=#CFD0D5 ctermfg=NONE guibg=#333435 ctermbg=NONE gui=NONE   cterm=NONE  
-hi PmenuSel                             guifg=#232425 ctermfg=NONE guibg=#7DC1FF ctermbg=NONE gui=NONE   cterm=NONE  
-hi PmenuSbar                            guifg=NONE    ctermfg=NONE guibg=#3B4048 ctermbg=NONE gui=NONE   cterm=NONE  
-hi PmenuThumb                           guifg=NONE    ctermfg=NONE guibg=#ABB2BF ctermbg=NONE gui=NONE   cterm=NONE  
-hi StatusLine                           guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=bold   cterm=bold  
-hi StatusLineNC                         guifg=#E6E6E6 ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
-hi MsgArea                              guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
-hi Comment                              guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi Constant                             guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Number                               guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Boolean                              guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Float                                guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi String                               guifg=#35FFDC ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Character                            guifg=#35FFDC ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Identifier                           guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Function                             guifg=#B5EBC8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Statement                            guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Conditional                          guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Repeat                               guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Label                                guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Keyword                              guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Exception                            guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Operator                             guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi PreProc                              guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Include                              guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Define                               guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Macro                                guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi PreCondit                            guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Type                                 guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi StorageClass                         guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Structure                            guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Typedef                              guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Tag                                  guifg=#7DC1FF ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Error                                guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSParameter                          guifg=#BBBBBB ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSStringRegex                        guifg=#B5EBC8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSString                             guifg=#35FFDC ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSStringEscape                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSCharacter                          guifg=#35FFDC ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSVariable                           guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSVariableBuiltin                    guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi TSConstBuiltin                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSConstructor                        guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSType                               guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSNamespace                          guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSMethod                             guifg=#7DC1FF ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSFunction                           guifg=#B5EBC8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSFuncBuiltin                        guifg=#B5EBC8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSPunctBracket                       guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSPunctDelimiter                     guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSField                              guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSProperty                           guifg=#E6E6E6 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSError                              guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSTag                                guifg=#7DC1FF ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi TSPunctSpecial                       guifg=#FF9AC1 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LspDiagnosticsUnderlineHint          guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi LspDiagnosticsSignError              guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LspDiagnosticsSignWarning            guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LspDiagnosticsSignInformation        guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi LspDiagnosticsSignHint               guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi LspDiagnosticsVirtualTextError       guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LspDiagnosticsVirtualTextWarning     guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi LspDiagnosticsVirtualTextInformation guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi LspDiagnosticsVirtualTextHint        guifg=#676B79 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=italic cterm=italic
-hi NvimTreeNormal                       guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeImageFile                    guifg=#B084EB ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitDirty                     guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitDeleted                   guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitStaged                    guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitMerge                     guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitRenamed                   guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeGitNew                       guifg=#81B88B ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeSymlink                      guifg=#29B8D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi NvimTreeRootFolder                   guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=bold   cterm=bold  
-hi GitSignsAdd                          guifg=#19F9D8 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi GitSignsChange                       guifg=#FFCC95 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi GitSignsDelete                       guifg=#FF4B82 ctermfg=NONE guibg=NONE    ctermbg=NONE gui=NONE   cterm=NONE  
-hi Floaterm                             guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
-hi FloatermNC                           guifg=NONE    ctermfg=NONE guibg=#232425 ctermbg=NONE gui=NONE   cterm=NONE  
+hi Normal             guifg=#E6E6E6 guibg=#292A2B gui=NONE  
+hi Visual             guifg=NONE    guibg=#42404C gui=NONE  
+hi Search             guifg=NONE    guibg=#62679A gui=NONE  
+hi IncSearch          guifg=NONE    guibg=#62679A gui=NONE  
+hi Comment            guifg=#676B79 guibg=NONE    gui=ITALIC
+hi SignColumn         guifg=#292A2B guibg=NONE    gui=NONE  
+hi VertSplit          guifg=#292A2B guibg=NONE    gui=NONE  
+hi NonText            guifg=#292A2B guibg=NONE    gui=NONE  
+hi Cursor             guifg=NONE    guibg=#EC2864 gui=NONE  
+hi CursorLine         guifg=NONE    guibg=#31353A gui=NONE  
+hi CursorLineNr       guifg=#757575 guibg=#31353A gui=NONE  
+hi LineNr             guifg=#757575 guibg=#292A2B gui=NONE  
+hi MatchParen         guifg=NONE    guibg=#EC2864 gui=NONE  
+hi Pmenu              guifg=#CFD0D5 guibg=#333435 gui=NONE  
+hi PmenuSel           guifg=#232425 guibg=#7DC1FF gui=NONE  
+hi PmenuSbar          guifg=NONE    guibg=#3B4048 gui=NONE  
+hi PmenuThumb         guifg=NONE    guibg=#ABB2BF gui=NONE  
+hi StatusLine         guifg=#E6E6E6 guibg=#232425 gui=BOLD  
+hi StatusLineNC       guifg=#E6E6E6 guibg=#232425 gui=NONE  
+hi MsgArea            guifg=#E6E6E6 guibg=#232425 gui=NONE  
+hi Constant           guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Number             guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Boolean            guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Float              guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi String             guifg=#35FFDC guibg=NONE    gui=NONE  
+hi Character          guifg=#35FFDC guibg=NONE    gui=NONE  
+hi Identifier         guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi Function           guifg=#B5EBC8 guibg=NONE    gui=NONE  
+hi Operator           guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Statement          guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Conditional        guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Repeat             guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Label              guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Keyword            guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Exception          guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi PreProc            guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Include            guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Define             guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Macro              guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi PreCondit          guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Type               guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi StorageClass       guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Structure          guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Typedef            guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi Tag                guifg=#7DC1FF guibg=NONE    gui=NONE  
+hi Error              guifg=#FF4B82 guibg=NONE    gui=NONE  
+hi TSParameter        guifg=#BBBBBB guibg=NONE    gui=NONE  
+hi TSStringRegex      guifg=#B5EBC8 guibg=NONE    gui=NONE  
+hi TSString           guifg=#35FFDC guibg=NONE    gui=NONE  
+hi TSStringEscape     guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi TSCharacter        guifg=#35FFDC guibg=NONE    gui=NONE  
+hi TSVariable         guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSVariableBuiltin  guifg=#E6E6E6 guibg=NONE    gui=ITALIC
+hi TSConstBuiltin     guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi TSConstructor      guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi TSType             guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi TSNamespace        guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi TSMethod           guifg=#7DC1FF guibg=NONE    gui=NONE  
+hi TSFunction         guifg=#B5EBC8 guibg=NONE    gui=NONE  
+hi TSFuncBuiltin      guifg=#B5EBC8 guibg=NONE    gui=NONE  
+hi TSPunctBracket     guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSPunctDelimiter   guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSField            guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSProperty         guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSPunctSpecial     guifg=#FF9AC1 guibg=NONE    gui=NONE  
+hi TSError            guifg=#FF4B82 guibg=NONE    gui=NONE  
+hi TSTag              guifg=#7DC1FF guibg=NONE    gui=NONE  
+hi NvimTreeNormal     guifg=NONE    guibg=#232425 gui=NONE  
+hi NvimTreeImageFile  guifg=#B084EB guibg=NONE    gui=NONE  
+hi NvimTreeGitDirty   guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeGitDeleted guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeGitStaged  guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeGitMerge   guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeGitRenamed guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeGitNew     guifg=#81B88B guibg=NONE    gui=NONE  
+hi NvimTreeSymlink    guifg=#29B8D8 guibg=NONE    gui=NONE  
+hi NvimTreeRootFolder guifg=#FFCC95 guibg=NONE    gui=BOLD  
+hi GitSignsAdd        guifg=#19F9D8 guibg=NONE    gui=NONE  
+hi GitSignsChange     guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi GitSignsDelete     guifg=#FF4B82 guibg=NONE    gui=NONE  
+hi Floaterm           guifg=NONE    guibg=#232425 gui=NONE  
+hi FloatermNC         guifg=NONE    guibg=#232425 gui=NONE  
