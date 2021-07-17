@@ -49,7 +49,7 @@ return require("packer").startup(function (use)
     -- use {"christianchiarulli/nvcode-color-schemes.vim"}
     -- use {"sunjon/shade.nvim", config=function() require'shade'.setup({overlay_opacity = 20}) end}
     use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
-    use {"projekt0n/github-nvim-theme"}
+    -- use {"projekt0n/github-nvim-theme"}
 
     -- indentline
     use {"lukas-reineke/indent-blankline.nvim"}
@@ -81,7 +81,7 @@ return require("packer").startup(function (use)
     require("config.indentLine")
     require("config.which-key")
     -- require("config.vim-barbaric")
-    require("config.github-theme")
+    -- require("config.github-theme")
     require("config.diffview")
 
     -- config lsp servers

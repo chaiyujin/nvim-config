@@ -2,6 +2,7 @@ from typing import Optional, Dict
 
 import os
 import json
+from omegaconf import DictConfig
 
 
 HEADER = """
@@ -13,6 +14,28 @@ let g:colors_name='{}'
 set background={}
 
 """
+
+# palette
+# #FF9AC1
+
+colors = DictConfig(dict(
+    fg='#E6E6E6',
+    bg='#292A2B',
+    string=dict(fg='#19f9d8', bg=None),
+    regexp=dict(fg='#6FC1FF', bg=None),
+    constant=dict(fg='#FFB86C', bg=None),
+    keyword=dict(fg='#FF75B5', bg=None),
+    variable=dict(fg='#E6E6E6', bg=None),
+    parameter=dict(fg='#BBBBBB', bg=None),
+    operator=dict(fg='#E6E6E6', bg=None),
+    storage=dict(fg='#FFB86C', bg=None),
+    error=dict(fg='#FF4B82', bg=None),
+    function=dict(fg='#B5EBC8', bg=None),
+    method=dict(fg='#6FC1FF', bg=None),
+    field=dict(fg='#E6E6E6', bg=None), 
+    property=dict(fg='#E6E6E6', bg=None),
+    tag=dict(fg='#7DC1FF', bg=None),
+))
 
 
 def dump_vim(dst_vim, lines, background, theme_name):
@@ -46,38 +69,6 @@ def convert(src_json, dst_vim):
 
     lines = []
 
-    def _find_token_color(scope) -> Optional[Dict[str, str]]:
-        if isinstance(scope, str):
-            scope = [scope]
-        # check each candidates
-        for scp in scope:
-            for token_color in vsc['tokenColors']:
-                if scp in [x.strip() for x in token_color['scope'].split(',')]:
-                    return token_color["settings"]
-        return None
-
-    def _highlight_from_token(name, scope):
-        token_color = _find_token_color(scope)
-        if token_color is None:
-            print(f"Failed to convert into '{name}'")
-            return
-        fg = token_color.get('foreground', 'None').upper()
-        bg = token_color.get('background', 'None').upper()
-        fs = token_color.get('fontStyle',  'NONE')
-        if fs == 'normal':
-            fs = 'NONE'
-
-        cfg = 'NONE'
-        cbg = 'NONE'
-
-        line = (
-            f"hi {name} "
-            f"guifg={fg:7} ctermfg={cfg:7} "
-            f"guibg={bg:7} ctermbg={cbg:7} "
-            f"gui={fs} cterm={fs}"
-        )
-        lines.append(line)
-
     def _highlight_from_color(name, fg_key, bg_key, dec='NONE'):
         fg, bg = 'NONE', 'NONE'
         if fg_key is not None:
@@ -101,19 +92,20 @@ def convert(src_json, dst_vim):
         lines.append(line)
 
     # TODO: todo test
+
     # * Normal
-    _highlight_from_color('Normal',         'editor.foreground', 'editor.background')
-    _highlight_from_color('Cursor',         'editor.foreground', 'editorCursor.foreground')
-    _highlight_from_color('CursorLine',     None, 'editor.lineHighlightBackground')
-    _highlight_from_color('CursorLineNr',   '#757575', 'editor.lineHighlightBackground')
-    _highlight_from_color('LineNr',         '#757575', 'editor.background')
-    _highlight_from_color('Visual',         None, 'editor.selectionBackground')
-    _highlight_from_color('MatchParen',     'editor.foreground', 'editorCursor.foreground')
-    _highlight_from_color('Search',         None, 'editor.wordHighlightBackground')
-    _highlight_from_color('IncSearch',      None, 'editor.wordHighlightBackground')
-    _highlight_from_color('SignColumn',     'editorCursor.foreground', 'editorCursor.background')
-    _highlight_from_color('VertSplit',      'sideBar.border', None)
-    _highlight_from_color('NonText',        'editor.background', None)
+    _highlight_from_color('Normal',         colors.fg, colors.bg)
+    _highlight_from_color('Cursor',         colors.fg, '#FF4B82')
+    _highlight_from_color('CursorLine',     None, '#31353a')
+    _highlight_from_color('CursorLineNr',   '#757575', '#31353a')
+    _highlight_from_color('MatchParen',     colors.fg, '#FF4B82')
+    _highlight_from_color('LineNr',         '#757575', colors.bg)
+    _highlight_from_color('Visual',         None, '#42404c')
+    _highlight_from_color('Search',         None, '#FFCC95')
+    _highlight_from_color('IncSearch',      None, '#FFCC95')
+    _highlight_from_color('SignColumn',     colors.fg, colors.bg)
+    _highlight_from_color('VertSplit',      '#222223', None)
+    _highlight_from_color('NonText',        colors.bg, None)
     _highlight_from_color('Pmenu',          '#CFD0D5', '#333435')
     _highlight_from_color('PmenuSel',       '#232425', '#7dc1ff')
     _highlight_from_color('PmenuSbar',      None, '#3b4048')
@@ -122,85 +114,89 @@ def convert(src_json, dst_vim):
     _highlight_from_color('StatusLineNC',   '#e6e6e6', '#232425')
 
     # * Comment
-    _highlight_from_token('Comment', 'comment')
+    _highlight_from_color('Comment', '#676B79', None, 'italic')
 
     # * Constant
-    _highlight_from_token('Constant', 'constant')  # any constant
-    _highlight_from_token('String',  'string')  # a string constant: "this is a string"
-    _highlight_from_token('Character', 'string')  # a character constant: 'c', '\n'
-    _highlight_from_token('Number', 'constant')  # a number constant: 234, 0xff
-    _highlight_from_token('Boolean', 'constant')  # a boolean constant: TRUE, false
-    _highlight_from_token('Float', 'constant')  # a floating point constant: 2.3e10
+    _highlight_from_color('Constant' , colors.constant.fg, colors.constant.bg)  # any constant
+    _highlight_from_color('Number'   , colors.constant.fg, colors.constant.bg)  # a number constant: 234, 0xff
+    _highlight_from_color('Boolean'  , colors.constant.fg, colors.constant.bg)  # a boolean constant: TRUE, false
+    _highlight_from_color('Float'    , colors.constant.fg, colors.constant.bg)  # a floating point constant: 2.3e10
+    _highlight_from_color('String'   , colors.string.fg, colors.string.bg)  # a string constant: "this is a string"
+    _highlight_from_color('Character', colors.string.fg, colors.string.bg)  # a character constant: 'c', '\n'
 
     # * Variable
-    _highlight_from_token('Identifier', 'variable')  # any variable name
+    _highlight_from_color('Identifier', colors.variable.fg, colors.variable.bg)  # any variable name
 
     # * Function
-    _highlight_from_token('Function', ['support.function', 'entity.name.function'])
+    _highlight_from_color('Function', colors.function.fg, colors.function.bg)
 
     # * Keyword
-    _highlight_from_token('Statement', 'keyword')    # any statement
-    _highlight_from_token('Conditional', 'keyword.control')    # if, then, else, endif, switch, etc.
-    _highlight_from_token('Repeat', 'keyword.control')        # for, do, while, etc.
-    _highlight_from_token('Label', 'keyword.control')        # case, default, etc.
-    _highlight_from_token('Operator', 'keyword.operator')    # "sizeof", "+", "*", etc.
-    _highlight_from_token('Keyword', 'keyword')    # any other keyword
-    _highlight_from_token('Exception', 'keyword.control')    # try, catch, throw
+    _highlight_from_color('Statement'  , colors.keyword.fg, colors.keyword.bg)    # any statement
+    _highlight_from_color('Conditional', colors.keyword.fg, colors.keyword.bg)    # if, then, else, endif, switch, etc.
+    _highlight_from_color('Repeat'     , colors.keyword.fg, colors.keyword.bg)    # for, do, while, etc.
+    _highlight_from_color('Label'      , colors.keyword.fg, colors.keyword.bg)    # case, default, etc.
+    _highlight_from_color('Keyword'    , colors.keyword.fg, colors.keyword.bg)    # any other keyword
+    _highlight_from_color('Exception'  , colors.keyword.fg, colors.keyword.bg)    # try, catch, throw
+    _highlight_from_color('Operator'   , colors.operator.fg, colors.operator.bg)  # "sizeof", "+", "*", etc.
 
     # * PreProc
-    _highlight_from_token('PreProc', 'keyword.control')    # generic Preprocessor
-    _highlight_from_token('Include', 'keyword.control')    # preprocessor #include
-    _highlight_from_token('Define', 'keyword.control')        # preprocessor #define
-    _highlight_from_token('Macro', 'keyword.control')        # same as Define
-    _highlight_from_token('PreCondit', 'keyword.control')    # preprocessor #if, #else, #endif, etc.
+    _highlight_from_color('PreProc'  , colors.keyword.fg, colors.keyword.bg)    # generic Preprocessor
+    _highlight_from_color('Include'  , colors.keyword.fg, colors.keyword.bg)    # preprocessor #include
+    _highlight_from_color('Define'   , colors.keyword.fg, colors.keyword.bg)    # preprocessor #define
+    _highlight_from_color('Macro'    , colors.keyword.fg, colors.keyword.bg)    # same as Define
+    _highlight_from_color('PreCondit', colors.keyword.fg, colors.keyword.bg)    # preprocessor #if, #else, #endif, etc.
 
     # * Type
-    _highlight_from_token('Type', 'storage')        # int, long, char, etc.
-    _highlight_from_token('StorageClass', 'storage')    # static, register, volatile, etc.
-    _highlight_from_token('Structure', 'storage')    # struct, union, enum, etc.
-    _highlight_from_token('Typedef', 'keyword')    # A typedef
+    _highlight_from_color('Type'        , colors.storage.fg, colors.storage.bg)        # int, long, char, etc.
+    _highlight_from_color('StorageClass', colors.storage.fg, colors.storage.bg)    # static, register, volatile, etc.
+    _highlight_from_color('Structure'   , colors.storage.fg, colors.storage.bg)    # struct, union, enum, etc.
+    _highlight_from_color('Typedef'     , colors.keyword.fg, colors.keyword.bg)    # A typedef
 
-    _highlight_from_token('Special', 'keyword.other.special-method')    # any special symbol
-    _highlight_from_color('Tag', '#7DC1FF', None)        # you can use CTRL-] on this
+    _highlight_from_color('Tag', colors.tag.fg, colors.tag.bg)        # you can use CTRL-] on this
+    # _highlight_from_token('Special', 'keyword.other.special-method')    # any special symbol #45A9F9
     # _highlight_from_token('Delimiter', )    # character that needs attention
     # _highlight_from_token('SpecialComment', )    # special things inside a comment
     # _highlight_from_token('Debug', )        # debugging statements
 
-    _highlight_from_color('Error', 'editorError.foreground', None)
+    _highlight_from_color('Error', colors.error.fg, colors.error.bg)
 
     # * TS and LSP
-    _highlight_from_token('TSParameter', 'variable.parameter')
-    _highlight_from_token('TSStringRegex', 'string.regexp')
-    _highlight_from_token('TSString', 'string')
-    _highlight_from_token('TSCharacter', 'string')
-    _highlight_from_token('TSNamespace', 'keyword')
-    _highlight_from_token('TSMethod', ['support.function', 'entity.name.function'])
-    _highlight_from_token('TSField', 'variable.other.object')
-    _highlight_from_token('TSProperty', 'variable.other.property')
+    _highlight_from_color('TSParameter'  , colors.parameter.fg, colors.parameter.bg)
+    _highlight_from_color('TSStringRegex', colors.regexp.fg, colors.regexp.bg)
+    _highlight_from_color('TSString'     , colors.string.fg, colors.string.bg)
+    _highlight_from_color('TSCharacter'  , colors.string.fg, colors.string.bg)
+    _highlight_from_color('TSNamespace'  , colors.keyword.fg, colors.keyword.bg)
+    _highlight_from_color('TSMethod'     , colors.method.fg, colors.method.bg)
+    _highlight_from_color('TSField'      , colors.field.fg, colors.field.bg)
+    _highlight_from_color('TSProperty'   , colors.property.fg, colors.property.bg)
+    _highlight_from_color('TSError'      , colors.error.fg, colors.error.bg)
+    _highlight_from_color('TSTag'        , colors.tag.fg, colors.tag.bg)
 
-    _highlight_from_color('TSError',     'editorError.foreground', None)
-    _highlight_from_color('TSTag',       '#7DC1FF', None)
-
-    _highlight_from_token('LspDiagnosticsUnderlineHint', 'comment')
-    _highlight_from_color('LspDiagnosticsSignError', 'editorError.foreground', None)
-    _highlight_from_color('LspDiagnosticsSignWarning', 'editorWarning.foreground', None)
-    _highlight_from_token('LspDiagnosticsSignInformation', 'comment')
-    _highlight_from_token('LspDiagnosticsSignHint', 'comment')
-    _highlight_from_color('LspDiagnosticsVirtualTextError', 'editorError.foreground', None)
-    _highlight_from_color('LspDiagnosticsVirtualTextWarning', 'editorWarning.foreground', None)
-    _highlight_from_token('LspDiagnosticsVirtualTextInformation', 'comment')
-    _highlight_from_token('LspDiagnosticsVirtualTextHint', 'comment')
+    _highlight_from_color('LspDiagnosticsUnderlineHint'         , '#676B79', None, 'italic')
+    _highlight_from_color('LspDiagnosticsSignError'             , '#FF4B82', None)
+    _highlight_from_color('LspDiagnosticsSignWarning'           , '#FFCC95', None)
+    _highlight_from_color('LspDiagnosticsSignInformation'       , '#676B79', None, 'italic')
+    _highlight_from_color('LspDiagnosticsSignHint'              , '#676B79', None, 'italic')
+    _highlight_from_color('LspDiagnosticsVirtualTextError'      , '#FF4B82', None)
+    _highlight_from_color('LspDiagnosticsVirtualTextWarning'    , '#FFCC95', None)
+    _highlight_from_color('LspDiagnosticsVirtualTextInformation', '#676B79', None, 'italic')
+    _highlight_from_color('LspDiagnosticsVirtualTextHint'       , '#676B79', None, 'italic')
 
     # * NvimTree
-    _highlight_from_color('NvimTreeImageFile', '#b084eb', None)
-    _highlight_from_color('NvimTreeGitDirty', '#81b88b', None)
-    _highlight_from_color('NvimTreeGitDeleted', '#81b88b', None)
-    _highlight_from_color('NvimTreeGitStaged', '#81b88b', None)
-    _highlight_from_color('NvimTreeGitMerge', '#81b88b', None)
-    _highlight_from_color('NvimTreeGitRenamed', '#81b88b', None)
-    _highlight_from_color('NvimTreeGitNew', '#81b88b', None)
-    _highlight_from_color('NvimTreeSymlink', '#29b8d8', None)
-    _highlight_from_color('NvimTreeRootFolder', '#BBBBBB', '#757575')
+    _highlight_from_color('NvimTreeImageFile' , "#b084eb", None)
+    _highlight_from_color('NvimTreeGitDirty'  , "#81b88b", None)
+    _highlight_from_color('NvimTreeGitDeleted', "#81b88b", None)
+    _highlight_from_color('NvimTreeGitStaged' , "#81b88b", None)
+    _highlight_from_color('NvimTreeGitMerge'  , "#81b88b", None)
+    _highlight_from_color('NvimTreeGitRenamed', "#81b88b", None)
+    _highlight_from_color('NvimTreeGitNew'    , "#81b88b", None)
+    _highlight_from_color('NvimTreeSymlink'   , "#29b8d8", None)
+    _highlight_from_color('NvimTreeRootFolder', "#BBBBBB", '#757575')
+
+    # * GitSigns
+    _highlight_from_color('GitSignsAdd'   , "#19f9d8", None)
+    _highlight_from_color('GitSignsChange', "#FFCC95", None)
+    _highlight_from_color('GitSignsDelete', "#FF4B82", None)
 
     if len(lines) == 0:
         print("Failed to convert!")
