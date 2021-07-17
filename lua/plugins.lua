@@ -80,7 +80,7 @@ return require("packer").startup(function (use)
     require("config.indentLine")
     require("config.which-key")
     -- require("config.vim-barbaric")
-    require("config.github-theme")
+    -- require("config.github-theme")
 
     -- config lsp servers
     require("config.lsp-servers.python")
