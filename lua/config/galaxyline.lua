@@ -1,26 +1,38 @@
 local gl = require('galaxyline')
 -- get my theme in galaxyline repo
 -- local colors = require('galaxyline.theme').default
+
+-- fg='#E6E6E6',
+-- bg='#292A2B',
+-- string=dict(fg='#19f9d8', bg=None),
+-- regexp=dict(fg='#6FC1FF', bg=None),
+-- constant=dict(fg='#FFCC95', bg=None),
+-- keyword=dict(fg='#FF75B5', bg=None),
+-- variable=dict(fg='#E6E6E6', bg=None),
+-- parameter=dict(fg='#BBBBBB', bg=None),
+-- operator=dict(fg='#E6E6E6', bg=None),
+-- storage=dict(fg='#FFCC95', bg=None),
+-- error=dict(fg='#FF4B82', bg=None),
+-- function=dict(fg='#B5EBC8', bg=None),
+-- method=dict(fg='#6FC1FF', bg=None),
+-- field=dict(fg='#E6E6E6', bg=None), 
+-- property=dict(fg='#E6E6E6', bg=None),
+-- tag=dict(fg='#7DC1FF', bg=None),
+-- special=dict(fg='#FF9AC1', bg=None),
+
 local colors = {
-    -- bg = '#2E2E2E',
-    bg = '#292D38',
+    bg = '#232425',
     yellow = '#DCDCAA',
-    dark_yellow = '#D7BA7D',
-    cyan = '#4EC9B0',
+    cyan = '#19f9d8',
     green = '#608B4E',
-    light_green = '#B5CEA8',
-    string_orange = '#CE9178',
+    light_green = '#B5EBC8',
     orange = '#FF8800',
-    purple = '#C586C0',
-    magenta = '#D16D9E',
-    grey = '#858585',
-    blue = '#569CD6',
-    vivid_blue = '#4FC1FF',
-    light_blue = '#9CDCFE',
+    purple = '#FF9AC1',
+    grey = '#BBBBBB',
+    blue = '#6FC1FF',
     red = '#D16969',
-    error_red = '#F44747',
-    pink = '#FF79C6',
-    info_yellow = '#FFCC66'
+    error_red = '#FF4B82',
+    info_yellow = '#FFCC95'
 }
 local condition = require('galaxyline.condition')
 local gls = gl.section
@@ -52,10 +64,10 @@ end
 local modes = {
     [ "n" ] = {colors.blue, "Normal", ""},
     [ "i" ] = {colors.green, "Insert", ""},
-    [ "v" ] = {colors.pink, "Visual", ""},
+    [ "v" ] = {colors.purple, "Visual", ""},
     [""] = {colors.purple, "Visual Block", ""},
     [ "V" ] = {colors.purple, "Visual Line", ""},
-    [ "c" ] = {colors.pink, "Command", ""},
+    [ "c" ] = {colors.light_green, "Command", ""},
     [ "no" ] = {colors.blue, "MODE", ""},
     [ "s" ] = {colors.orange, "MODE", ""},
     [ "S" ] = {colors.orange, "MODE", ""},
@@ -80,7 +92,7 @@ gls.left[1] = {
         local mode_string = modes[mode][2]
         local mode_icon = modes[mode][3]
         vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color .. ' guibg=' .. colors.bg .. ' gui=bold')
-        return '▊ ' .. abbrev(mode_string, 2) .. ' '
+        return '▊ ' .. mode_string .. ' '
       end,
     }
 }
@@ -182,7 +194,7 @@ gls.right[3] = {
     DiagnosticHint = {
       provider = 'DiagnosticHint',
       icon = '  ',
-      highlight = {colors.vivid_blue, colors.bg}
+      highlight = {colors.blue, colors.bg}
     }
 }
 

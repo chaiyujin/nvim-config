@@ -23,18 +23,19 @@ colors = DictConfig(dict(
     bg='#292A2B',
     string=dict(fg='#19f9d8', bg=None),
     regexp=dict(fg='#6FC1FF', bg=None),
-    constant=dict(fg='#FFB86C', bg=None),
+    constant=dict(fg='#FFCC95', bg=None),
     keyword=dict(fg='#FF75B5', bg=None),
     variable=dict(fg='#E6E6E6', bg=None),
     parameter=dict(fg='#BBBBBB', bg=None),
     operator=dict(fg='#E6E6E6', bg=None),
-    storage=dict(fg='#FFB86C', bg=None),
+    storage=dict(fg='#FFCC95', bg=None),
     error=dict(fg='#FF4B82', bg=None),
     function=dict(fg='#B5EBC8', bg=None),
     method=dict(fg='#6FC1FF', bg=None),
     field=dict(fg='#E6E6E6', bg=None), 
     property=dict(fg='#E6E6E6', bg=None),
     tag=dict(fg='#7DC1FF', bg=None),
+    special=dict(fg='#FF9AC1', bg=None),
 ))
 
 
@@ -147,7 +148,7 @@ def convert(src_json, dst_vim):
     _highlight_from_color('PreCondit', colors.keyword.fg, colors.keyword.bg)    # preprocessor #if, #else, #endif, etc.
 
     # * Type
-    _highlight_from_color('Type'        , colors.storage.fg, colors.storage.bg)        # int, long, char, etc.
+    _highlight_from_color('Type'        , colors.storage.fg, colors.storage.bg)    # int, long, char, etc.
     _highlight_from_color('StorageClass', colors.storage.fg, colors.storage.bg)    # static, register, volatile, etc.
     _highlight_from_color('Structure'   , colors.storage.fg, colors.storage.bg)    # struct, union, enum, etc.
     _highlight_from_color('Typedef'     , colors.keyword.fg, colors.keyword.bg)    # A typedef
@@ -164,13 +165,22 @@ def convert(src_json, dst_vim):
     _highlight_from_color('TSParameter'  , colors.parameter.fg, colors.parameter.bg)
     _highlight_from_color('TSStringRegex', colors.regexp.fg, colors.regexp.bg)
     _highlight_from_color('TSString'     , colors.string.fg, colors.string.bg)
+    _highlight_from_color('TSStringEscape', colors.storage.fg, colors.storage.bg)
     _highlight_from_color('TSCharacter'  , colors.string.fg, colors.string.bg)
+    _highlight_from_color('TSConstBuiltin', colors.storage.fg, colors.storage.bg)
+    _highlight_from_color('TSConstructor', colors.storage.fg, colors.storage.bg)
+    _highlight_from_color('TSType'       , colors.storage.fg, colors.storage.bg)
     _highlight_from_color('TSNamespace'  , colors.keyword.fg, colors.keyword.bg)
     _highlight_from_color('TSMethod'     , colors.method.fg, colors.method.bg)
+    _highlight_from_color('TSFunction'   , colors.function.fg, colors.function.bg)
+    _highlight_from_color('TSFuncBuiltin', colors.function.fg, colors.function.bg)
+    _highlight_from_color('TSPunctBracket', colors.fg, None)
+    _highlight_from_color('TSPunctDelimiter', colors.fg, None)
     _highlight_from_color('TSField'      , colors.field.fg, colors.field.bg)
     _highlight_from_color('TSProperty'   , colors.property.fg, colors.property.bg)
     _highlight_from_color('TSError'      , colors.error.fg, colors.error.bg)
     _highlight_from_color('TSTag'        , colors.tag.fg, colors.tag.bg)
+    _highlight_from_color('TSPunctSpecial', colors.special.fg, colors.special.bg)
 
     _highlight_from_color('LspDiagnosticsUnderlineHint'         , '#676B79', None, 'italic')
     _highlight_from_color('LspDiagnosticsSignError'             , '#FF4B82', None)
