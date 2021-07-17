@@ -1,0 +1,78 @@
+info:
+  name: 'panda-syntax'
+  background: dark
+
+# Palette
+white       : '#E6E6E6'
+black       : '#292A2B'
+black_dark  : '#232425'
+black_light : '#31353a'
+grey        : '#BBBBBB'
+grey_dark   : '#757575'
+green_light : '#B5EBC8'
+cyan        : '#35FFDC'
+pink        : '#FF90D0'
+pink_light  : '#FF9AC1'
+red         : '#EC2864'
+red_error   : '#FF4B82'
+yellow      : '#FFCC95'  # '#FFB86C',
+blue        : '#7DC1FF'  # '#6FC1FF'
+purple      : '#B084EB'
+
+# Groups
+hi:
+  Normal        : {fg: '${white}',        bg: '${black}'}
+  Visual        : {fg: 'NONE',            bg: '#42404c'}
+  Search        : {fg: 'NONE',            bg: '#62679A'}
+  IncSearch     : {fg: 'NONE',            bg: '#62679A'}
+  Comment       : {fg: '#676B79',         bg: 'NONE', style: 'italic'}
+
+  # hidden groups
+  SignColumn    : {fg: '${white}',        bg: '${black}'}
+  VertSplit     : {fg: '${white}',        bg: '${black}'}
+  NonText       : {fg: '${white}',        bg: '${black}'}
+
+  # cursor related
+  Cursor        : {fg: 'NONE',            bg: '${red}'  }
+  CursorLine    : {fg: 'NONE',            bg: '${black_light}'}
+  CursorLineNr  : {fg: '${grey_dark}',    bg: '${black_light}'}
+  LineNr        : {fg: '${grey_dark}',    bg: '${black}'}
+  MatchParen    : {fg: 'NONE',            bg: '${hi.Cursor.bg}'}  # current cursor match bracket
+
+  # Pmenu
+  Pmenu         : {fg: '#CFD0D5',         bg: '#333435'}
+  PmenuSel      : {fg: '${black_dark}',   bg: '${blue}'}
+  PmenuSbar     : {fg: 'NONE',            bg: '#3B4048'}
+  PmenuThumb    : {fg: 'NONE',            bg: '#ABB2BF'}
+
+  # Status Line
+  StatusLine    : {fg: '${white}',        bg: '${black_dark}', style: 'bold'}
+  StatusLineNC  : {fg: '${white}',        bg: '${black_dark}'}
+
+  # Cmdline and mssage area (neovim)
+  MsgArea       : {fg: '${white}',        bg: '${black_dark}'}
+
+  # Constant
+  Constant      : {fg: '${yellow}',       bg: 'NONE'}
+  Number        : {fg: '${yellow}',       bg: 'NONE'}
+  Boolean       : {fg: '${yellow}',       bg: 'NONE'}
+  Float         : {fg: '${yellow}',       bg: 'NONE'}
+  String        : {fg: '${cyan}',         bg: 'NONE'}
+  Character     : {fg: '${cyan}',         bg: 'NONE'}
+
+  # Variable
+  Identifier    : {fg: '${white}',        bg: 'NONE'}
+
+  # Function
+  Function      : {fg: '${green_light}',  bg: 'NONE'}
+
+  Statement     : {fg: '${pink_light}',   bg: 'NONE'}
+  Conditional   : {fg: '${pink_light}',   bg: 'NONE'}
+  Repeat        : {fg: '${pink_light}',   bg: 'NONE'}
+  Label         : {fg: '${pink_light}',   bg: 'NONE'}
+  Keyword       : {fg: '${pink_light}',   bg: 'NONE'}
+  Exception     : {fg: '${pink_light}',   bg: 'NONE'}
+  Operator      : {fg: '${pink_light}',   bg: 'NONE'}
+
+highlights: ${hi}
+ 

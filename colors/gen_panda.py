@@ -1,8 +1,19 @@
-from typing import Optional, Dict
+from omegaconf import DictConfig, OmegaConf
 
-import os
-import json
-from omegaconf import DictConfig
+theme: DictConfig = OmegaConf.load('panda-syntax.yml')
+max_len_key = max(len(x) for x in theme.highlights)
+max_len_style = max(len(str(group.get('style', 'NONE')).upper()) for _, group in theme.highlights.items())
+
+for key, group in theme.highlights.items():
+    fg = str(group.get('fg', 'NONE')).upper()
+    bg = str(group.get('bg', 'NONE')).upper()
+    style = str(group.get('style', 'NONE')).upper()
+    key = key.ljust(max_len_key)
+    style = style.ljust(max_len_style)
+    line = f"hi {key} guifg={fg:7} guibg={bg:7} gui={style}"
+    print(line)
+
+quit()
 
 
 HEADER = """
