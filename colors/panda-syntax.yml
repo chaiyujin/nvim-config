@@ -34,7 +34,7 @@ hi:
   Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
   # hidden groups
   SignColumn    : {fg: '${black}',        bg: 'NONE'}
-  VertSplit     : {fg: '${black}',        bg: 'NONE'}
+  VertSplit     : {fg: '${grey_darker}',  bg: 'NONE'}
   NonText       : {fg: '${black}',        bg: 'NONE'}
   # cursor related
   Cursor        : {fg: 'NONE',            bg: '${red}'  }
@@ -48,7 +48,7 @@ hi:
   PmenuSbar     : {fg: 'NONE',            bg: '#3B4048'}
   PmenuThumb    : {fg: 'NONE',            bg: '#ABB2BF'}
   # Status Line
-  StatusLine    : {fg: '${white}',        bg: '${black_dark}', style: 'bold'}
+  StatusLine    : {fg: '${white}',        bg: '${black_dark}'}
   StatusLineNC  : {fg: '${white}',        bg: '${black_dark}'}
   # Cmdline and mssage area (neovim)
   MsgArea       : {fg: '${white}',        bg: '${black_dark}'}

@@ -12,7 +12,7 @@ hi Search                               guifg=#E6E6E6 guibg=#62679A gui=NONE
 hi IncSearch                            guifg=#E6E6E6 guibg=#62679A gui=NONE  
 hi Comment                              guifg=#676B79 guibg=NONE    gui=ITALIC
 hi SignColumn                           guifg=#292A2B guibg=NONE    gui=NONE  
-hi VertSplit                            guifg=#292A2B guibg=NONE    gui=NONE  
+hi VertSplit                            guifg=#676B79 guibg=NONE    gui=NONE  
 hi NonText                              guifg=#292A2B guibg=NONE    gui=NONE  
 hi Cursor                               guifg=NONE    guibg=#EC2864 gui=NONE  
 hi CursorLine                           guifg=NONE    guibg=#31353A gui=NONE  
@@ -23,7 +23,7 @@ hi Pmenu                                guifg=#CFD0D5 guibg=#333435 gui=NONE
 hi PmenuSel                             guifg=#232425 guibg=#7DC1FF gui=NONE  
 hi PmenuSbar                            guifg=NONE    guibg=#3B4048 gui=NONE  
 hi PmenuThumb                           guifg=NONE    guibg=#ABB2BF gui=NONE  
-hi StatusLine                           guifg=#E6E6E6 guibg=#232425 gui=BOLD  
+hi StatusLine                           guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi StatusLineNC                         guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi MsgArea                              guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi Constant                             guifg=#FFCC95 guibg=NONE    gui=NONE  

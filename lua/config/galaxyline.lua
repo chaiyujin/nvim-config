@@ -2,26 +2,9 @@ local gl = require('galaxyline')
 -- get my theme in galaxyline repo
 -- local colors = require('galaxyline.theme').default
 
--- fg='#E6E6E6',
--- bg='#292A2B',
--- string=dict(fg='#19f9d8', bg=None),
--- regexp=dict(fg='#6FC1FF', bg=None),
--- constant=dict(fg='#FFCC95', bg=None),
--- keyword=dict(fg='#FF75B5', bg=None),
--- variable=dict(fg='#E6E6E6', bg=None),
--- parameter=dict(fg='#BBBBBB', bg=None),
--- operator=dict(fg='#E6E6E6', bg=None),
--- storage=dict(fg='#FFCC95', bg=None),
--- error=dict(fg='#FF4B82', bg=None),
--- function=dict(fg='#B5EBC8', bg=None),
--- method=dict(fg='#6FC1FF', bg=None),
--- field=dict(fg='#E6E6E6', bg=None), 
--- property=dict(fg='#E6E6E6', bg=None),
--- tag=dict(fg='#7DC1FF', bg=None),
--- special=dict(fg='#FF9AC1', bg=None),
-
 local colors = {
-    bg = '#232425',
+    bg = '#292A2B',
+    bg_nc = '#232425',
     yellow = '#DCDCAA',
     cyan = '#19f9d8',
     green = '#608B4E',
@@ -284,26 +267,18 @@ gls.right[11] = {
 --                                                     Short line                                                     --
 -- ------------------------------------------------------------------------------------------------------------------ --
 
--- gls.short_line_left[1] = {
---     BufferType = {
---       provider = 'FileTypeName',
---       separator = ' ',
---       separator_highlight = {'NONE', colors.bg},
---       highlight = {colors.grey, colors.bg}
---     }
--- }
--- 
--- gls.short_line_left[2] = {
---     SFileName = {
---       provider = 'SFileName',
---       condition = condition.buffer_not_empty,
---       highlight = {colors.grey, colors.bg}
---     }
--- }
--- 
--- gls.short_line_right[3] = {
---     BufferIcon = {
---       provider = 'BufferIcon',
---       highlight = {colors.grey, colors.bg}
---     }
--- }
+gls.short_line_left[1] = {
+    SFileName = {
+      provider = 'SFileName',
+      condition = condition.buffer_not_empty,
+      highlight = {colors.grey, colors.bg_nc}
+    }
+}
+
+gls.short_line_right[1] = {
+    BufferIcon = {
+      provider = 'BufferIcon',
+      highlight = {colors.grey, colors.bg_nc}
+    }
+}
+
