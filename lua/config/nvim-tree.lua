@@ -24,7 +24,7 @@ vim.g.nvim_tree_auto_close = 1 -- 0 by default, closes the tree when it's the la
 vim.g.nvim_tree_auto_resize = 0 -- 1 by default, will resize the tree to its saved width when opening a file
 vim.g.nvim_tree_quit_on_open = 1 -- 0 by default, closes the tree when you open a file
 vim.g.nvim_tree_root_folder_modifier = ':t' -- ':~' is the default. See :help filename-modifiers for more options
-vim.g.nvim_tree_hijack_cursor = 1  -- 1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+vim.g.nvim_tree_hijack_cursor = 0  -- 1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
 vim.g.nvim_tree_update_cwd = 1  -- 0 by default, will update the tree cwd when changing nvim's directory (DirChanged event). Behaves strangely with autochdir set.
 
 vim.g.nvim_tree_ignore = {
