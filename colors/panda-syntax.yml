@@ -8,8 +8,11 @@ white       : '#E6E6E6'
 black       : '#292A2B'
 black_dark  : '#232425'
 black_light : '#31353a'
+black_vivid : '#42404C'
 grey        : '#BBBBBB'
 grey_dark   : '#757575'
+grey_darker : '#676B79'
+green       : '#81b88b'
 green_light : '#B5EBC8'
 cyan        : '#35FFDC'
 pink        : '#FF90D0'
@@ -18,22 +21,21 @@ red         : '#EC2864'
 red_error   : '#FF4B82'
 yellow      : '#FFCC95'  # '#FFB86C',
 blue        : '#7DC1FF'  # '#6FC1FF'
+blue_grey   : '#62679A'
 purple      : '#B084EB'
 
 # Groups
 highlights: ${hi}
 hi:
   Normal        : {fg: '${white}',        bg: '${black}'}
-  Visual        : {fg: 'NONE',            bg: '#42404c'}
-  Search        : {fg: 'NONE',            bg: '#62679A'}
-  IncSearch     : {fg: 'NONE',            bg: '#62679A'}
-  Comment       : {fg: '#676B79',         bg: 'NONE', style: 'italic'}
-
+  Visual        : {fg: 'NONE',            bg: '${black_vivid}'}
+  Search        : {fg: '${white}',        bg: '${blue_grey}'}
+  IncSearch     : {fg: '${white}',        bg: '${blue_grey}'}
+  Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
   # hidden groups
   SignColumn    : {fg: '${black}',        bg: 'NONE'}
   VertSplit     : {fg: '${black}',        bg: 'NONE'}
   NonText       : {fg: '${black}',        bg: 'NONE'}
-
   # cursor related
   Cursor        : {fg: 'NONE',            bg: '${red}'  }
   CursorLine    : {fg: 'NONE',            bg: '${black_light}'}
@@ -79,9 +81,12 @@ hi:
   StorageClass  : {fg: '${yellow}',       bg: 'NONE'}
   Structure     : {fg: '${yellow}',       bg: 'NONE'}
   Typedef       : {fg: '${pink_light}',   bg: 'NONE'}
+  # Files or Dirs
+  Directory     : {fg: '${cyan}',         bg: 'NONE'}
   # Misc
   Tag           : {fg: '${blue}',         bg: 'NONE'}
   Error         : {fg: '${red_error}',    bg: 'NONE'}
+  Special       : {fg: '${yellow}',       bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #
   # TreeSitter
@@ -110,27 +115,50 @@ hi:
   TSTag             : ${hi.Tag}
 
   # -------------------------------------------------------------------------- #
+  # Lsp
+  # -------------------------------------------------------------------------- #
+
+  LspDiagnosticsUnderlineHint          : {fg: '${grey_darker}', bg: 'NONE', style: 'italic'}
+  LspDiagnosticsSignError              : {fg: '${red_error}',   bg: 'NONE'}
+  LspDiagnosticsSignWarning            : {fg: '${yellow}',      bg: 'NONE'}
+  LspDiagnosticsSignInformation        : {fg: '${grey_darker}', bg: 'NONE', style: 'italic'}
+  LspDiagnosticsSignHint               : {fg: '${grey_darker}', bg: 'NONE', style: 'italic'}
+  LspDiagnosticsVirtualTextError       : {fg: '${red_error}',   bg: 'NONE'}
+  LspDiagnosticsVirtualTextWarning     : {fg: '${yellow}',      bg: 'NONE'}
+  LspDiagnosticsVirtualTextInformation : {fg: '${grey_darker}', bg: 'NONE', style: 'italic'}
+  LspDiagnosticsVirtualTextHint        : {fg: '${grey_darker}', bg: 'NONE', style: 'italic'}
+
+  # -------------------------------------------------------------------------- #
   # NvimTree
   # -------------------------------------------------------------------------- #
 
-  NvimTreeNormal      : {fg: 'NONE',    bg: '${black_dark}'}
-  NvimTreeImageFile   : {fg: '#b084eb', bg: 'NONE'}
-  NvimTreeGitDirty    : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeGitDeleted  : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeGitStaged   : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeGitMerge    : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeGitRenamed  : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeGitNew      : {fg: '#81b88b', bg: 'NONE'}
-  NvimTreeSymlink     : {fg: '#29b8d8', bg: 'NONE'}
-  NvimTreeRootFolder  : {fg: '#FFCC95', bg: 'NONE', style: 'bold'}
+  NvimTreeNormal            : {fg: 'NONE',            bg: '${black_dark}'}
+  # Files or Dirs
+  NvimTreeSymlink           : {fg: '${blue_grey}',    bg: 'NONE'}
+  NvimTreeRootFolder        : {fg: '${yellow}',       bg: 'NONE', style: 'bold'}
+  NvimTreeFolderIcon        : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeFolderName        : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeEmptyFolderName   : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeOpenedFolderName  : {fg: '${green_light}',  bg: 'NONE', style: 'bold'}
+  NvimTreeIndentMarker      : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeSpecialFile       : {fg: '${pink}',         bg: 'NONE'}
+  # NvimTreeExecFile          : {fg: '${cyan}',       bg: 'NONE'}
+  # NvimTreeOpenedFile        : {fg: '${cyan}',       bg: 'NONE'}
+  # Git
+  NvimTreeGitDirty          : {fg: '${yellow}',       bg: 'NONE'}
+  NvimTreeGitDeleted        : {fg: '${red_error}',    bg: 'NONE'}
+  NvimTreeGitStaged         : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeGitMerge          : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeGitRenamed        : {fg: '${blue}',         bg: 'NONE'}
+  NvimTreeGitNew            : {fg: '${cyan}',         bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #
   # GitSigns
   # -------------------------------------------------------------------------- #
 
-  GitSignsAdd    : {fg: '#19f9d8', bg: 'NONE'}
-  GitSignsChange : {fg: '#FFCC95', bg: 'NONE'}
-  GitSignsDelete : {fg: '#FF4B82', bg: 'NONE'}
+  GitSignsAdd    : {fg: '${cyan}',      bg: 'NONE'}
+  GitSignsChange : {fg: '${yellow}',    bg: 'NONE'}
+  GitSignsDelete : {fg: '${red_error}', bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #
   # Floaterm
