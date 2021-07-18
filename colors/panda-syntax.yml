@@ -33,6 +33,9 @@ hi:
   Search        : {fg: '${white}',        bg: '${blue_grey}'}
   IncSearch     : {fg: '${white}',        bg: '${blue_grey}'}
   Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
+  # TabLine
+  TabLineSel    : {fg: '${white}',        bg: '${black}'}
+  TabLineFill   : {fg: '${grey_darker}',  bg: '${black_dark}'}
   # hidden groups
   SignColumn    : {fg: '${black}',        bg: 'NONE'}
   VertSplit     : {fg: '${black_dark}',   bg: '${black_dark}'}
@@ -87,7 +90,8 @@ hi:
   # Misc
   Tag           : {fg: '${blue}',         bg: 'NONE'}
   Error         : {fg: '${red_error}',    bg: 'NONE'}
-  Special       : {fg: '${yellow}',       bg: 'NONE'}
+  WarningMsg    : {fg: '${yellow}',       bg: 'NONE'}
+  Special       : {fg: '${pink}',         bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #
   # TreeSitter
