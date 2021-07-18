@@ -7,12 +7,12 @@ info:
 white       : '#E6E6E6'
 black       : '#292A2B'
 black_dark  : '#232425'
-black_light : '#31353a'
+black_light : '#31353A'
 black_vivid : '#42404C'
 grey        : '#BBBBBB'
 grey_dark   : '#757575'
 grey_darker : '#676B79'
-green       : '#81b88b'
+green       : '#81B88B'
 green_light : '#B5EBC8'
 cyan        : '#35FFDC'
 pink        : '#FF90D0'
@@ -98,6 +98,8 @@ hi:
   # -------------------------------------------------------------------------- #
 
   TSParameter       : {fg: '${grey}',         bg: 'NONE'}
+  TSOperator        : {fg: '${white}',        bg: 'NONE'}
+  TSKeywordOperator : {fg: '${pink_light}',   bg: 'NONE'}
   TSStringRegex     : {fg: '${green_light}',  bg: 'NONE'}
   TSString          : {fg: '${cyan}',         bg: 'NONE'}
   TSStringEscape    : {fg: '${yellow}',       bg: 'NONE'}
@@ -155,13 +157,13 @@ hi:
   NvimTreeGitStaged         : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeGitMerge          : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeGitRenamed        : {fg: '${blue}',         bg: 'NONE'}
-  NvimTreeGitNew            : {fg: '${cyan}',         bg: 'NONE'}
+  NvimTreeGitNew            : {fg: '${green}',        bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #
   # GitSigns
   # -------------------------------------------------------------------------- #
 
-  GitSignsAdd    : {fg: '${cyan}',      bg: 'NONE'}
+  GitSignsAdd    : {fg: '${green}',     bg: 'NONE'}
   GitSignsChange : {fg: '${yellow}',    bg: 'NONE'}
   GitSignsDelete : {fg: '${red_error}', bg: 'NONE'}
 

@@ -59,6 +59,8 @@ hi Error                                guifg=#FF4B82 guibg=NONE    gui=NONE
 hi WarningMsg                           guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi Special                              guifg=#FF90D0 guibg=NONE    gui=NONE  
 hi TSParameter                          guifg=#BBBBBB guibg=NONE    gui=NONE  
+hi TSOperator                           guifg=#E6E6E6 guibg=NONE    gui=NONE  
+hi TSKeywordOperator                    guifg=#FF9AC1 guibg=NONE    gui=NONE  
 hi TSStringRegex                        guifg=#B5EBC8 guibg=NONE    gui=NONE  
 hi TSString                             guifg=#35FFDC guibg=NONE    gui=NONE  
 hi TSStringEscape                       guifg=#FFCC95 guibg=NONE    gui=NONE  
@@ -102,7 +104,7 @@ hi NvimTreeGitDeleted                   guifg=#FF4B82 guibg=NONE    gui=NONE
 hi NvimTreeGitStaged                    guifg=#B5EBC8 guibg=NONE    gui=NONE  
 hi NvimTreeGitMerge                     guifg=#B5EBC8 guibg=NONE    gui=NONE  
 hi NvimTreeGitRenamed                   guifg=#7DC1FF guibg=NONE    gui=NONE  
-hi NvimTreeGitNew                       guifg=#35FFDC guibg=NONE    gui=NONE  
-hi GitSignsAdd                          guifg=#35FFDC guibg=NONE    gui=NONE  
+hi NvimTreeGitNew                       guifg=#81B88B guibg=NONE    gui=NONE  
+hi GitSignsAdd                          guifg=#81B88B guibg=NONE    gui=NONE  
 hi GitSignsChange                       guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi GitSignsDelete                       guifg=#FF4B82 guibg=NONE    gui=NONE  

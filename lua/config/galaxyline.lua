@@ -2,21 +2,41 @@ local gl = require('galaxyline')
 -- get my theme in galaxyline repo
 -- local colors = require('galaxyline.theme').default
 
+-- # Palette
+-- white       : '#E6E6E6'
+-- black       : '#292A2B'
+-- black_dark  : '#232425'
+-- black_light : '#31353A'
+-- black_vivid : '#42404C'
+-- grey        : '#BBBBBB'
+-- grey_dark   : '#757575'
+-- grey_darker : '#676B79'
+-- green       : '#81B88B'
+-- green_light : '#B5EBC8'
+-- cyan        : '#35FFDC'
+-- pink        : '#FF90D0'
+-- pink_light  : '#FF9AC1'
+-- red         : '#EC2864'
+-- red_error   : '#FF4B82'
+-- yellow      : '#FFCC95'  # '#FFB86C',
+-- blue        : '#7DC1FF'  # '#6FC1FF'
+-- blue_grey   : '#62679A'
+-- purple      : '#B084EB'
+
 local colors = {
     bg = '#292A2B',
     bg_nc = '#232425',
-    yellow = '#DCDCAA',
-    cyan = '#19f9d8',
-    green = '#608B4E',
-    light_green = '#B5EBC8',
-    orange = '#FF8800',
-    purple = '#FF9AC1',
     grey = '#BBBBBB',
     grey_darker = '#676B79',
-    blue = '#6FC1FF',
-    red = '#D16969',
+    yellow = '#FFCC95',
+    purple = '#B084EB',
+    cyan = '#19f9d8',
+    green = '#81B88B',
+    green_light = '#B5EBC8',
+    pink = '#FF9AC1',
+    blue = '#7DC1FF',
+    red = '#EC2864',
     error_red = '#FF4B82',
-    info_yellow = '#FFCC95'
 }
 local condition = require('galaxyline.condition')
 local gls = gl.section
@@ -47,15 +67,15 @@ end
 
 local modes = {
     [ "n" ] = {colors.blue, "Normal", ""},
-    [ "i" ] = {colors.green, "Insert", ""},
-    [ "v" ] = {colors.purple, "Visual", ""},
-    [""] = {colors.purple, "Visual Block", ""},
-    [ "V" ] = {colors.purple, "Visual Line", ""},
-    [ "c" ] = {colors.light_green, "Command", ""},
+    [ "i" ] = {colors.green_light, "Insert", ""},
+    [ "v" ] = {colors.pink, "Visual", ""},
+    [""] = {colors.pink, "Visual Block", ""},
+    [ "V" ] = {colors.pink, "Visual Line", ""},
+    [ "c" ] = {colors.green_light, "Command", ""},
     [ "no" ] = {colors.blue, "MODE", ""},
-    [ "s" ] = {colors.orange, "MODE", ""},
-    [ "S" ] = {colors.orange, "MODE", ""},
-    [""] = {colors.orange, "MODE", ""},
+    [ "s" ] = {colors.purple, "MODE", ""},
+    [ "S" ] = {colors.purple, "MODE", ""},
+    [""] = {colors.purple, "MODE", ""},
     [ "ic" ] = {colors.yellow, "MODE", ""},
     [ "R" ] = {colors.red, "MODE", ""},
     [ "Rv" ] = {colors.red, "MODE", ""},
@@ -90,7 +110,7 @@ gls.left[2] = {
       condition = condition.check_git_workspace,
       separator = ' ',
       separator_highlight = {'NONE', colors.bg},
-      highlight = {colors.orange, colors.bg}
+      highlight = {colors.pink, colors.bg}
     }
 }
 
@@ -170,7 +190,7 @@ gls.right[2] = {
     DiagnosticWarn = {
       provider = 'DiagnosticWarn',
       icon = '  ',
-      highlight = {colors.orange, colors.bg}
+      highlight = {colors.yellow, colors.bg}
     }
 }
 
@@ -186,7 +206,7 @@ gls.right[4] = {
     DiagnosticInfo = {
       provider = 'DiagnosticInfo',
       icon = '  ',
-      highlight = {colors.info_yellow, colors.bg}
+      highlight = {colors.green, colors.bg}
     }
 }
 
@@ -260,7 +280,7 @@ gls.right[11] = {
       end,
       separator = ' ',
       separator_highlight = {'NONE', colors.bg},
-      highlight = {colors.orange, colors.bg}
+      highlight = {colors.purple, colors.bg}
     }
 }
 
