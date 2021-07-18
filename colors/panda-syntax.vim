@@ -7,17 +7,18 @@ let g:colors_name='panda-syntax'
 set background=dark
 
 hi Normal                               guifg=#E6E6E6 guibg=#292A2B gui=NONE  
+hi NormalNC                             guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi Visual                               guifg=NONE    guibg=#42404C gui=NONE  
 hi Search                               guifg=#E6E6E6 guibg=#62679A gui=NONE  
 hi IncSearch                            guifg=#E6E6E6 guibg=#62679A gui=NONE  
 hi Comment                              guifg=#676B79 guibg=NONE    gui=ITALIC
 hi SignColumn                           guifg=#292A2B guibg=NONE    gui=NONE  
-hi VertSplit                            guifg=#676B79 guibg=NONE    gui=NONE  
+hi VertSplit                            guifg=#232425 guibg=#232425 gui=NONE  
 hi NonText                              guifg=#292A2B guibg=NONE    gui=NONE  
 hi Cursor                               guifg=NONE    guibg=#EC2864 gui=NONE  
 hi CursorLine                           guifg=NONE    guibg=#31353A gui=NONE  
 hi CursorLineNr                         guifg=#757575 guibg=#31353A gui=NONE  
-hi LineNr                               guifg=#757575 guibg=#292A2B gui=NONE  
+hi LineNr                               guifg=#757575 guibg=NONE    gui=NONE  
 hi MatchParen                           guifg=NONE    guibg=#EC2864 gui=NONE  
 hi Pmenu                                guifg=#CFD0D5 guibg=#333435 gui=NONE  
 hi PmenuSel                             guifg=#232425 guibg=#7DC1FF gui=NONE  
@@ -102,5 +103,3 @@ hi NvimTreeGitNew                       guifg=#35FFDC guibg=NONE    gui=NONE
 hi GitSignsAdd                          guifg=#35FFDC guibg=NONE    gui=NONE  
 hi GitSignsChange                       guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi GitSignsDelete                       guifg=#FF4B82 guibg=NONE    gui=NONE  
-hi Floaterm                             guifg=NONE    guibg=#232425 gui=NONE  
-hi FloatermNC                           guifg=NONE    guibg=#232425 gui=NONE  

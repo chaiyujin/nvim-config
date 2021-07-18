@@ -12,6 +12,7 @@ local colors = {
     orange = '#FF8800',
     purple = '#FF9AC1',
     grey = '#BBBBBB',
+    grey_darker = '#676B79',
     blue = '#6FC1FF',
     red = '#D16969',
     error_red = '#FF4B82',
@@ -271,14 +272,14 @@ gls.short_line_left[1] = {
     SFileName = {
       provider = 'SFileName',
       condition = condition.buffer_not_empty,
-      highlight = {colors.grey, colors.bg_nc}
+      highlight = {colors.grey_darker, colors.bg_nc}
     }
 }
 
 gls.short_line_right[1] = {
     BufferIcon = {
       provider = 'BufferIcon',
-      highlight = {colors.grey, colors.bg_nc}
+      highlight = {colors.grey_darker, colors.bg_nc}
     }
 }
 

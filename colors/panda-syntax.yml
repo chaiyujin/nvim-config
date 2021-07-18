@@ -28,19 +28,20 @@ purple      : '#B084EB'
 highlights: ${hi}
 hi:
   Normal        : {fg: '${white}',        bg: '${black}'}
+  NormalNC      : {fg: '${white}',        bg: '${black_dark}'}
   Visual        : {fg: 'NONE',            bg: '${black_vivid}'}
   Search        : {fg: '${white}',        bg: '${blue_grey}'}
   IncSearch     : {fg: '${white}',        bg: '${blue_grey}'}
   Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
   # hidden groups
   SignColumn    : {fg: '${black}',        bg: 'NONE'}
-  VertSplit     : {fg: '${grey_darker}',  bg: 'NONE'}
+  VertSplit     : {fg: '${black_dark}',   bg: '${black_dark}'}
   NonText       : {fg: '${black}',        bg: 'NONE'}
   # cursor related
   Cursor        : {fg: 'NONE',            bg: '${red}'  }
   CursorLine    : {fg: 'NONE',            bg: '${black_light}'}
   CursorLineNr  : {fg: '${grey_dark}',    bg: '${black_light}'}
-  LineNr        : {fg: '${grey_dark}',    bg: '${black}'}
+  LineNr        : {fg: '${grey_dark}',    bg: 'NONE'}
   MatchParen    : {fg: 'NONE',            bg: '${hi.Cursor.bg}'}  # current cursor match bracket
   # Pmenu
   Pmenu         : {fg: '#CFD0D5',         bg: '#333435'}
@@ -164,6 +165,6 @@ hi:
   # Floaterm
   # -------------------------------------------------------------------------- #
 
-  Floaterm   : {fg: 'NONE', bg: '${black_dark}'}
-  FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
+  # Floaterm   : {fg: 'NONE', bg: '${black_dark}'}
+  # FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
  
