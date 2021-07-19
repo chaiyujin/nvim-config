@@ -30,7 +30,7 @@ hi NormalFloat                          guifg=#CFD0D5 guibg=#333435 gui=NONE
 hi FloatBorder                          guifg=#81B88B guibg=#333435 gui=NONE  
 hi StatusLine                           guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi StatusLineNC                         guifg=#E6E6E6 guibg=#232425 gui=NONE  
-hi MsgArea                              guifg=#E6E6E6 guibg=#232425 gui=NONE  
+hi MsgArea                              guifg=#E6E6E6 guibg=#31353A gui=NONE  
 hi Constant                             guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi Number                               guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi Boolean                              guifg=#FFCC95 guibg=NONE    gui=NONE  

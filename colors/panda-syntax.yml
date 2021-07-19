@@ -71,7 +71,7 @@ hi:
   StatusLine    : {fg: '${white}',        bg: '${black_dark}'}
   StatusLineNC  : {fg: '${white}',        bg: '${black_dark}'}
   # Cmdline and mssage area (neovim)
-  MsgArea       : {fg: '${white}',        bg: '${black_dark}'}
+  MsgArea       : {fg: '${white}',        bg: '${black_light}'}
   # Constant
   Constant      : {fg: '${yellow}',       bg: 'NONE'}
   Number        : {fg: '${yellow}',       bg: 'NONE'}
