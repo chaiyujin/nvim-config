@@ -11,6 +11,38 @@ set background={}
 
 """
 
+def _hex_to_int(hex):
+    if hex[0] == '#':
+        hex = hex[1:]
+    return int(hex, 16)
+
+
+def _int_to_hex(value):
+    return f'{value:X}'
+
+
+def _get_color(color):
+    if color.find('-') >= 0:
+        c0, c1 = color.split('-')
+        c = _hex_to_int(c0) - _hex_to_int(c1)
+        color = '#' + _int_to_hex(c)
+    elif color.find('+') >= 0:
+        c0, c1 = color.split('+')
+        c = _hex_to_int(c0) + _hex_to_int(c1)
+        color = '#' + _int_to_hex(c)
+    elif color.find('*') >= 0:
+        c, factor = color.split('*')
+        factor = float(factor)
+        r, g, b = _hex_to_int(c[1:3]), _hex_to_int(c[3:5]), _hex_to_int(c[5:7])
+        r = min(int(r * factor), 255)
+        g = min(int(g * factor), 255)
+        b = min(int(b * factor), 255)
+        color = '#' + _int_to_hex(r) + _int_to_hex(g) + _int_to_hex(b)
+
+    color = color.upper()
+    assert color == 'NONE' or (color[0] == '#' and len(color) == 7)
+    return color
+
 
 def yaml_to_vim(source_yaml, target_vim):
     theme: DictConfig = OmegaConf.load(source_yaml)
@@ -19,8 +51,8 @@ def yaml_to_vim(source_yaml, target_vim):
 
     lines = []
     for key, group in theme.highlights.items():
-        fg = str(group.get('fg', 'NONE')).upper()
-        bg = str(group.get('bg', 'NONE')).upper()
+        fg = _get_color(group.get('fg', 'NONE'))
+        bg = _get_color(group.get('bg', 'NONE'))
         style = str(group.get('style', 'NONE')).upper()
         key = key.ljust(max_len_key)
         style = style.ljust(max_len_style)

@@ -39,7 +39,7 @@ tree.toggle = function()
     local width = view.View.width
     if package.loaded["bufferline.state"] then
       -- Extra 1 char for VertSplit
-      require("bufferline.state").set_offset(width + 1, "")
+      require("bufferline.state").set_offset(width + 1, "FILE EXPLORER")
     end
   end
 end

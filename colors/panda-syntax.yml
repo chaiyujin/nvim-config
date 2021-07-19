@@ -23,6 +23,12 @@ yellow      : '#FFCC95'  # '#FFB86C',
 blue        : '#7DC1FF'  # '#6FC1FF'
 blue_grey   : '#62679A'
 purple      : '#B084EB'
+# Diff Color
+I           : '#111111'
+II          : '#222222'
+III         : '#333333'
+IV          : '#444444'
+V           : '#555555'
 
 # palette for popup and float
 float_white : '#CFD0D5'
@@ -157,7 +163,7 @@ hi:
   NvimTreeFolderName        : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeEmptyFolderName   : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeOpenedFolderName  : {fg: '${green_light}',  bg: 'NONE', style: 'bold'}
-  NvimTreeIndentMarker      : {fg: '${green_light}',  bg: 'NONE'}
+  NvimTreeIndentMarker      : {fg: '${grey}',         bg: 'NONE'}
   NvimTreeSpecialFile       : {fg: '${pink}',         bg: 'NONE'}
   # NvimTreeExecFile          : {fg: '${cyan}',       bg: 'NONE'}
   # NvimTreeOpenedFile        : {fg: '${cyan}',       bg: 'NONE'}
@@ -183,4 +189,27 @@ hi:
 
   Floaterm   : {fg: 'NONE', bg: '${black}'}
   FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
- 
+
+  # -------------------------------------------------------------------------- #
+  # Barbar
+  # -------------------------------------------------------------------------- #
+
+  BufferCurrent:        {fg: '${white}',        bg: '${black}'}
+  BufferCurrentIndex:   {fg: '${green_light}',  bg: '${black}'}
+  BufferCurrentMod:     {fg: '${yellow}',       bg: '${black}'}
+  BufferCurrentSign:    {fg: '${pink}',         bg: '${black}'}
+  BufferCurrentTarget:  {fg: '${blue}',         bg: '${black}', style: 'bold'}
+  BufferVisible:        {fg: '${white}*0.8',    bg: '${black_dark}'}
+  BufferVisibleIndex:   {fg: '${green_light}*0.8', bg: '${black_dark}'}
+  BufferVisibleMod:     {fg: '${yellow}*0.8',   bg: '${black_dark}'}
+  BufferVisibleSign:    {fg: '${pink}*0.8',     bg: '${black_dark}'}
+  BufferVisibleTarget:  {fg: '${blue}*0.8',     bg: '${black_dark}', style: 'bold'}
+  BufferInactive:       {fg: '${grey_darker}',  bg: '${black_dark}'}
+  BufferInactiveIndex:  {fg: '${grey_dark}',    bg: '${black_dark}'}
+  BufferInactiveMod:    {fg: '${yellow}*0.5',   bg: '${black_dark}'}
+  BufferInactiveSign:   {fg: '${grey}*0.8',     bg: '${black_dark}'}
+  BufferInactiveTarget: {fg: '${blue}*0.8',     bg: '${black_dark}'}
+  BufferTabpages:       {fg: '${pink}',         bg: '${black_dark}'}
+  BufferTabpageFill:    {fg: '${grey}',         bg: '${black_dark}'}
+  BufferOffset:         {fg: '${grey}',         bg: '${black_dark}'}
+

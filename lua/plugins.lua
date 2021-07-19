@@ -32,11 +32,8 @@ return require("packer").startup(function (use)
     use {"kyazdani42/nvim-web-devicons"}
     use {"kyazdani42/nvim-tree.lua"}
     use {"ahmedkhalf/lsp-rooter.nvim", config=function() require'lsp-rooter'.setup() end} -- with this nvim-tree will follow you
-    -- use {"kevinhwang91/rnvimr"}
 
     -- terminal
-    -- use {"akinsho/nvim-toggleterm.lua"}
-    -- use {"numtostr/FTerm.nvim"}
     use {"voldikss/vim-floaterm"}
 
     -- git
@@ -48,13 +45,9 @@ return require("packer").startup(function (use)
     use {"glepnir/galaxyline.nvim"}
 
     -- Colorschemes
-    -- use {"christianchiarulli/nvcode-color-schemes.vim"}
-    -- use {"sunjon/shade.nvim", config=function() require'shade'.setup({overlay_opacity = 20}) end}
     use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
-    -- use {"projekt0n/github-nvim-theme"}
 
     -- indentline
-    -- use {"lukas-reineke/indent-blankline.nvim"}
     use {"Yggdroot/indentLine"}
 
     -- which key
@@ -68,7 +61,6 @@ return require("packer").startup(function (use)
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
     -- input
-    -- use {"rlue/vim-barbaric"}
     use {"kevinhwang91/vim-ibus-sw"}
 
     -- config plugins
@@ -85,8 +77,6 @@ return require("packer").startup(function (use)
     require("config.indentLine")
     require("config.which-key")
     require("config.dashboard")
-    -- require("config.vim-barbaric")
-    -- require("config.github-theme")
     require("config.diffview")
 
     -- config lsp servers

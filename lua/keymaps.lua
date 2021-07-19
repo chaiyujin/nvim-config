@@ -44,6 +44,8 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true,
 
 -- nvim-tree
 vim.api.nvim_set_keymap('n', '<A-e>',   ":lua require'file-explorer'.toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-e>',   "<Esc>:lua require'file-explorer'.toggle()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<A-e>',   "<C-\\><C-n>:lua require'file-explorer'.toggle()<CR>", { noremap = true, silent = true })
 
 -- barbar: Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>',   ':BufferNext<CR>',     { noremap = true, silent = true })
