@@ -48,14 +48,18 @@ vim.api.nvim_set_keymap('i', '<A-e>',   "<Esc>:lua require'file-explorer'.toggle
 vim.api.nvim_set_keymap('t', '<A-e>',   "<C-\\><C-n>:lua require'file-explorer'.toggle()<CR>", { noremap = true, silent = true })
 
 -- barbar: Tab switch buffer
-vim.api.nvim_set_keymap('n', '<TAB>',   ':BufferNext<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<S-x>',   ':BufferClose<CR>',    { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-.>',   ':BufferNext<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-,>',   ':BufferPrevious<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<A-q>',   ':BufferClose<CR>',    { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<A-.>',   '<Esc>:BufferNext<CR>',     { noremap = true, silent = true })
-vim.api.nvim_set_keymap('i', '<A-,>',   '<Esc>:BufferPrevious<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<TAB>',   ':BufferNext<CR>',     { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<S-x>',   ':BufferClose<CR>',    { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-q>',     ':BufferClose<CR>',             { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-.>',     ':BufferNext<CR>',              { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-,>',     ':BufferPrevious<CR>',          { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-.>',     '<Esc>:BufferNext<CR>',         { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-,>',     '<Esc>:BufferPrevious<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-Right>', ':BufferMoveNext<CR>',          { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-Left>',  ':BufferMovePrevious<CR>',      { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-Right>', '<Esc>:BufferMoveNext<CR>',     { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', '<A-Left>',  '<Esc>:BufferMovePrevious<CR>', { noremap = true, silent = true })
 
 -- CommentToggle, besides gc/gcc
 vim.api.nvim_set_keymap('n', '<Leader>k', ':CommentToggle<CR>', {noremap = true, silent = true})
