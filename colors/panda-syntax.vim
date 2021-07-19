@@ -26,6 +26,8 @@ hi Pmenu                                guifg=#CFD0D5 guibg=#333435 gui=NONE
 hi PmenuSel                             guifg=#232425 guibg=#7DC1FF gui=NONE  
 hi PmenuSbar                            guifg=NONE    guibg=#3B4048 gui=NONE  
 hi PmenuThumb                           guifg=NONE    guibg=#ABB2BF gui=NONE  
+hi NormalFloat                          guifg=#CFD0D5 guibg=#333435 gui=NONE  
+hi FloatBorder                          guifg=#81B88B guibg=#333435 gui=NONE  
 hi StatusLine                           guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi StatusLineNC                         guifg=#E6E6E6 guibg=#232425 gui=NONE  
 hi MsgArea                              guifg=#E6E6E6 guibg=#232425 gui=NONE  
@@ -108,3 +110,5 @@ hi NvimTreeGitNew                       guifg=#81B88B guibg=NONE    gui=NONE
 hi GitSignsAdd                          guifg=#81B88B guibg=NONE    gui=NONE  
 hi GitSignsChange                       guifg=#FFCC95 guibg=NONE    gui=NONE  
 hi GitSignsDelete                       guifg=#FF4B82 guibg=NONE    gui=NONE  
+hi Floaterm                             guifg=NONE    guibg=#292A2B gui=NONE  
+hi FloatermNC                           guifg=NONE    guibg=#232425 gui=NONE  

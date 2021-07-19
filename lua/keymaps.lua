@@ -43,7 +43,7 @@ vim.api.nvim_set_keymap('n', '<Leader>h', ':set hlsearch!<CR>', {noremap = true,
 -- ------------------------------------------------------------------------------------------------------------------ --
 
 -- nvim-tree
-vim.api.nvim_set_keymap('n', '<A-e>',   ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<A-e>',   ":lua require'file-explorer'.toggle()<CR>", { noremap = true, silent = true })
 
 -- barbar: Tab switch buffer
 vim.api.nvim_set_keymap('n', '<TAB>',   ':BufferNext<CR>',     { noremap = true, silent = true })
@@ -63,10 +63,17 @@ vim.api.nvim_set_keymap('v', '<Leader>k', ':CommentToggle<CR>', {noremap = true,
 vim.api.nvim_set_keymap('i', '<Tab>',   'pumvisible() ? "\\<C-n>" : "\\<Tab>"',   {noremap = true, expr = true})
 vim.api.nvim_set_keymap('i', '<S-Tab>', 'pumvisible() ? "\\<C-p>" : "\\<S-Tab>"', {noremap = true, expr = true})
 
--- FTerm
+-- Floaterm
 vim.api.nvim_set_keymap('n', '<C-j>',     ':FloatermToggle<CR>',            { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<C-j>',     '<C-\\><C-n>:FloatermToggle<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<C-j>',     '<CMD>lua require("FTerm").toggle()<CR>',            { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('t', '<C-j>',     '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('n', '<Leader>j', '<CMD>lua require("FTerm").toggle()<CR>',            { noremap = true, silent = true })
--- vim.api.nvim_set_keymap('t', '<Leader>j', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { noremap = true, silent = true })
+
+-- Dashboard
+vim.api.nvim_set_keymap('n', '<Leader>ss',     ':<C-u>SessionSave<CR>', { noremap = false, silent = false })
+vim.api.nvim_set_keymap('n', '<Leader>sl',     ':<C-u>SessionLoad<CR>', { noremap = false, silent = false })
+-- nnoremap <silent> <Leader>fh :DashboardFindHistory<CR>
+-- nnoremap <silent> <Leader>ff :DashboardFindFile<CR>
+-- nnoremap <silent> <Leader>tc :DashboardChangeColorscheme<CR>
+-- nnoremap <silent> <Leader>fa :DashboardFindWord<CR>
+-- nnoremap <silent> <Leader>fb :DashboardJumpMark<CR>
+-- nnoremap <silent> <Leader>cn :DashboardNewFile<CR>
+

@@ -24,6 +24,13 @@ blue        : '#7DC1FF'  # '#6FC1FF'
 blue_grey   : '#62679A'
 purple      : '#B084EB'
 
+# palette for popup and float
+float_white : '#CFD0D5'
+float_black : '#333435'
+float_dark  : '#232425'
+float_vivid : '#3B4048'
+float_grey  : '#ABB2BF'
+
 # Groups
 highlights: ${hi}
 hi:
@@ -47,10 +54,13 @@ hi:
   LineNr        : {fg: '${grey_dark}',    bg: 'NONE'}
   MatchParen    : {fg: 'NONE',            bg: '${hi.Cursor.bg}'}  # current cursor match bracket
   # Pmenu
-  Pmenu         : {fg: '#CFD0D5',         bg: '#333435'}
-  PmenuSel      : {fg: '${black_dark}',   bg: '${blue}'}
-  PmenuSbar     : {fg: 'NONE',            bg: '#3B4048'}
-  PmenuThumb    : {fg: 'NONE',            bg: '#ABB2BF'}
+  Pmenu         : {fg: '${float_white}',  bg: '${float_black}'}
+  PmenuSel      : {fg: '${float_dark}',   bg: '${blue}'}
+  PmenuSbar     : {fg: 'NONE',            bg: '${float_vivid}'}
+  PmenuThumb    : {fg: 'NONE',            bg: '${float_grey}'}
+  # Float
+  NormalFloat   : {fg: '${float_white}',  bg: '${float_black}'}
+  FloatBorder   : {fg: '${green}',  bg: '${float_black}'}
   # Status Line
   StatusLine    : {fg: '${white}',        bg: '${black_dark}'}
   StatusLineNC  : {fg: '${white}',        bg: '${black_dark}'}
@@ -171,6 +181,6 @@ hi:
   # Floaterm
   # -------------------------------------------------------------------------- #
 
-  # Floaterm   : {fg: 'NONE', bg: '${black_dark}'}
-  # FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
+  Floaterm   : {fg: 'NONE', bg: '${black}'}
+  FloatermNC : {fg: 'NONE', bg: '${black_dark}'}
  

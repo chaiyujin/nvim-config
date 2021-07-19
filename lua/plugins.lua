@@ -60,6 +60,10 @@ return require("packer").startup(function (use)
     -- which key
     use {"folke/which-key.nvim"}
 
+    -- dashboard
+    use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
+    use {"glepnir/dashboard-nvim", requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {"nvim-telescope/telescope.nvim"}}}
+
     -- markdown
     use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
@@ -74,22 +78,21 @@ return require("packer").startup(function (use)
     require("config.nvim-autopairs")
 
     require("config.nvim-tree")
-    -- require("config.rnvimr")
-    -- require("config.nvim-toggleterm")
-    -- require("config.FTerm")
     require("config.vim-floaterm")
     require("config.barbar")
     require("config.galaxyline")
     require("config.nvim-comment")
     require("config.indentLine")
     require("config.which-key")
+    require("config.dashboard")
     -- require("config.vim-barbaric")
     -- require("config.github-theme")
     require("config.diffview")
 
     -- config lsp servers
     require("config.lsp-servers.python")
-
+    
+    -- playground for debug treesitter
     require "nvim-treesitter.configs".setup {
       playground = {
         enable = true,
