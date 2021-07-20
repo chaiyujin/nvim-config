@@ -45,7 +45,6 @@ hi:
   Visual        : {fg: 'NONE',            bg: '${black_vivid}'}
   Search        : {fg: '${white}',        bg: '${blue_grey}'}
   IncSearch     : {fg: '${white}',        bg: '${blue_grey}'}
-  Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
   # TabLine
   TabLineSel    : {fg: '${white}',        bg: '${black}'}
   TabLineFill   : {fg: '${grey_darker}',  bg: '${black_dark}'}
@@ -107,6 +106,8 @@ hi:
   Tag           : {fg: '${blue}',         bg: 'NONE'}
   Error         : {fg: '${red_error}',    bg: 'NONE'}
   WarningMsg    : {fg: '${yellow}',       bg: 'NONE'}
+  Comment       : {fg: '${grey_darker}',  bg: 'NONE', style: 'italic'}
+  Title         : {fg: '${pink}',         bg: 'NONE', style: 'bold'}
   Special       : {fg: '${pink}',         bg: 'NONE'}
 
   # -------------------------------------------------------------------------- #

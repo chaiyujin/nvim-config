@@ -11,7 +11,6 @@ hi NormalNC                             guifg=#E6E6E6 guibg=#232425 gui=NONE
 hi Visual                               guifg=NONE    guibg=#42404C gui=NONE  
 hi Search                               guifg=#E6E6E6 guibg=#62679A gui=NONE  
 hi IncSearch                            guifg=#E6E6E6 guibg=#62679A gui=NONE  
-hi Comment                              guifg=#676B79 guibg=NONE    gui=ITALIC
 hi TabLineSel                           guifg=#E6E6E6 guibg=#292A2B gui=NONE  
 hi TabLineFill                          guifg=#676B79 guibg=#232425 gui=NONE  
 hi SignColumn                           guifg=#292A2B guibg=NONE    gui=NONE  
@@ -59,6 +58,8 @@ hi Directory                            guifg=#35FFDC guibg=NONE    gui=NONE
 hi Tag                                  guifg=#7DC1FF guibg=NONE    gui=NONE  
 hi Error                                guifg=#FF4B82 guibg=NONE    gui=NONE  
 hi WarningMsg                           guifg=#FFCC95 guibg=NONE    gui=NONE  
+hi Comment                              guifg=#676B79 guibg=NONE    gui=ITALIC
+hi Title                                guifg=#FF90D0 guibg=NONE    gui=BOLD  
 hi Special                              guifg=#FF90D0 guibg=NONE    gui=NONE  
 hi TSParameter                          guifg=#BBBBBB guibg=NONE    gui=NONE  
 hi TSOperator                           guifg=#E6E6E6 guibg=NONE    gui=NONE  

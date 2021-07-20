@@ -19,6 +19,7 @@ vim.o.termguicolors = true -- set term gui colors most terminals support this
 vim.o.cmdheight = O.cmdheight
 vim.o.pumheight = O.pumheight
 vim.o.guifont = O.guifont
+vim.o.conceallevel = 0
 
 vim.wo.wrap = false -- always in one line
 vim.wo.number = true -- set numbered lines

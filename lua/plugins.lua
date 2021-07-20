@@ -4,7 +4,6 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
     vim.api.nvim_command "packadd packer.nvim"
 end
-
 -- Auto compile when there are changes in plugins.lua
 vim.cmd "autocmd BufWritePost plugins.lua PackerCompile"
 
@@ -62,6 +61,11 @@ return require("packer").startup(function (use)
 
     -- input
     use {"kevinhwang91/vim-ibus-sw"}
+
+    -- latex
+    use {"lervag/vimtex", opt = true, config = function()
+      require("config.vimtex")
+    end}
 
     -- config plugins
     require("config.lsp")
