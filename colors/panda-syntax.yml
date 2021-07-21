@@ -17,8 +17,8 @@ green_light : '#B5EBC8'
 cyan        : '#35FFDC'
 pink        : '#FF90D0'
 pink_light  : '#FF9AC1'
-red         : '#EC2864'
-red_error   : '#FF4B82'
+red         : '#FF4B82'
+red_error   : '#EC2864'
 yellow      : '#FFCC95'  # '#FFB86C',
 blue        : '#7DC1FF'  # '#6FC1FF'
 blue_grey   : '#62679A'
@@ -53,11 +53,11 @@ hi:
   VertSplit     : {fg: '${black_dark}',   bg: '${black_dark}'}
   NonText       : {fg: '${black}',        bg: 'NONE'}
   # cursor related
-  Cursor        : {fg: 'NONE',            bg: '${red}'  }
+  Cursor        : {fg: '${white}',        bg: '${red}'  }
   CursorLine    : {fg: 'NONE',            bg: '${black_light}'}
   CursorLineNr  : {fg: '${grey_dark}',    bg: '${black_light}'}
   LineNr        : {fg: '${grey_dark}',    bg: 'NONE'}
-  MatchParen    : {fg: 'NONE',            bg: '${hi.Cursor.bg}'}  # current cursor match bracket
+  MatchParen    : {fg: '${hi.Cursor.fg}', bg: '${hi.Cursor.bg}', style: 'underline'}  # current cursor match bracket
   # Pmenu
   Pmenu         : {fg: '${float_white}',  bg: '${float_black}'}
   PmenuSel      : {fg: '${float_dark}',   bg: '${blue}'}
@@ -157,6 +157,7 @@ hi:
   # -------------------------------------------------------------------------- #
 
   NvimTreeNormal            : {fg: 'NONE',            bg: '${black_dark}'}
+  NvimTreeCursorLine        : {fg: '${float_dark}',   bg: '${blue}'}
   # Files or Dirs
   NvimTreeSymlink           : {fg: '${blue_grey}',    bg: 'NONE'}
   NvimTreeRootFolder        : {fg: '${yellow}',       bg: 'NONE', style: 'bold'}

@@ -3,6 +3,7 @@ vim.g.indentLine_char = '▏'
 
 vim.cmd([[
   augroup DisableIndentLines
+    autocmd!
     autocmd BufEnter * if (bufname('%') == '' || bufname('%') =~ 'term://.*') | IndentLinesDisable | endif
   augroup END
 ]])

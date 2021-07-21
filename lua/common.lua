@@ -26,3 +26,16 @@ vim.wo.number = true -- set numbered lines
 vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 vim.wo.relativenumber = true -- set relative number
 
+-- Cursor
+vim.cmd("set guicursor+=a:Cursor/lCursor")
+-- Hide cursor when enter NvimTree
+vim.cmd([[
+  augroup HideCursor
+    autocmd!
+    autocmd BufEnter NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=100 | setlocal cursorline")   | endif
+    autocmd BufLeave NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=0   | setlocal nocursorline") | endif
+    autocmd CmdlineEnter * exec("set guicursor-=a:Cursor/lCursor")
+    autocmd CmdlineLeave * exec("set guicursor+=a:Cursor/lCursor")
+  augroup END
+]])
+
