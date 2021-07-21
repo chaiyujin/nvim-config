@@ -4,5 +4,7 @@ O = {
   cmdheight = 2,
   pumheight = 10,  -- popup menu height
   colorscheme = 'panda-syntax',
-  guifont = 'FiraCode Nerd Font:h9'
+  guifont = 'FiraCode Nerd Font:h9',
+  -- global language server protocal settings
+  lang = {},
 }

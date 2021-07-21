@@ -10,3 +10,8 @@ vim.cmd('luafile ' .. vim.fn.stdpath('config') .. '/config.lua')
 require('common')
 require('keymaps')
 require('colorscheme')
+
+-- config lsp servers
+require("lang.python")
+require("lang.clangd")
+

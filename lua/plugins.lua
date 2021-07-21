@@ -82,9 +82,6 @@ return require("packer").startup(function (use)
     require("config.which-key")
     require("config.dashboard")
     require("config.diffview")
-
-    -- config lsp servers
-    require("config.lsp-servers.python")
     
     -- playground for debug treesitter
     require "nvim-treesitter.configs".setup {
