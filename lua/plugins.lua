@@ -1,89 +1,72 @@
 -- Install packer 
 local install_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
-    vim.api.nvim_command "packadd packer.nvim"
+  vim.api.nvim_command("!git clone https://github.com/wbthomason/packer.nvim " .. install_path)
+  vim.api.nvim_command "packadd packer.nvim"
 end
 -- Auto compile when there are changes in plugins.lua
 vim.cmd "autocmd BufWritePost plugins.lua PackerCompile"
 
 -- Require plugins
 return require("packer").startup(function (use)
-    use "wbthomason/packer.nvim"
+  use "wbthomason/packer.nvim"
 
-    -- lsp config and install
-    use {"neovim/nvim-lspconfig"}
-    use {"kabouzeid/nvim-lspinstall"}
-    -- lsp based tools
-    -- use {"glepnir/lspsaga.nvim", opt=true}
-    -- lsp based auto completion
-    use {"nvim-lua/completion-nvim"}
-    -- autopairs based on completion
-    use {"windwp/nvim-autopairs"}
+  -- lsp config and install
+  use {"neovim/nvim-lspconfig"}
+  use {"kabouzeid/nvim-lspinstall"}
+  -- lsp based tools
+  -- use {"glepnir/lspsaga.nvim", opt=true}
+  -- lsp based auto completion
+  use {"nvim-lua/completion-nvim"}
+  -- autopairs based on completion
+  use {"windwp/nvim-autopairs"}
 
-    -- treesitter
-    use {"nvim-treesitter/nvim-treesitter", run=":TSUpdate"}
-    use {"nvim-treesitter/playground"}
-    -- commentary in lua
-    use {"terrortylor/nvim-comment"}
+  -- treesitter
+  use {"nvim-treesitter/nvim-treesitter", run=":TSUpdate"}
 
-    -- icons and file explorer
-    use {"kyazdani42/nvim-web-devicons"}
-    use {"kyazdani42/nvim-tree.lua"}
-    use {"ahmedkhalf/lsp-rooter.nvim", config=function() require'lsp-rooter'.setup() end} -- with this nvim-tree will follow you
+  -- commentary in lua
+  use {"terrortylor/nvim-comment"}
 
-    -- terminal
-    use {"voldikss/vim-floaterm"}
+  -- icons and file explorer
+  use {"kyazdani42/nvim-web-devicons"}
+  use {"kyazdani42/nvim-tree.lua"}
+  use {"ahmedkhalf/lsp-rooter.nvim", config=function() require'lsp-rooter'.setup() end} -- with this nvim-tree will follow you
 
-    -- git
-    use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}, config=function() require("gitsigns").setup() end}
-    use {"sindrets/diffview.nvim"}
+  -- terminal
+  use {"voldikss/vim-floaterm"}
 
-    -- buffer line and status line
-    use {"romgrk/barbar.nvim"}
-    use {"glepnir/galaxyline.nvim"}
+  -- git
+  use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}, config=function() require("gitsigns").setup() end}
+  use {"sindrets/diffview.nvim"}
 
-    -- Colorschemes
-    use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
+  -- buffer line and status line
+  use {"romgrk/barbar.nvim"}
+  use {"glepnir/galaxyline.nvim"}
 
-    -- indentline
-    use {"Yggdroot/indentLine"}
+  -- colors
+  use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
 
-    -- which key
-    use {"folke/which-key.nvim"}
+  -- indentline
+  use {"Yggdroot/indentLine"}
 
-    -- dashboard
-    use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
-    use {"glepnir/dashboard-nvim", requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {"nvim-telescope/telescope.nvim"}}}
+  -- which key
+  use {"folke/which-key.nvim"}
 
-    -- markdown
-    use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
+  -- dashboard
+  use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}}
+  use {"glepnir/dashboard-nvim", requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}, {"nvim-telescope/telescope.nvim"}}}
 
-    -- input
-    use {"kevinhwang91/vim-ibus-sw"}
+  -- markdown
+  use {'iamcco/markdown-preview.nvim', opt = true, run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
 
-    -- latex
-    use {"lervag/vimtex", opt = true, config = function()
-      require("config.vimtex")
-    end}
+  -- latex
+  use {"lervag/vimtex", opt = true, config = function() require("config.vimtex") end}
 
-    -- config plugins
-    require("config.lsp")
-    require("config.treesitter")
-    require("config.completion-nvim")
-    require("config.nvim-autopairs")
+  -- ibus
+  use {"kevinhwang91/vim-ibus-sw"}
 
-    require("config.nvim-tree")
-    require("config.vim-floaterm")
-    require("config.barbar")
-    require("config.galaxyline")
-    require("config.nvim-comment")
-    require("config.indentLine")
-    require("config.which-key")
-    require("config.dashboard")
-    require("config.diffview")
-    
-    -- playground for debug treesitter
+  -- playground for debug treesitter
+  use {"nvim-treesitter/playground", config = function()
     require "nvim-treesitter.configs".setup {
       playground = {
         enable = true,
@@ -104,5 +87,21 @@ return require("packer").startup(function (use)
         },
       }
     }
+  end}
+
+  -- config plugins
+  require("config.lsp")
+  require("config.treesitter")
+  require("config.completion-nvim")
+  require("config.nvim-autopairs")
+  require("config.nvim-tree")
+  require("config.vim-floaterm")
+  require("config.barbar")
+  require("config.galaxyline")
+  require("config.nvim-comment")
+  require("config.indentLine")
+  require("config.which-key")
+  require("config.dashboard")
+  require("config.diffview")    
 
 end)
