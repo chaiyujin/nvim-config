@@ -57,7 +57,7 @@ hi:
   CursorLine    : {fg: 'NONE',            bg: '${black_light}'}
   CursorLineNr  : {fg: '${grey_dark}',    bg: '${black_light}'}
   LineNr        : {fg: '${grey_dark}',    bg: 'NONE'}
-  MatchParen    : {fg: '${hi.Cursor.fg}', bg: '${hi.Cursor.bg}', style: 'underline'}  # current cursor match bracket
+  MatchParen    : {fg: '${pink}',         bg: 'NONE', style: 'underline'}  # current cursor match bracket
   # Pmenu
   Pmenu         : {fg: '${float_white}',  bg: '${float_black}'}
   PmenuSel      : {fg: '${float_dark}',   bg: '${blue}'}

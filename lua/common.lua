@@ -27,15 +27,22 @@ vim.wo.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shif
 vim.wo.relativenumber = true -- set relative number
 
 -- Cursor
-vim.cmd("set guicursor+=a:Cursor/lCursor")
+vim.cmd([[
+set guicursor=a:Cursor/lCursor
+set guicursor+=n-v:block
+set guicursor+=i-c-ci:ver25
+set guicursor+=r-cr:hor20,o:hor50
+]])
+-- set guicursor+=i-c-ci:ver25-blinkwait200-blinkon200-blinkoff100
+
 -- Hide cursor when enter NvimTree
 vim.cmd([[
-  augroup HideCursor
-    autocmd!
-    autocmd BufEnter NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=100 | setlocal cursorline")   | endif
-    autocmd BufLeave NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=0   | setlocal nocursorline") | endif
-    autocmd CmdlineEnter * exec("set guicursor-=a:Cursor/lCursor")
-    autocmd CmdlineLeave * exec("set guicursor+=a:Cursor/lCursor")
-  augroup END
+augroup HideCursor
+  autocmd!
+  autocmd BufEnter NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=100 | setlocal cursorline")   | endif
+  autocmd BufLeave NvimTree* if (bufname('%') =~ 'NvimTree*') | exec("hi Cursor blend=0   | setlocal nocursorline") | endif
+  autocmd CmdlineEnter,CmdwinEnter * exec("set guicursor-=a:Cursor/lCursor")
+  autocmd CmdlineLeave,CmdwinLeave * exec("set guicursor+=a:Cursor/lCursor")
+augroup END
 ]])
 

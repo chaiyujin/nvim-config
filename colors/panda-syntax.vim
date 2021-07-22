@@ -20,7 +20,7 @@ hi Cursor                               guifg=#E6E6E6 guibg=#FF4B82 gui=NONE
 hi CursorLine                           guifg=NONE    guibg=#31353A gui=NONE     
 hi CursorLineNr                         guifg=#757575 guibg=#31353A gui=NONE     
 hi LineNr                               guifg=#757575 guibg=NONE    gui=NONE     
-hi MatchParen                           guifg=#E6E6E6 guibg=#FF4B82 gui=UNDERLINE
+hi MatchParen                           guifg=#FF90D0 guibg=NONE    gui=UNDERLINE
 hi Pmenu                                guifg=#CFD0D5 guibg=#333435 gui=NONE     
 hi PmenuSel                             guifg=#232425 guibg=#7DC1FF gui=NONE     
 hi PmenuSbar                            guifg=NONE    guibg=#3B4048 gui=NONE     
