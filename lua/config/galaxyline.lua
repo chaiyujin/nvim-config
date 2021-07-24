@@ -85,21 +85,32 @@ local modes = {
   [ "rm" ] = {colors.cyan, "MODE", ""},
   [ "r?" ] = {colors.cyan, "MODE", ""},
   [ "!" ] = {colors.blue, "MODE", ""},
-  [ "t" ] = {colors.blue, "MODE", ""},
+  [ "t" ] = {colors.blue, "T ", ""},
 }
 
 vim.fn.getbufvar(0, 'ts')
 
 gls.left = {
   {
+    ViModeSpace = {
+      provider = function()
+        local mode = vim.fn.mode()
+        local mode_color = modes[mode][1]
+        vim.api.nvim_command('hi GalaxyViModeSpace guifg=' .. mode_color .. ' guibg=' .. mode_color)
+        return ' '
+      end,
+      separator = ' ',
+      separator_highlight = {'NONE', colors.bg},
+    },
+  },
+  {
     ViMode = {
       provider = function()
         local mode = vim.fn.mode()
         local mode_color = modes[mode][1]
         local mode_string = modes[mode][2]
-        local mode_icon = modes[mode][3]
         vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color .. ' guibg=' .. colors.bg .. ' gui=bold')
-        return '▊ ' .. mode_string .. ' '
+        return mode_string .. ' '
       end,
     }
   },
@@ -221,7 +232,7 @@ gls.right = {
       provider = function()
         local mode = vim.fn.mode()
         local mode_color = modes[mode][1]
-        vim.api.nvim_command('hi GalaxyPercent guifg=' .. colors.bg .. ' guibg=' .. mode_color)
+        vim.api.nvim_command('hi GalaxyPercent guifg=' .. colors.bg .. ' guibg=' .. mode_color .. ' gui=bold')
         return fileinfo.current_line_percent()
       end,
       separator = ' ',
@@ -243,7 +254,7 @@ gls.right = {
       provider = function()
         local mode = vim.fn.mode()
         local mode_color = modes[mode][1]
-        vim.api.nvim_command('hi GalaxyFileEncode guifg=' .. colors.bg .. ' guibg=' .. mode_color)
+        vim.api.nvim_command('hi GalaxyFileEncode guifg=' .. colors.bg .. ' guibg=' .. mode_color .. ' gui=bold')
         return fileinfo.get_file_encode()
       end,
       condition = condition.hide_in_width,
