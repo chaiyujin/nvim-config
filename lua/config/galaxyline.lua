@@ -24,6 +24,7 @@ local gl = require('galaxyline')
 local colors = {
   bg = '#31353A',
   bg_nc = '#232425',
+  white = '#E6E6E6',
   grey = '#BBBBBB',
   grey_darker = '#676B79',
   yellow = '#FFCC95',
@@ -33,12 +34,12 @@ local colors = {
   green_light = '#B5EBC8',
   pink = '#FF9AC1',
   blue = '#7DC1FF',
-  red = '#EC2864',
-  error_red = '#FF4B82',
+  red = '#FF4B82',
 }
 local condition = require('galaxyline.condition')
 local buffer = require('galaxyline.provider_buffer')
 local fileinfo = require('galaxyline.provider_fileinfo')
+local LSP = require('galaxyline.provider_lsp')
 local gls = gl.section
 
 local function wide_enough()
@@ -61,31 +62,55 @@ local abbrev = function(s, n)
   return result
 end
 
+local line_percent = function()
+  local current_line = vim.fn.line('.')
+  local total_line = vim.fn.line('$')
+  if current_line == 1 then
+    return ' Top '
+  elseif current_line == vim.fn.line('$') then
+    return ' Bot '
+  end
+  local result,_ = math.modf((current_line/total_line)*100)
+  return string.format(' %2d', result) .. '% '
+end
+
+local is_term = function()
+  local bufname = vim.fn.bufname('%')
+  if bufname:match("term://.*") then
+    return true
+  end
+  return false
+end
+
+local not_empty_or_term = function()
+  return condition.buffer_not_empty() and not is_term()
+end
+
 -- ------------------------------------------------------------------------------------------------------------------ --
 --                                                        Left                                                        --
 -- ------------------------------------------------------------------------------------------------------------------ --
 
 local modes = {
-  [ "n" ] = {colors.blue, "N ", ""},
-  [ "i" ] = {colors.green_light, "I ", ""},
-  [ "v" ] = {colors.pink, "V ", ""},
-  [""] = {colors.pink, "VB", ""},
-  [ "V" ] = {colors.pink, "VL", ""},
-  [ "c" ] = {colors.green_light, "C ", ""},
-  [ "no" ] = {colors.blue, "MODE", ""},
-  [ "s" ] = {colors.purple, "MODE", ""},
-  [ "S" ] = {colors.purple, "MODE", ""},
-  [""] = {colors.purple, "MODE", ""},
-  [ "ic" ] = {colors.yellow, "MODE", ""},
-  [ "R" ] = {colors.red, "MODE", ""},
-  [ "Rv" ] = {colors.red, "MODE", ""},
-  [ "cv" ] = {colors.blue, "MODE", ""},
-  [ "ce" ] = {colors.blue, "MODE", ""},
-  [ "r" ] = {colors.cyan, "MODE", ""},
-  [ "rm" ] = {colors.cyan, "MODE", ""},
-  [ "r?" ] = {colors.cyan, "MODE", ""},
-  [ "!" ] = {colors.blue, "MODE", ""},
-  [ "t" ] = {colors.blue, "T ", ""},
+  [ "n"  ] = {colors.blue,        "NORMAL",       ""},
+  [ "i"  ] = {colors.green_light, "INSERT",       ""},
+  [ "v"  ] = {colors.pink,        "VISUAL",       ""},
+  [ "" ] = {colors.pink,        "VISUAL BLOCK", ""},
+  [ "V"  ] = {colors.pink,        "VISUAL LINE",  ""},
+  [ "c"  ] = {colors.green_light, "COMMAND",      ""},
+  [ "t"  ] = {colors.blue,        "TERMINAL",     ""},
+  [ "no" ] = {colors.blue,        "MODE",         ""},
+  [ "s"  ] = {colors.purple,      "MODE",         ""},
+  [ "S"  ] = {colors.purple,      "MODE",         ""},
+  [ "" ] = {colors.purple,      "MODE",         ""},
+  [ "ic" ] = {colors.yellow,      "MODE",         ""},
+  [ "R"  ] = {colors.red,         "MODE",         ""},
+  [ "Rv" ] = {colors.red,         "MODE",         ""},
+  [ "cv" ] = {colors.blue,        "MODE",         ""},
+  [ "ce" ] = {colors.blue,        "MODE",         ""},
+  [ "r"  ] = {colors.cyan,        "MODE",         ""},
+  [ "rm" ] = {colors.cyan,        "MODE",         ""},
+  [ "r?" ] = {colors.cyan,        "MODE",         ""},
+  [ "!"  ] = {colors.blue,        "MODE",         ""},
 }
 
 vim.fn.getbufvar(0, 'ts')
@@ -103,33 +128,24 @@ gls.left = {
       separator_highlight = {'NONE', colors.bg},
     },
   },
-  {
-    ViMode = {
-      provider = function()
-        local mode = vim.fn.mode()
-        local mode_color = modes[mode][1]
-        local mode_string = modes[mode][2]
-        vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color .. ' guibg=' .. colors.bg .. ' gui=bold')
-        return mode_string .. ' '
-      end,
-    }
-  },
-  {
-    GitIcon = {
-      provider = function()
-        return ' '
-      end,
-      condition = condition.check_git_workspace,
-      separator = ' ',
-      separator_highlight = {'NONE', colors.bg},
-      highlight = {colors.pink, colors.bg}
-    }
-  },
+  -- {
+  --   ViMode = {
+  --     provider = function()
+  --       local mode = vim.fn.mode()
+  --       local mode_color = modes[mode][1]
+  --       local mode_string = modes[mode][2]
+  --       vim.api.nvim_command('hi GalaxyViMode guifg=' .. mode_color .. ' guibg=' .. colors.bg .. ' gui=bold')
+  --       return mode_string .. ' '
+  --     end,
+  --     condition = not_empty_or_term,
+  --   }
+  -- },
   {
     GitBranch = {
       provider = 'GitBranch',
       condition = condition.check_git_workspace,
       separator = ' ',
+      icon = ' ',
       separator_highlight = {'NONE', colors.bg},
       highlight = {colors.grey, colors.bg}
     }
@@ -147,7 +163,7 @@ gls.left = {
       provider = 'DiffModified',
       condition = condition.hide_in_width,
       icon = ' 柳',
-      highlight = {colors.blue, colors.bg}
+      highlight = {colors.yellow, colors.bg}
     }
   },
   {
@@ -161,10 +177,12 @@ gls.left = {
   {
     FileName = {
       provider = function()
-        -- terminal
-        local bufname = vim.fn.bufname('%')
-        if bufname:match("term://.*") then
-          return 'terminal'
+        -- highlight
+        local mode = vim.fn.mode()
+        local mode_color = modes[mode][1]
+        vim.api.nvim_command('hi GalaxyFileName guifg=' .. colors.white .. ' guibg=' .. colors.bg)
+        if is_term() then
+          return fileinfo.filename_in_special_buffer()
         end
         -- filename
         local fname
@@ -177,9 +195,17 @@ gls.left = {
         return ' ' .. fname .. ' '
       end,
       condition = condition.buffer_not_empty,
-      highlight = {colors.grey, colors.bg}
     }
   },
+  {
+    LSpace = {
+      provider = function()
+        return ' '
+      end,
+      highlight = {'NONE', colors.bg}
+    }
+  },
+  
 }
 
 -- ------------------------------------------------------------------------------------------------------------------ --
@@ -191,7 +217,7 @@ gls.right = {
     DiagnosticError = {
       provider = 'DiagnosticError',
       icon = '  ',
-      highlight = {colors.error_red, colors.bg}
+      highlight = {colors.red, colors.bg}
     }
   },
   {
@@ -217,47 +243,32 @@ gls.right = {
   },
   {
     ShowLspClient = {
-      provider = 'GetLspClient',
+      provider = function()
+        return LSP.get_lsp_client("NONE")
+      end,
       condition = function()
         local tbl = {['dashboard'] = true, [' '] = true}
         if tbl[vim.bo.filetype] then return false end
-        return true
+        return not_empty_or_term()
       end,
       icon = '  ',
       highlight = {colors.grey, colors.bg}
     }
   },
   {
-    Percent = {
+    FileInfo = {
       provider = function()
         local mode = vim.fn.mode()
         local mode_color = modes[mode][1]
-        vim.api.nvim_command('hi GalaxyPercent guifg=' .. colors.bg .. ' guibg=' .. mode_color .. ' gui=bold')
-        return fileinfo.current_line_percent()
+        local percent = line_percent()
+        local column = string.format("C:%3d", vim.fn.col('.'))
+        local encode = fileinfo.get_file_encode()
+        vim.api.nvim_command('hi GalaxyFileInfo guifg=' .. colors.bg .. ' guibg=' .. mode_color .. ' gui=bold')
+        return percent .. column .. encode
       end,
       separator = ' ',
       separator_highlight = {colors.grey, colors.bg},
-    }
-  },
-  {
-    LineInfo = {
-      provider = function()
-        local mode = vim.fn.mode()
-        local mode_color = modes[mode][1]
-        vim.api.nvim_command('hi GalaxyLineInfo guifg=' .. colors.bg .. ' guibg=' .. mode_color)
-        return fileinfo.line_column()
-      end,
-    }
-  },
-  {
-    FileEncode = {
-      provider = function()
-        local mode = vim.fn.mode()
-        local mode_color = modes[mode][1]
-        vim.api.nvim_command('hi GalaxyFileEncode guifg=' .. colors.bg .. ' guibg=' .. mode_color .. ' gui=bold')
-        return fileinfo.get_file_encode()
-      end,
-      condition = condition.hide_in_width,
+      condition = not_empty_or_term,
     }
   },
   {
@@ -268,6 +279,7 @@ gls.right = {
         vim.api.nvim_command('hi GalaxySpace guifg=' .. mode_color .. ' guibg=' .. mode_color)
         return ' '
       end,
+      condition = not_empty_or_term,
     }
   },
 }
@@ -277,17 +289,6 @@ gls.right = {
 -- ------------------------------------------------------------------------------------------------------------------ --
 
 gls.short_line_left = {
-  {
-    BufferType = {
-      provider = function()
-        return '▊ ' .. buffer.get_buffer_filetype()
-      end,
-      condition = condition.buffer_not_empty,
-      separator = ' ',
-      separator_highlight = {'NONE', colors.bg_nc},
-      highlight = {colors.grey_darker, colors.bg_nc}
-    }
-  },
   {
     SFileName = {
       provider = 'SFileName',

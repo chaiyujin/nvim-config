@@ -45,7 +45,7 @@ def _get_color(color):
 
 
 def yaml_to_vim(source_yaml, target_vim):
-    theme: DictConfig = OmegaConf.load(source_yaml)
+    theme: DictConfig = OmegaConf.load(source_yaml)  # type: ignore
     max_len_key = max(len(x) for x in theme.highlights)
     max_len_style = max(len(str(group.get('style', 'NONE')).upper()) for _, group in theme.highlights.items())
 
