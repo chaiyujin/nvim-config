@@ -165,7 +165,7 @@ hi:
   NvimTreeFolderName        : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeEmptyFolderName   : {fg: '${green_light}',  bg: 'NONE'}
   NvimTreeOpenedFolderName  : {fg: '${green_light}',  bg: 'NONE', style: 'bold'}
-  NvimTreeIndentMarker      : {fg: '${grey}',         bg: 'NONE'}
+  NvimTreeIndentMarker      : {fg: '${grey_darker}',  bg: 'NONE'}
   NvimTreeSpecialFile       : {fg: '${pink}',         bg: 'NONE'}
   # NvimTreeExecFile          : {fg: '${cyan}',       bg: 'NONE'}
   # NvimTreeOpenedFile        : {fg: '${cyan}',       bg: 'NONE'}

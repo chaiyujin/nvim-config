@@ -101,7 +101,7 @@ hi NvimTreeFolderIcon                   guifg=#B5EBC8 guibg=NONE    gui=NONE
 hi NvimTreeFolderName                   guifg=#B5EBC8 guibg=NONE    gui=NONE     
 hi NvimTreeEmptyFolderName              guifg=#B5EBC8 guibg=NONE    gui=NONE     
 hi NvimTreeOpenedFolderName             guifg=#B5EBC8 guibg=NONE    gui=BOLD     
-hi NvimTreeIndentMarker                 guifg=#BBBBBB guibg=NONE    gui=NONE     
+hi NvimTreeIndentMarker                 guifg=#676B79 guibg=NONE    gui=NONE     
 hi NvimTreeSpecialFile                  guifg=#FF90D0 guibg=NONE    gui=NONE     
 hi NvimTreeGitDirty                     guifg=#FFCC95 guibg=NONE    gui=NONE     
 hi NvimTreeGitDeleted                   guifg=#EC2864 guibg=NONE    gui=NONE     
