@@ -45,6 +45,7 @@ return require("packer").startup(function (use)
 
   -- colors
   use {"norcalli/nvim-colorizer.lua", config=function() require'colorizer'.setup() end}
+  use {"shaunsingh/nord.nvim"}
 
   -- indentline
   use {"Yggdroot/indentLine"}

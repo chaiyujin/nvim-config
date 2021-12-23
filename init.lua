@@ -12,4 +12,3 @@ require('colorscheme')
 -- config lsp servers
 require("lang.python")
 require("lang.clangd")
-
