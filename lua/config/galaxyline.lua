@@ -22,19 +22,19 @@ local gl = require('galaxyline')
 -- purple      : '#B084EB'
 
 local colors = {
-  bg = '#31353A',
-  bg_nc = '#232425',
-  white = '#E6E6E6',
-  grey = '#BBBBBB',
+  bg = '#4C566A',
+  bg_nc = '#2E3440',
+  white = '#ECEFF4',
+  grey = '#D8DEE9',
   grey_darker = '#676B79',
   yellow = '#FFCC95',
   purple = '#B084EB',
-  cyan = '#19f9d8',
-  green = '#81B88B',
-  green_light = '#B5EBC8',
+  cyan = '#8FBCBB',
+  green = '#A3BE8C',
+  green_light = '#A3BE8C',
   pink = '#FF9AC1',
-  blue = '#7DC1FF',
-  red = '#FF4B82',
+  blue = '#5E81AC',
+  red = '#BF616A',
 }
 local condition = require('galaxyline.condition')
 local buffer = require('galaxyline.provider_buffer')
