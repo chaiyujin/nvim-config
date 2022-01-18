@@ -13,7 +13,7 @@ return require("packer").startup(function (use)
 
   -- lsp config and install
   use {"neovim/nvim-lspconfig"}
-  use {"kabouzeid/nvim-lspinstall"}
+  use {"williamboman/nvim-lsp-installer"}
   -- lsp based tools
   -- use {"glepnir/lspsaga.nvim", opt=true}
   -- lsp based auto completion

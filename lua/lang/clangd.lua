@@ -5,7 +5,7 @@ O.lang.clangd = {
 }
 
 require'lspconfig'.clangd.setup {
-  cmd = {vim.fn.stdpath('data') .. "/lspinstall/cpp/clangd/bin/clangd"},
+  cmd = {vim.fn.stdpath('data') .. "/lsp_servers/cpp/clangd/bin/clangd"},
   on_attach = require'config.lsp'.common_on_attach,
   handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
