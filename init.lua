@@ -1,14 +1,12 @@
--- plugins
-require('plugins')
+vim.opt.cmdheight = 3
 
--- Load default and user configuration, must be after plugins,
--- otherwise, O will be overwrite
-require('defaults')
+-- basic settings
+local utils = require("core.utils")
+local cfg = utils.load_config()
+vim.mapleader = cfg.mapleader
+for k, v in pairs(cfg.opt) do
+   vim.opt[k] = v
+end
 
-require('common')
-require('keymaps')
-require('colorscheme')
-
--- config lsp servers
-require("lang.python")
-require("lang.clangd")
+-- load packer
+require("plugins")
