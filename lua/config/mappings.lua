@@ -1,7 +1,24 @@
 local M = {}
 
+M.window_nav = {
+   move_left = "<A-h>",
+   move_right = "<A-l>",
+   move_down = "<A-j>",
+   move_up = "<A-k>",
+}
+
+-- Plugins
+
+M.buffer = {
+   close_buffer = "<A-q>",
+   prev_buffer = "<A-,>",
+   next_buffer = "<A-.>",
+   move_prev = "<A-Left>",
+   move_next = "<A-Right>",
+}
+
 M.nvim_tree = {
-   toggle = '<A-e>',
+   toggle = "<A-e>",
    actions = {
       { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
       { key = {"<C-]>", "<2-RightMouse>"},         action = "cd"},
@@ -27,6 +44,10 @@ M.nvim_tree = {
       { key = "-",                                 action = "dir_up"},
       { key = "q",                                 action = "close"},
    }
+}
+
+M.better_escape = {
+   esc_insertmode = "jk",
 }
 
 return M

@@ -10,3 +10,9 @@ end
 
 -- load packer
 require("plugins")
+
+-- mappings
+require("core.mappings").setup()
+
+-- colorscheme
+vim.cmd[[colorscheme nord]]
