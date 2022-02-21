@@ -26,7 +26,7 @@ M.config = function()
 
       -- local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
       local opts = {
-         on_attach = require("plugins.configs.nvim_lspconfig").on_attach,
+         on_attach = require("plugins.configs.nvim_lspconfig").common_on_attach,
          capabilities = capabilities
       }
 
