@@ -1,6 +1,9 @@
 local M = {
-   { "kyazdani42/nvim-web-devicons" },
+   -- Basic assets
    { "nvim-lua/plenary.nvim" },
+   { "kyazdani42/nvim-web-devicons" },
+
+   -- File related
 
    {
       "kyazdani42/nvim-tree.lua", opt = true,
@@ -10,6 +13,10 @@ local M = {
       setup = function() require("plugins.configs.nvim_tree").setup() end,
    },
 
+   -- UI, Color things
+
+   { "shaunsingh/nord.nvim" },
+
    {
       "akinsho/bufferline.nvim",
       after = "nvim-web-devicons",
@@ -17,8 +24,11 @@ local M = {
       setup = function() require("plugins.configs.bufferline").setup() end,
    },
 
-   -- UI, Color things
-   { "shaunsingh/nord.nvim" },
+   {
+      "feline-nvim/feline.nvim",
+      after = "nvim-web-devicons",
+      config = function() require("plugins.configs.feline").config() end,
+   },
 
    {
       "lukas-reineke/indent-blankline.nvim",
@@ -33,6 +43,7 @@ local M = {
    },
 
    -- Improvement
+
    {
       "max397574/better-escape.nvim",
       event = "InsertCharPre",
