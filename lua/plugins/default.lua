@@ -1,5 +1,6 @@
 local M = {
    { "kyazdani42/nvim-web-devicons" },
+   { "nvim-lua/plenary.nvim" },
 
    {
       "kyazdani42/nvim-tree.lua", opt = true,
@@ -19,11 +20,84 @@ local M = {
    -- UI, Color things
    { "shaunsingh/nord.nvim" },
 
+   {
+      "lukas-reineke/indent-blankline.nvim",
+      event = "BufRead",
+      config = function() require("plugins.configs.misc").indent_blankline() end,
+   },
+
+   {
+      "lewis6991/gitsigns.nvim",
+      after = "plenary.nvim",
+      config = function() require("plugins.configs.misc").gitsigns() end,
+   },
+
    -- Improvement
    {
       "max397574/better-escape.nvim",
       event = "InsertCharPre",
       config = function() require("plugins.configs.misc").better_escape() end,
+   },
+
+   {
+      'numToStr/Comment.nvim',
+      config = function() require('Comment').setup() end
+   },
+
+   {
+      "nvim-treesitter/nvim-treesitter",
+      event = "BufRead",
+      config = function() require("plugins.configs.nvim_treesitter").config() end,
+   },
+
+   -- LSP
+
+   {
+      "neovim/nvim-lspconfig",
+      config = function() require("plugins.configs.nvim_lspconfig").config() end,
+   },
+
+   {
+        "hrsh7th/nvim-cmp",
+        requires = {
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-cmdline",
+            -- "L3MON4D3/LuaSnip",
+            -- "saadparwaiz1/cmp_luasnip",
+        },
+        after = "nvim-lspconfig",
+        config = function() require("plugins.configs.nvim_cmp").config() end,
+   },
+
+   {
+      "L3MON4D3/LuaSnip",
+      after = "nvim-cmp",
+      config = function() require("plugins.configs.misc").luasnip() end,
+   },
+
+   {
+      "saadparwaiz1/cmp_luasnip",
+      after = "LuaSnip",
+   },
+
+   {
+      "williamboman/nvim-lsp-installer",
+      after = "nvim-cmp",
+      config = function() require("plugins.configs.nvim_lsp_installer").config() end,
+   },
+
+   {
+      "windwp/nvim-autopairs",
+      after = "nvim-cmp",
+      config = function() require("plugins.configs.misc").nvim_autopairs() end,
+   },
+
+   {
+      "ray-x/lsp_signature.nvim",
+      after = "nvim-lspconfig",
+      config = function() require("plugins.configs.misc").lsp_signature() end,
    },
 
 }
