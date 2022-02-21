@@ -1,16 +1,18 @@
 local M = {
    -- Basic assets
+
    { "nvim-lua/plenary.nvim" },
    { "kyazdani42/nvim-web-devicons" },
 
    -- File related
 
    {
-      "kyazdani42/nvim-tree.lua", opt = true,
-      cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
-      after = "nvim-web-devicons",
+      "kyazdani42/nvim-tree.lua",
+      opt    = true,
+      cmd    = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" },
+      after  = "nvim-web-devicons",
       config = function() require("plugins.configs.nvim_tree").config() end,
-      setup = function() require("plugins.configs.nvim_tree").setup() end,
+      setup  = function() require("plugins.configs.nvim_tree").setup() end,
    },
 
    -- UI, Color things
@@ -19,34 +21,40 @@ local M = {
 
    {
       "akinsho/bufferline.nvim",
-      after = "nvim-web-devicons",
+      after  = "nvim-web-devicons",
       config = function() require("plugins.configs.bufferline").config() end,
-      setup = function() require("plugins.configs.bufferline").setup() end,
+      setup  = function() require("plugins.configs.bufferline").setup() end,
    },
 
    {
       "feline-nvim/feline.nvim",
-      after = "nvim-web-devicons",
+      after  = "nvim-web-devicons",
       config = function() require("plugins.configs.feline").config() end,
    },
 
    {
       "lukas-reineke/indent-blankline.nvim",
-      event = "BufRead",
+      event  = "BufRead",
       config = function() require("plugins.configs.misc").indent_blankline() end,
    },
 
    {
       "lewis6991/gitsigns.nvim",
-      after = "plenary.nvim",
+      after  = "plenary.nvim",
       config = function() require("plugins.configs.misc").gitsigns() end,
+   },
+
+   {
+      "NvChad/nvim-colorizer.lua",
+      event  = "BufRead",
+      config = function() require("plugins.configs.misc").colorizer() end,
    },
 
    -- Improvement
 
    {
       "max397574/better-escape.nvim",
-      event = "InsertCharPre",
+      event  = "InsertCharPre",
       config = function() require("plugins.configs.misc").better_escape() end,
    },
 
@@ -57,7 +65,7 @@ local M = {
 
    {
       "nvim-treesitter/nvim-treesitter",
-      event = "BufRead",
+      event  = "BufRead",
       config = function() require("plugins.configs.nvim_treesitter").config() end,
    },
 
@@ -69,29 +77,18 @@ local M = {
    },
 
    {
-        "hrsh7th/nvim-cmp",
-        requires = {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            -- "L3MON4D3/LuaSnip",
-            -- "saadparwaiz1/cmp_luasnip",
-        },
-        after = "nvim-lspconfig",
-        config = function() require("plugins.configs.nvim_cmp").config() end,
+      "hrsh7th/nvim-cmp",
+      after  = "nvim-lspconfig",
+      config = function() require("plugins.configs.nvim_cmp").config() end,
+      requires = {
+         "hrsh7th/cmp-nvim-lsp",
+         "hrsh7th/cmp-buffer",
+         "hrsh7th/cmp-path",
+         "hrsh7th/cmp-cmdline",
+      },
    },
-
-   {
-      "L3MON4D3/LuaSnip",
-      after = "nvim-cmp",
-      config = function() require("plugins.configs.misc").luasnip() end,
-   },
-
-   {
-      "saadparwaiz1/cmp_luasnip",
-      after = "LuaSnip",
-   },
+   { "L3MON4D3/LuaSnip", after  = "nvim-cmp", config = function() require("plugins.configs.misc").luasnip() end },
+   { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
 
    {
       "williamboman/nvim-lsp-installer",
@@ -110,7 +107,6 @@ local M = {
       after = "nvim-lspconfig",
       config = function() require("plugins.configs.misc").lsp_signature() end,
    },
-
 }
 
 return M

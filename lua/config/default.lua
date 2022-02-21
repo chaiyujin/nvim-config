@@ -6,6 +6,7 @@ M.mapleader = " "
 M.opt = {
    clipboard = "unnamedplus",
    cmdheight = 1,
+   wrap = false,
    ruler = false,
    hidden = true,
    ignorecase = true,
