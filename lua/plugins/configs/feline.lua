@@ -1,36 +1,8 @@
+local cfg = require('core.utils').load_config()
+local themes = require('core.themes')
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local M = {}
-
-local active_L = {}
-local active_M = {}
-local active_R = {}
-local inactive_L = {}
-local inactive_R = {}
-local components = {
-   active = { active_L, active_M, active_R },
-   inactive = { inactive_L, inactive_R },
-}
-
-local themes = {
-   nord = {
-      fg = "#D8DEE9",
-      bg = "#3B4252",
-      bg_nc = "#2E3440",
-      grey = "#616E88",
-      white = "#ECEFF4",
-      cyan = "#8FBCBB",
-      cyan_bright = "#88C0D0",
-      blue = "#81A1C1",
-      blue_bright = "#5E81AC",
-      red = "#BF616A",
-      orange = "#D08770",
-      yellow = "#EBCB8B",
-      green = "#A3BE8C",
-      magenta = "#B48EAD",
-      violet = '#a9a1e1',
-   },
-}
 
 local properties = {
    force_inactive = {
@@ -235,6 +207,16 @@ M.config = function()
       },
    }
 
+   local active_L = {}
+   local active_M = {}
+   local active_R = {}
+   local inactive_L = {}
+   local inactive_R = {}
+   local components = {
+      active = { active_L, active_M, active_R },
+      inactive = { inactive_L, inactive_R },
+   }
+
    table.insert(active_L, compos.vi_mode)
    table.insert(active_L, compos.git.branch)
    table.insert(active_L, compos.git.add)
@@ -254,17 +236,27 @@ M.config = function()
 
    table.insert(inactive_L, inactive_compos.file.info)
 
-   require('feline').setup {
+   local feline = require('feline')
+   local feline_themes = require('feline.themes')
+
+   feline.setup {
       colors = { fg = "bg_nc", bg = "bg_nc" },
       components = components,
       properties = properties,
       vi_mode_colors = vi_mode_colors
    }
 
-   -- TODO: name of theme from config
-   require('feline').add_theme('nord', themes.nord)
-   require('feline').use_theme('nord')
-   vim.cmd("hi StatusLine cterm=NONE guifg="..themes.nord.bg_nc.." guibg="..themes.nord.bg_nc)
+   for k, v in pairs(themes) do
+      if feline_themes[k] == nil then
+         feline.add_theme(k, v)
+      end
+   end
+
+   -- Name of theme from config
+   local ui_theme = cfg.ui.theme
+   require('feline').use_theme(ui_theme)
+   -- Update default StatusLine Background
+   vim.cmd("hi StatusLine   cterm=NONE guifg="..themes[ui_theme].bg_nc.." guibg="..themes[ui_theme].bg_nc)
 end
 
 return M

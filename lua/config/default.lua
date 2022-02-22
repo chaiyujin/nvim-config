@@ -26,6 +26,11 @@ M.opt = {
    fillchars = { eob = " " },
 }
 
+-- Options for UI
+M.ui = {
+   theme = "nord",
+}
+
 -- Load options for plugins
 M.plugins = require("config.plugins")
 

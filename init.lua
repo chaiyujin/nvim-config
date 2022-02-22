@@ -15,4 +15,4 @@ require("plugins")
 require("core.mappings").setup()
 
 -- colorscheme
-vim.cmd[[colorscheme nord]]
+vim.cmd("colorscheme "..cfg.ui.theme)
