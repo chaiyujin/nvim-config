@@ -75,6 +75,20 @@ local M = {
       config = function() require("plugins.configs.nvim_treesitter").config() end,
    },
 
+   {
+      "folke/todo-comments.nvim",
+      after  = "plenary.nvim",
+      event  = "BufRead",
+      config = function() require("plugins.configs.todo_comments").config() end,
+   },
+
+   {
+      "ur4ltz/surround.nvim", 
+      config = function()
+         require"surround".setup {mappings_style = "surround"}
+      end
+   },
+
    -- LSP
 
    {
