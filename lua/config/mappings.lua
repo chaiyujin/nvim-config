@@ -9,6 +9,10 @@ M.window_nav = {
 
 -- Plugins
 
+M.floaterm = {
+   toggle = "<C-j>"
+}
+
 M.buffer = {
    close_buffer = "<A-q>",
    prev_buffer = "<A-,>",

@@ -11,6 +11,7 @@ M.opt = {
    hidden = true,
    ignorecase = true,
    smartcase = true,
+   showmode = false,
    signcolumn = "yes",
    mouse = "a",
    number = true,

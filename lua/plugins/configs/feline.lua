@@ -190,19 +190,28 @@ M.config = function()
                      return ""
                   end
                end
-               return require("core.filename").get_current_ufn()
+               if vim.bo.buftype == "terminal" then
+                  return " "
+               else
+                  return require("core.filename").get_current_ufn()
+               end
             end,
             icon = function()
-               if vim.bo.modified then
+               if vim.bo.buftype == "terminal" then
+                  return " "
+               elseif vim.bo.modified then
                   return " "
                else
                   return " "
                end
             end,
-            hl = {
-                fg = 'white',
-                bg = 'bg_nc'
-            },
+            hl = function()
+               if vim.bo.buftype == "terminal" then
+                  return { fg = 'white', bg = 'bg' }
+               else
+                  return { fg = 'white', bg = 'bg_nc' }
+               end
+            end,
          },
       },
    }
@@ -256,7 +265,7 @@ M.config = function()
    local ui_theme = cfg.ui.theme
    require('feline').use_theme(ui_theme)
    -- Update default StatusLine Background
-   vim.cmd("hi StatusLine   cterm=NONE guifg="..themes[ui_theme].bg_nc.." guibg="..themes[ui_theme].bg_nc)
+   vim.cmd("hi StatusLine cterm=NONE guifg="..themes[ui_theme].bg_nc.." guibg="..themes[ui_theme].bg_nc)
 end
 
 return M

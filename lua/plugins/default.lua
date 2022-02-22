@@ -33,6 +33,12 @@ local M = {
    },
 
    {
+      "voldikss/vim-floaterm",
+      setup  = function() require("plugins.configs.floaterm").setup()  end,
+      config = function() require("plugins.configs.floaterm").config() end,
+   },
+
+   {
       "lukas-reineke/indent-blankline.nvim",
       event  = "BufRead",
       config = function() require("plugins.configs.misc").indent_blankline() end,

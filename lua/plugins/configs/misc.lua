@@ -1,4 +1,5 @@
-local cfg = require("core.utils").load_config()
+local utils = require("core.utils")
+local cfg = utils.load_config()
 local M = {}
 
 M.better_escape = function()
