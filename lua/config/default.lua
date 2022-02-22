@@ -25,6 +25,7 @@ M.opt = {
    updatetime = 250,
    undofile = true,
    fillchars = { eob = " " },
+   cursorline = true,
    termguicolors = true,
 }
 

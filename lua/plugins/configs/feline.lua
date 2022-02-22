@@ -200,16 +200,16 @@ M.config = function()
                if vim.bo.buftype == "terminal" then
                   return " "
                elseif vim.bo.modified then
-                  return " "
+                  return "  "
                else
-                  return " "
+                  return "  "
                end
             end,
             hl = function()
                if vim.bo.buftype == "terminal" then
-                  return { fg = 'white', bg = 'bg' }
+                  return { fg = 'fg', bg = 'nc' }
                else
-                  return { fg = 'white', bg = 'bg_nc' }
+                  return { fg = 'fg', bg = 'nc' }
                end
             end,
          },
@@ -249,7 +249,6 @@ M.config = function()
    local feline_themes = require('feline.themes')
 
    feline.setup {
-      colors = { fg = "bg_nc", bg = "bg_nc" },
       components = components,
       properties = properties,
       vi_mode_colors = vi_mode_colors
@@ -264,8 +263,6 @@ M.config = function()
    -- Name of theme from config
    local ui_theme = cfg.ui.theme
    require('feline').use_theme(ui_theme)
-   -- Update default StatusLine Background
-   vim.cmd("hi StatusLine cterm=NONE guifg="..themes[ui_theme].bg_nc.." guibg="..themes[ui_theme].bg_nc)
 end
 
 return M

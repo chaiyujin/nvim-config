@@ -1,7 +1,7 @@
 return {
    fg          = '#E6E6E6',
-   bg          = '#31353A',
-   bg_nc       = '#292A2B',
+   bg          = '#292A2B',
+   nc          = '#232425',
    darker      = '#232425',
    grey        = '#BBBBBB',
    green       = '#B5EBC8',

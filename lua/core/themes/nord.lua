@@ -1,9 +1,10 @@
 -- Nord
 local nord = {
    fg = "#D8DEE9",
-   bg = "#3B4252",
-   bg_nc = "#292A2B",
-   darker = "#232425",
+   bg = "#2E3440",
+   nc = "#2A2F3A",
+   cursor = "#3B4252",
+   darker = "#222730",
    grey = "#616E88",
    white = "#ECEFF4",
    cyan = "#8FBCBB",
