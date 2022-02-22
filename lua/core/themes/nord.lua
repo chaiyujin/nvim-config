@@ -2,8 +2,8 @@
 local nord = {
    fg = "#D8DEE9",
    bg = "#3B4252",
-   bg_nc = "#2E3440",
-   darker = "#222730",
+   bg_nc = "#292A2B",
+   darker = "#232425",
    grey = "#616E88",
    white = "#ECEFF4",
    cyan = "#8FBCBB",
