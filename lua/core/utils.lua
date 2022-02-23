@@ -3,7 +3,7 @@ local M = {}
 -- Load and override config
 M.load_config = function()
    -- load default config
-   local conf = require "config.default"
+   local conf = require("config")
    -- (optional) load from custom config and override
    local ok, conf_custom = pcall(require, "custom.config")
    if ok then

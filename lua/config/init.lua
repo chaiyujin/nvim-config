@@ -27,6 +27,7 @@ M.opt = {
    fillchars = { eob = " " },
    cursorline = true,
    termguicolors = true,
+   guifont = 'SF Mono:h10',
 }
 
 -- Options for UI

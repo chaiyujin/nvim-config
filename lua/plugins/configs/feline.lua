@@ -191,23 +191,20 @@ M.config = function()
                   end
                end
                if vim.bo.buftype == "terminal" then
-                  return " "
+                  return " Terminal "
                else
                   return require("core.filename").get_current_ufn()
                end
             end,
             icon = function()
-               if vim.bo.buftype == "terminal" then
-                  return " "
-               elseif vim.bo.modified then
-                  return "  "
-               else
-                  return "  "
+               if     vim.bo.buftype == "terminal" then return " "
+               elseif vim.bo.modified then              return "  "
+               else                                     return "  "
                end
             end,
             hl = function()
                if vim.bo.buftype == "terminal" then
-                  return { fg = 'fg', bg = 'nc' }
+                  return { fg = 'fg', bg = 'grey' }
                else
                   return { fg = 'fg', bg = 'nc' }
                end
