@@ -93,9 +93,18 @@ local M = {
    },
 
    {
-      "folke/which-key.nvim",
-      config = function() require("plugins.configs.which_key").config() end
+      'nvim-telescope/telescope.nvim',
+      opt    = true,
+      cmd    = { "Telescope" },
+      after  = { 'plenary.nvim'},
+      setup  = function() require("plugins.configs.telescope").setup()  end,
+      config = function() require("plugins.configs.telescope").config() end
    },
+
+   -- {
+   --    "folke/which-key.nvim",
+   --    config = function() require("plugins.configs.which_key").config() end
+   -- },
 
    -- LSP
 
