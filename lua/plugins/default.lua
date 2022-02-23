@@ -84,9 +84,17 @@ local M = {
 
    {
       "ur4ltz/surround.nvim", 
-      config = function()
-         require"surround".setup {mappings_style = "surround"}
-      end
+      config = function() require"surround".setup {mappings_style = "surround"} end
+   },
+
+   {
+      "sindrets/diffview.nvim",
+      config = function() require("plugins.configs.diffview").config() end
+   },
+
+   {
+      "folke/which-key.nvim",
+      config = function() require("plugins.configs.which_key").config() end
    },
 
    -- LSP
