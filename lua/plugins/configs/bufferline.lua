@@ -7,8 +7,10 @@ local M = {}
 M.setup = function()
    utils.map("n", map_cfg.next_buffer, ":BufferLineCycleNext <CR>")
    utils.map("n", map_cfg.prev_buffer, ":BufferLineCyclePrev <CR>")
-   utils.map("n", map_cfg.move_next, ":BufferLineMoveNext <CR>")
-   utils.map("n", map_cfg.move_prev, ":BufferLineMovePrev <CR>")
+   utils.map("i", map_cfg.next_buffer, "<C-\\><C-n>:BufferLineCycleNext <CR>")
+   utils.map("i", map_cfg.prev_buffer, "<C-\\><C-n>:BufferLineCyclePrev <CR>")
+   utils.map("n", map_cfg.move_next,   ":BufferLineMoveNext <CR>")
+   utils.map("n", map_cfg.move_prev,   ":BufferLineMovePrev <CR>")
    -- Close buffer from utils
    utils.map("n", map_cfg.close_buffer, ":lua require('core.utils').close_buffer() <CR>")
 end
@@ -19,7 +21,7 @@ M.config = function()
       return
    end
 
-   local themes = require("core.themes")
+   local themes = require("themes")
    local colors = themes[cfg.ui.theme]
 
    local default = {

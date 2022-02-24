@@ -1,10 +1,19 @@
 local M = {}
 
+-- Window
+
 M.window_nav = {
    move_left = "<A-h>",
    move_right = "<A-l>",
    move_down = "<A-j>",
    move_up = "<A-k>",
+}
+
+M.window_resize = {
+   inc_height = "<C-Up>",
+   dec_height = "<C-Down>",
+   inc_width = "<C-Right>",
+   dec_width = "<C-Left>",
 }
 
 -- Plugins

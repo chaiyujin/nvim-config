@@ -1,5 +1,9 @@
 local M = {}
 
+M.setup = function()
+   -- Nothing
+end
+
 M.config = function()
    -- Lua
    local cb = require'diffview.config'.diffview_callback

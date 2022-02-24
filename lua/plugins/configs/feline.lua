@@ -1,5 +1,5 @@
 local cfg = require('core.utils').load_config()
-local themes = require('core.themes')
+local themes = require('themes')
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local M = {}
@@ -178,6 +178,20 @@ M.config = function()
          left_sep = ' ',
          hl = { fg = 'blue_bright', style = 'bold' }
       },
+
+      session = {
+         provider = function()
+            local ok, sess = pcall(require, 'auto-session-library')
+            if ok and vim.v.this_session ~= "" then
+               return sess.current_session_name()
+            else
+               return ""
+            end
+         end,
+         left_sep = ' ',
+         icon = " ",
+         hl = { fg = 'grey', style = 'bold' }
+      }
    }
 
    local inactive_compos = {
@@ -230,13 +244,14 @@ M.config = function()
    table.insert(active_L, compos.git.remove)
    table.insert(active_L, compos.file.info)
 
+   table.insert(active_R, compos.lsp.name)
    table.insert(active_R, compos.diagnos.info)
    table.insert(active_R, compos.diagnos.hint)
    table.insert(active_R, compos.diagnos.warn)
    table.insert(active_R, compos.diagnos.err)
-   table.insert(active_R, compos.lsp.name)
    table.insert(active_R, compos.file.encoding)
    table.insert(active_R, compos.file.position)
+   table.insert(active_R, compos.session)
    table.insert(active_R, compos.line_percentage)
    table.insert(active_R, compos.scroll_bar)
 

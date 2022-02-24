@@ -34,6 +34,8 @@ local M = {
 
    {
       "voldikss/vim-floaterm",
+      opt    = true,
+      cmd    = { "FloatermToggle" },
       setup  = function() require("plugins.configs.floaterm").setup()  end,
       config = function() require("plugins.configs.floaterm").config() end,
    },
@@ -84,11 +86,13 @@ local M = {
 
    {
       "ur4ltz/surround.nvim", 
+      event  = "BufRead",
       config = function() require"surround".setup {mappings_style = "surround"} end
    },
 
    {
       "sindrets/diffview.nvim",
+      setup  = function() require("plugins.configs.diffview").setup()  end,
       config = function() require("plugins.configs.diffview").config() end
    },
 
@@ -99,6 +103,16 @@ local M = {
       after  = { 'plenary.nvim'},
       setup  = function() require("plugins.configs.telescope").setup()  end,
       config = function() require("plugins.configs.telescope").config() end
+   },
+
+   {
+      'rmagatti/auto-session',
+      config = function()
+         require('auto-session').setup {
+            log_level = 'info',
+            auto_session_suppress_dirs = {'~/', '~/Documents/', '~/Documents/Projects/' }
+         }
+      end
    },
 
    -- {
