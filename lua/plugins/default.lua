@@ -116,6 +116,12 @@ local M = {
    },
 
    -- {
+   --    -- Provide vscode-like workspace search and replacement
+   --    'windwp/nvim-spectre',
+   --    config = function() require('spectre').setup() end
+   -- },
+
+   -- {
    --    "folke/which-key.nvim",
    --    config = function() require("plugins.configs.which_key").config() end
    -- },
