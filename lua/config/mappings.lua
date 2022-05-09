@@ -23,7 +23,7 @@ M.floaterm = {
 }
 
 M.buffer = {
-   close_buffer = "<leader>x",
+   close_buffer = "<M-x>",
    prev_buffer  = "<M-,>",
    next_buffer  = "<M-.>",
    move_prev    = "<M-Left>",
