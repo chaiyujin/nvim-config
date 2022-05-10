@@ -4,6 +4,7 @@ M.mapleader = " "
 
 -- Options for vim.opt
 M.opt = {
+   background = "dark",
    clipboard = "unnamedplus",
    cmdheight = 1,
    wrap = false,

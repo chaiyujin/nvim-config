@@ -18,6 +18,7 @@ local M = {
    -- UI, Color things
 
    { "shaunsingh/nord.nvim" },
+   { "olimorris/onedarkpro.nvim" },
 
    {
       "akinsho/bufferline.nvim",

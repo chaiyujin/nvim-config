@@ -19,7 +19,7 @@ M.window_resize = {
 -- Plugins
 
 M.floaterm = {
-   toggle = "<C-t>"
+   toggle = "<M-t>"
 }
 
 M.buffer = {
