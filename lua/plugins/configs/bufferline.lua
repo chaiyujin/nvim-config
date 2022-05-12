@@ -22,7 +22,6 @@ M.config = function()
    end
 
    local themes = require("themes")
-   local colors = themes[cfg.ui.theme]
 
    local default = {
       options = {
@@ -60,13 +59,6 @@ M.config = function()
 
             return true
          end,
-      },
-
-      highlights= {
-         fill = {
-            guifg = colors.darker,
-            guibg = colors.darker,
-         },
       },
    }
 

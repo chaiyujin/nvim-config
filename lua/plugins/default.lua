@@ -18,7 +18,7 @@ local M = {
    -- UI, Color things
 
    { "shaunsingh/nord.nvim" },
-   { "olimorris/onedarkpro.nvim" },
+   { "projekt0n/github-nvim-theme" },
 
    {
       "akinsho/bufferline.nvim",
@@ -27,10 +27,17 @@ local M = {
       setup  = function() require("plugins.configs.bufferline").setup() end,
    },
 
+   -- {
+   --    "feline-nvim/feline.nvim",
+   --    after  = "nvim-web-devicons",
+   --    config = function() require("plugins.configs.feline").config() end,
+   -- },
+   
    {
-      "feline-nvim/feline.nvim",
-      after  = "nvim-web-devicons",
-      config = function() require("plugins.configs.feline").config() end,
+      'nvim-lualine/lualine.nvim',
+      config = function()
+         require("lualine").setup()
+      end
    },
 
    {

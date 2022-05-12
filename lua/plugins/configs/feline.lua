@@ -1,5 +1,4 @@
 local cfg = require('core.utils').load_config()
-local themes = require('themes')
 local lsp = require('feline.providers.lsp')
 local vi_mode_utils = require('feline.providers.vi_mode')
 local M = {}
@@ -258,23 +257,21 @@ M.config = function()
    table.insert(inactive_L, inactive_compos.file.info)
 
    local feline = require('feline')
-   local feline_themes = require('feline.themes')
-
    feline.setup {
       components = components,
       properties = properties,
       vi_mode_colors = vi_mode_colors
    }
 
-   for k, v in pairs(themes) do
-      if feline_themes[k] == nil then
-         feline.add_theme(k, v)
-      end
-   end
-
-   -- Name of theme from config
-   local ui_theme = cfg.ui.theme
-   require('feline').use_theme(ui_theme)
+   -- local feline_themes = require('feline.themes')
+   -- for k, v in pairs(themes) do
+   --    if feline_themes[k] == nil then
+   --       feline.add_theme(k, v)
+   --    end
+   -- end
+   -- -- Name of theme from config
+   -- local ui_theme = cfg.ui.theme
+   -- require('feline').use_theme(ui_theme)
 end
 
 return M
