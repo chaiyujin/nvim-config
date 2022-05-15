@@ -36,14 +36,19 @@ local M = {
    {
       'nvim-lualine/lualine.nvim',
       config = function()
-         require("lualine").setup()
+         require("lualine").setup({
+            options = {
+               globalstatus = true,
+            },
+            extensions = {'nvim-tree'}
+         })
       end
    },
 
    {
       "voldikss/vim-floaterm",
       opt    = true,
-      cmd    = { "FloatermToggle" },
+      cmd    = { "FloatermToggle", "FloatermNew" },
       setup  = function() require("plugins.configs.floaterm").setup()  end,
       config = function() require("plugins.configs.floaterm").config() end,
    },
