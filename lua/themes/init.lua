@@ -39,6 +39,15 @@ M.setup_github = function()
    require("github-theme").setup(cfg.ui.config.github)
 end
 
+M.setup_vscode = function()
+   local cfg = require('core.utils').load_config().ui.config.vscode
+   vim.g.vscode_style = cfg.style
+   vim.g.vscode_transparency = cfg.transparency 
+   vim.g.vscode_italic_comment = cfg.italic_comment
+   vim.g.vscode_disable_nvimtree_bg = cfg.disable_nvimtree_bg
+   vim.cmd([[colorscheme vscode]])
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()

@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "github",
+   theme = "vscode",
 
    config = {
       nord = {
@@ -59,6 +59,12 @@ M.ui = {
             }
          end,
 		},
+      vscode = {
+         style = "dark",
+         transparency = 0,
+         italic_comment = 1,
+         disable_nvimtree_bg = true,
+      }
 	},
 }
 

@@ -19,6 +19,7 @@ local M = {
 
    { "shaunsingh/nord.nvim" },
    { "projekt0n/github-nvim-theme" },
+   { "Mofiqul/vscode.nvim" },
 
    {
       "akinsho/bufferline.nvim",
