@@ -61,7 +61,7 @@ M.ui = {
 		},
       vscode = {
          style = "dark",
-         transparency = 0,
+         transparent = true,
          italic_comment = 1,
          disable_nvimtree_bg = true,
       }
