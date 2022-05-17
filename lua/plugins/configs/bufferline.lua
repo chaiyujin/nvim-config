@@ -42,23 +42,15 @@ M.config = function()
          separator_style = "thin",
          always_show_bufferline = true,
          diagnostics = false,
-         custom_filter = function(buf_number)
-            -- Func to filter out our managed/persistent split terms
-            local present_type, type = pcall(function()
-               return vim.api.nvim_buf_get_var(buf_number, "term_type")
-            end)
-
-            if present_type then
-               if type == "vert" then
-                  return false
-               elseif type == "hori" then
-                  return false
-               end
-               return true
-            end
-
-            return true
-         end,
+         -- custom_filter = function(buf_number, buf_numbers)
+         --    local bufname = vim.fn.bufname(buf_number)
+         --    if bufname ~= "term://*" then
+         --       print(buf_number, bufname)
+         --       return true
+         --    else
+         --       return true
+         --    end
+         -- end,
       },
    }
 

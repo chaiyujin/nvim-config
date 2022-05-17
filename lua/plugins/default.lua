@@ -54,6 +54,14 @@ local M = {
       config = function() require("plugins.configs.floaterm").config() end,
    },
 
+   -- {
+   --    "oberblastmeister/termwrapper.nvim",
+   --    opt    = true,
+   --    cmd    = { "Ttoggle", "T", },
+   --    setup  = function() require("plugins.configs.termwrapper").setup()  end,
+   --    config = function() require("plugins.configs.termwrapper").config() end,
+   -- },
+
    {
       "lukas-reineke/indent-blankline.nvim",
       event  = "BufRead",
