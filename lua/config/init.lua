@@ -45,10 +45,13 @@ M.ui = {
       },
       github = {
          theme_style = "light",
-         function_style = "italic",
+         comment_style = "italic",
+         keyword_style = "NONE",
+         function_style = "bold",
+         variable_style = "NONE",
          sidebars = {"qf", "vista_kind", "terminal", "packer"},
          -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-         colors = {hint = "orange", error = "#ff0000"},
+         -- colors = {hint = "orange", error = "#ff0000"},
          -- Overwrite the highlight groups
          overrides = function(c)
             return {
