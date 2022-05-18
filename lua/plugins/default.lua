@@ -20,10 +20,11 @@ local M = {
    { "shaunsingh/nord.nvim" },
    { "projekt0n/github-nvim-theme" },
    { "Mofiqul/vscode.nvim" },
+   { "olimorris/onedarkpro.nvim" },
 
    {
       "akinsho/bufferline.nvim",
-      after  = "nvim-web-devicons",
+      after  = { "nvim-web-devicons" },
       config = function() require("plugins.configs.bufferline").config() end,
       setup  = function() require("plugins.configs.bufferline").setup() end,
    },

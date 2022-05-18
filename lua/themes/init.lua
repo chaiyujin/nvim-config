@@ -48,15 +48,22 @@ M.setup_vscode = function()
    vim.cmd([[colorscheme vscode]])
 end
 
+M.setup_onedarkpro = function()
+   local cfg = require('core.utils').load_config().ui.config.onedarkpro
+   vim.o.background = cfg.background
+   require('onedarkpro').load()
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()
    local use = cfg.ui.theme
 
+   use = use:gsub("-", "_")
    self["setup_" .. use]()
 
    -- update highlight groups
-   local colors = self[use]
+   -- local colors = self[use]
    -- vim.cmd("hi StatusLine   gui=NONE guifg=" .. colors.nc    .. " guibg=" .. colors.nc)
    -- vim.cmd("hi StatusLineNC gui=NONE guifg=" .. colors.nc    .. " guibg=" .. colors.nc)
    -- vim.cmd("hi NormalNC     gui=NONE guifg=" .. colors.fg    .. " guibg=" .. colors.nc)
