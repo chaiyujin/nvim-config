@@ -54,6 +54,10 @@ M.setup_onedarkpro = function()
    require('onedarkpro').load()
 end
 
+M.setup_xcode = function()
+   vim.cmd([[colorscheme xcodedark]])
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()

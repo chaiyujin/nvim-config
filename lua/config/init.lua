@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "github",
+   theme = "xcode",
 
    config = {
       nord = {

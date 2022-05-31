@@ -21,6 +21,7 @@ local M = {
    { "projekt0n/github-nvim-theme" },
    { "Mofiqul/vscode.nvim" },
    { "olimorris/onedarkpro.nvim" },
+   { "arzg/vim-colors-xcode" },
 
    {
       "akinsho/bufferline.nvim",
