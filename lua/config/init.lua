@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "xcode",
+   theme = "dracula",
 
    config = {
       nord = {
@@ -70,6 +70,12 @@ M.ui = {
       },
       onedarkpro = {
          background = "dark",
+      },
+      dracula = {
+         show_end_of_buffer = false,
+         transparent_bg = true,
+         italic_comment = true,
+         lualine_bg_color = nil,
       },
 	},
 }

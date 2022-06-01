@@ -22,6 +22,7 @@ local M = {
    { "Mofiqul/vscode.nvim" },
    { "olimorris/onedarkpro.nvim" },
    { "arzg/vim-colors-xcode" },
+   { "Mofiqul/dracula.nvim" },
 
    {
       "akinsho/bufferline.nvim",

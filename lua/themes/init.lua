@@ -58,6 +58,17 @@ M.setup_xcode = function()
    vim.cmd([[colorscheme xcodedark]])
 end
 
+M.setup_dracula = function()
+   local cfg = require('core.utils').load_config().ui.config.dracula
+   vim.g.dracula_show_end_of_buffer = cfg.show_end_of_buffer
+   vim.g.dracula_transparent_bg = cfg.transparent_bg
+   vim.g.dracula_italic_comment = cfg.italic_comment
+   if cfg.lualine_bg_color ~= nil then
+      vim.g.dracula_lualine_bg_color = cfg.lualine_bg_color
+   end
+   vim.cmd([[colorscheme dracula]])
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()
