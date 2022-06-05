@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "dracula",
+   theme = "quietlight",
 
    config = {
       nord = {

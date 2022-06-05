@@ -41,11 +41,10 @@ end
 
 M.setup_vscode = function()
    local cfg = require('core.utils').load_config().ui.config.vscode
-   vim.g.vscode_style = cfg.style
    vim.g.vscode_transparent = cfg.transparent
    vim.g.vscode_italic_comment = cfg.italic_comment
    vim.g.vscode_disable_nvimtree_bg = cfg.disable_nvimtree_bg
-   vim.cmd([[colorscheme vscode]])
+   require('vscode').change_style(cfg.style)
 end
 
 M.setup_onedarkpro = function()
@@ -67,6 +66,10 @@ M.setup_dracula = function()
       vim.g.dracula_lualine_bg_color = cfg.lualine_bg_color
    end
    vim.cmd([[colorscheme dracula]])
+end
+
+M.setup_quietlight = function()
+   vim.cmd([[colorscheme quietlight]])
 end
 
 -- Final apply function, which chages some highlight groups.
