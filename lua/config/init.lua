@@ -32,12 +32,12 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "nord",
+   theme = "quietlight",
 
    config = {
       nord = {
-         style = "light",
-         contrast = true,
+         style = "dark",
+         contrast = false,
          borders = true,
          disable_background = false,
          cursorline_transparent = false,
@@ -74,7 +74,7 @@ M.ui = {
       },
       dracula = {
          show_end_of_buffer = false,
-         transparent_bg = true,
+         transparent_bg = false,
          italic_comment = true,
          lualine_bg_color = nil,
       },
