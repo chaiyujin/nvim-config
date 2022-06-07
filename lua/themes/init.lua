@@ -25,6 +25,7 @@ end
 -- Setup for each theme
 M.setup_nord = function()
    local cfg = require('core.utils').load_config().ui.config.nord
+   vim.o.background = cfg.style
    vim.g.nord_contrast                  = cfg.contrast
    vim.g.nord_borders                   = cfg.borders
    vim.g.nord_disable_background        = cfg.disable_background
@@ -70,6 +71,11 @@ end
 
 M.setup_quietlight = function()
    vim.cmd([[colorscheme quietlight]])
+end
+
+M.setup_snow = function()
+   vim.o.background = "light"
+   vim.cmd([[colorscheme snow]])
 end
 
 -- Final apply function, which chages some highlight groups.

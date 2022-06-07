@@ -32,12 +32,13 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "quietlight",
+   theme = "nord",
 
    config = {
       nord = {
+         style = "light",
          contrast = true,
-         borders = false,
+         borders = true,
          disable_background = false,
          cursorline_transparent = false,
          enable_sidebar_background = false,
