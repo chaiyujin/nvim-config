@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "quietlight",
+   theme = "rose_pine",
 
    config = {
       nord = {
@@ -68,6 +68,9 @@ M.ui = {
          transparent = false,
          italic_comment = 1,
          disable_nvimtree_bg = false,
+      },
+      rose_pine = {
+         variant = "light",
       },
       onedarkpro = {
          background = "dark",

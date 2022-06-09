@@ -23,6 +23,7 @@ local M = {
    { "olimorris/onedarkpro.nvim" },
    { "arzg/vim-colors-xcode" },
    { "Mofiqul/dracula.nvim" },
+   { "rose-pine/neovim", as = 'rose_pine', tag = 'v1.*' },
 
    {
       "akinsho/bufferline.nvim",

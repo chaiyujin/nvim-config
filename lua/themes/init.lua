@@ -69,6 +69,14 @@ M.setup_dracula = function()
    vim.cmd([[colorscheme dracula]])
 end
 
+M.setup_rose_pine = function()
+   local cfg = require('core.utils').load_config().ui.config.rose_pine
+   if cfg.variant == "light" then
+      vim.o.background = "light"
+   end
+   vim.cmd([[colorscheme rose-pine]])
+end
+
 M.setup_quietlight = function()
    vim.cmd([[colorscheme quietlight]])
 end
