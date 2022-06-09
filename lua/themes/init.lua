@@ -78,6 +78,16 @@ M.setup_snow = function()
    vim.cmd([[colorscheme snow]])
 end
 
+M.setup_mojave = function()
+   vim.o.background = "dark"
+   vim.cmd([[colorscheme mojave]])
+end
+
+M.setup_panda = function()
+   vim.o.background = "dark"
+   vim.cmd([[colorscheme panda]])
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()
