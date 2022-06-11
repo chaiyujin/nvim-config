@@ -70,7 +70,7 @@ M.ui = {
          disable_nvimtree_bg = false,
       },
       rose_pine = {
-         variant = "light",
+         variant = "light",  -- "light", "main", "moon", "dawn"
       },
       onedarkpro = {
          background = "dark",
