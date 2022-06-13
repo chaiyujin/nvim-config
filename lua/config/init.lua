@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "rose_pine",
+   theme = "dracula",
 
    config = {
       nord = {
