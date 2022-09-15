@@ -79,7 +79,7 @@ local M = {
    },
 
    {
-      "NvChad/nvim-colorizer.lua",
+      "norcalli/nvim-colorizer.lua",
       event  = "BufRead",
       config = function() require("plugins.configs.misc").colorizer() end,
    },
@@ -135,7 +135,7 @@ local M = {
       'rmagatti/auto-session',
       config = function()
          require('auto-session').setup {
-            log_level = 'info',
+            log_level = 'error',
             auto_session_suppress_dirs = {'~/', '~/Documents/', '~/Documents/Projects/' }
          }
       end
