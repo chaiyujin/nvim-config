@@ -32,7 +32,7 @@ M.opt = {
 
 -- Options for UI
 M.ui = {
-   theme = "dracula",
+   theme = "everforest",
 
    config = {
       nord = {
@@ -80,6 +80,11 @@ M.ui = {
          transparent_bg = false,
          italic_comment = true,
          lualine_bg_color = nil,
+      },
+      everforest = {
+         style = "light",
+         background = "medium",
+         better_performance = 1,
       },
 	},
 }

@@ -101,6 +101,14 @@ M.setup_panda = function()
    vim.cmd([[colorscheme panda]])
 end
 
+M.setup_everforest = function()
+   local cfg = require('core.utils').load_config().ui.config.everforest
+   vim.o.background = cfg.style
+   vim.g.everforest_background = cfg.background
+   vim.g.everforest_better_performance = cfg.better_performance
+   vim.cmd([[colorscheme everforest]])
+end
+
 -- Final apply function, which chages some highlight groups.
 M.apply = function(self)
    local cfg = require('core.utils').load_config()

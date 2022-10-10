@@ -24,6 +24,8 @@ local M = {
    { "arzg/vim-colors-xcode" },
    { "Mofiqul/dracula.nvim" },
    { "rose-pine/neovim", as = 'rose_pine', tag = 'v1.*' },
+   { "sainnhe/everforest" },
+   
 
    {
       "akinsho/bufferline.nvim",
@@ -40,14 +42,7 @@ local M = {
    
    {
       'nvim-lualine/lualine.nvim',
-      config = function()
-         require("lualine").setup({
-            options = {
-               globalstatus = true,
-            },
-            extensions = {'nvim-tree'}
-         })
-      end
+      config = function() require("plugins.configs.lualine").config() end,
    },
 
    {
@@ -82,6 +77,19 @@ local M = {
       "norcalli/nvim-colorizer.lua",
       event  = "BufRead",
       config = function() require("plugins.configs.misc").colorizer() end,
+   },
+
+   {
+      "folke/zen-mode.nvim",
+      config = function()
+         require("zen-mode").setup {
+            window = {
+               backdrop = 1.0,
+               width = 120, -- width of the Zen window
+               height = 0.90, -- height of the Zen window
+            }
+         }
+      end
    },
 
    -- Improvement
