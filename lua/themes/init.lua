@@ -42,10 +42,12 @@ end
 
 M.setup_vscode = function()
    local cfg = require('core.utils').load_config().ui.config.vscode
-   vim.g.vscode_transparent = cfg.transparent
-   vim.g.vscode_italic_comment = cfg.italic_comment
-   vim.g.vscode_disable_nvimtree_bg = cfg.disable_nvimtree_bg
-   require('vscode').change_style(cfg.style)
+   vim.o.background = cfg.style
+   require('vscode').setup({
+      transparent = cfg.transparent,
+      italic_comments = cfg.italic_comments,
+      disable_nvimtree_bg = cfg.disable_nvimtree_bg,
+   })
 end
 
 M.setup_onedarkpro = function()
