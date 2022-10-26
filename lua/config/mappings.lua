@@ -26,8 +26,8 @@ M.buffer = {
    close_buffer = "<M-x>",
    prev_buffer  = "<M-,>",
    next_buffer  = "<M-.>",
-   move_prev    = "<M-Left>",
-   move_next    = "<M-Right>",
+   move_prev    = "<C-M-,>",
+   move_next    = "<C-M-.>",
 }
 
 M.nvim_tree = {
