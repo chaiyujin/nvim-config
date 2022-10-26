@@ -62,12 +62,12 @@ end
 
 M.setup_dracula = function()
    local cfg = require('core.utils').load_config().ui.config.dracula
-   vim.g.dracula_show_end_of_buffer = cfg.show_end_of_buffer
-   vim.g.dracula_transparent_bg = cfg.transparent_bg
-   vim.g.dracula_italic_comment = cfg.italic_comment
-   if cfg.lualine_bg_color ~= nil then
-      vim.g.dracula_lualine_bg_color = cfg.lualine_bg_color
-   end
+   require("dracula").setup({
+      show_end_of_buffer = cfg.show_end_of_buffer,
+      transparent_bg = cfg.transparent_bg,
+      italic_comment = cfg.italic_comment,
+      lualine_bg_color = cfg.lualine_bg_color,
+   })
    vim.cmd([[colorscheme dracula]])
 end
 

@@ -64,9 +64,9 @@ M.ui = {
          end,
 		},
       vscode = {
-         style = "light",
-         transparent = false,
-         italic_comment = 1,
+         style = "dark",
+         transparent = true,
+         italic_comments = true,
          disable_nvimtree_bg = false,
       },
       rose_pine = {
@@ -77,7 +77,7 @@ M.ui = {
       },
       dracula = {
          show_end_of_buffer = false,
-         transparent_bg = false,
+         transparent_bg = true,
          italic_comment = true,
          lualine_bg_color = nil,
       },

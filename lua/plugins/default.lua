@@ -26,7 +26,6 @@ local M = {
    { "rose-pine/neovim", as = 'rose_pine', tag = 'v1.*' },
    { "sainnhe/everforest" },
    
-
    {
       "akinsho/bufferline.nvim",
       after  = { "nvim-web-devicons" },
