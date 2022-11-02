@@ -33,6 +33,8 @@ M.config = function()
          'Outline',
          'spectre_panel',
          'toggleterm',
+         'floaterm',
+         'term',
          'qf',
       }
    })
