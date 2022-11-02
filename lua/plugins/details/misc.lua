@@ -85,8 +85,7 @@ M.luasnip = function()
       updateevents = "TextChanged,TextChangedI",
    }
    luasnip.config.set_config(default)
-   -- require("luasnip/loaders/from_vscode").load { paths = chadrc_config.plugins.options.luasnip.snippet_path }
-   require("luasnip/loaders/from_vscode").load()
+   require("luasnip.loaders.from_vscode").load()
 end
 
 

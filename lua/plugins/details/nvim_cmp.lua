@@ -11,7 +11,7 @@ M.config = function()
       },
       formatting = {
          format = function(entry, vim_item)
-            local icons = require "plugins.configs.lspkind_icons"
+            local icons = require "plugins.details.lspkind_icons"
             vim_item.kind = string.format("%s %s", icons[vim_item.kind], vim_item.kind)
 
             vim_item.menu = ({
@@ -59,6 +59,7 @@ M.config = function()
          { name = "buffer" },
          { name = "nvim_lua" },
          { name = "path" },
+         { name = "nvim_lsp_signature_help" },
       },
    })
 

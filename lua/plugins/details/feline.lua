@@ -21,9 +21,9 @@ local properties = {
 local vi_mode_colors = {
    NORMAL = 'blue',
    INSERT = 'green',
-   VISUAL = 'cyan_bright',
-   LINES = 'cyan_bright',
-   BLOCK = 'cyan_bright',
+   VISUAL = 'cyan',
+   LINES = 'cyan',
+   BLOCK = 'cyan',
    OP = 'magenta',
    REPLACE = 'violet',
    ['V-REPLACE'] = 'violet',
@@ -241,18 +241,18 @@ M.config = function()
    table.insert(active_L, compos.git.add)
    table.insert(active_L, compos.git.change)
    table.insert(active_L, compos.git.remove)
-   table.insert(active_L, compos.file.info)
+   -- table.insert(active_L, compos.file.info)
 
    table.insert(active_R, compos.lsp.name)
    table.insert(active_R, compos.diagnos.info)
    table.insert(active_R, compos.diagnos.hint)
    table.insert(active_R, compos.diagnos.warn)
    table.insert(active_R, compos.diagnos.err)
-   table.insert(active_R, compos.file.encoding)
-   table.insert(active_R, compos.file.position)
-   table.insert(active_R, compos.session)
    table.insert(active_R, compos.line_percentage)
-   table.insert(active_R, compos.scroll_bar)
+   table.insert(active_R, compos.file.position)
+   table.insert(active_R, compos.file.encoding)
+   -- table.insert(active_R, compos.session)
+   -- table.insert(active_R, compos.scroll_bar)
 
    table.insert(inactive_L, inactive_compos.file.info)
 
@@ -263,15 +263,12 @@ M.config = function()
       vi_mode_colors = vi_mode_colors
    }
 
-   -- local feline_themes = require('feline.themes')
-   -- for k, v in pairs(themes) do
-   --    if feline_themes[k] == nil then
-   --       feline.add_theme(k, v)
-   --    end
-   -- end
-   -- -- Name of theme from config
-   -- local ui_theme = cfg.ui.theme
-   -- require('feline').use_theme(ui_theme)
+   -- Name of theme from config
+   local present, theme = pcall(require, 'themes.' .. cfg.ui.theme)
+   if not present then
+      theme = require('themes.nord')
+   end
+   require('feline').use_theme(theme)
 end
 
 return M
