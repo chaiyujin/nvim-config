@@ -20,11 +20,9 @@ local M = {
    { "Mofiqul/vscode.nvim" },
    { "Mofiqul/dracula.nvim" },
    { "shaunsingh/nord.nvim" },
-   -- { "projekt0n/github-nvim-theme" },
-   -- { "olimorris/onedarkpro.nvim" },
-   -- { "arzg/vim-colors-xcode" },
-   -- { "sainnhe/everforest" },
-   -- { "rose-pine/neovim", as = 'rose_pine', tag = 'v1.*' },
+   { "sainnhe/everforest" },
+   { "projekt0n/github-nvim-theme" },
+   { "arzg/vim-colors-xcode" },
 }
 
 -- ------------------------------------------------------------------------------------------------------------------ --
@@ -64,11 +62,18 @@ table.insert(M, {
 })
 
 -- Bufferline.
+-- table.insert(M, {
+--    "akinsho/bufferline.nvim",
+--    after  = { "nvim-web-devicons" },
+--    config = function() require("plugins.details.bufferline").config() end,
+--    setup  = function() require("plugins.details.bufferline").setup() end,
+-- })
+
 table.insert(M, {
-   "akinsho/bufferline.nvim",
-   after  = { "nvim-web-devicons" },
-   config = function() require("plugins.details.bufferline").config() end,
-   setup  = function() require("plugins.details.bufferline").setup() end,
+   'romgrk/barbar.nvim',
+   after = { "nvim-web-devicons" },
+   config = function() require("plugins.details.barbar").config() end,
+   setup  = function() require("plugins.details.barbar").setup() end,
 })
 
 -- Statusline.

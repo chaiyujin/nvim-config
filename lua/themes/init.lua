@@ -50,12 +50,6 @@ M.setup_vscode = function()
    })
 end
 
-M.setup_onedarkpro = function()
-   local cfg = require('core.utils').load_config().ui.config.onedarkpro
-   vim.o.background = cfg.background
-   require('onedarkpro').load()
-end
-
 M.setup_xcode = function()
    vim.cmd([[colorscheme xcodedark]])
 end
@@ -69,19 +63,6 @@ M.setup_dracula = function()
       lualine_bg_color = cfg.lualine_bg_color,
    })
    vim.cmd([[colorscheme dracula]])
-end
-
-M.setup_rose_pine = function()
-   local cfg = require('core.utils').load_config().ui.config.rose_pine
-   if cfg.variant == "light" or cfg.variant == "dawn" then
-      vim.o.background = "light"
-   else
-      vim.o.background = "dark"
-      require('rose-pine').setup({
-         dark_variant = cfg.variant,
-      })
-   end
-   vim.cmd([[colorscheme rose-pine]])
 end
 
 M.setup_quietlight = function()

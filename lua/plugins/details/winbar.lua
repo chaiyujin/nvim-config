@@ -9,13 +9,13 @@ M.config = function()
 
       colors = {
          path = '#6272a4', -- You can customize colors like #c946fd
-         file_name = '#8be9fd',
+         file_name = '#35FFDC',
          symbols = '',
       },
 
       icons = {
          file_icon_default = '',
-         seperator = '/',
+         seperator = '>',
          editor_state = '●',
          lock_icon = '',
       },

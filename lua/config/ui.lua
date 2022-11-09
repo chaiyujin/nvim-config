@@ -42,12 +42,6 @@ return {
             }
          end,
 		},
-      rose_pine = {
-         variant = "light",  -- "light", "main", "moon", "dawn"
-      },
-      onedarkpro = {
-         background = "dark",
-      },
       everforest = {
          style = "light",
          background = "medium",
