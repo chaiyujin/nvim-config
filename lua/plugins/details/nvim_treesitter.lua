@@ -8,10 +8,7 @@ M.config = function()
 
    local default = {
       ensure_installed = {
-         "vim",
-         "lua",
-         "python",
-         "cpp",
+         "vim", "lua", "bash", "python", "cpp",
       },
       highlight = {
          enable = true,
