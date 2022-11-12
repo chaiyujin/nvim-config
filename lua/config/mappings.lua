@@ -31,7 +31,7 @@ M.buffer = {
 }
 
 M.nvim_tree = {
-   toggle = "<M-e>",
+   toggle = "<C-0>",
    actions = {
       { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
       { key = {"<C-]>", "<2-RightMouse>"},         action = "cd"},

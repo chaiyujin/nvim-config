@@ -10,7 +10,7 @@ return {
       },
       dracula = {
          show_end_of_buffer = false,
-         transparent_bg = true,
+         transparent_bg = false,
          italic_comment = true,
          lualine_bg_color = nil,
       },
