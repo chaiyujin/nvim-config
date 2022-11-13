@@ -3,10 +3,10 @@ local M = {}
 -- Window
 
 M.window_nav = {
-   move_left  = "<C-h>",
-   move_right = "<C-l>",
-   move_down  = "<C-j>",
-   move_up    = "<C-k>",
+   move_left  = "<M-h>",
+   move_right = "<M-l>",
+   move_down  = "<M-j>",
+   move_up    = "<M-k>",
 }
 
 M.window_resize = {
