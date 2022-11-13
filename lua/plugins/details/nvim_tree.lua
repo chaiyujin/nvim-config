@@ -4,8 +4,8 @@ local M = {}
 
 -- packer setup callback, before loading plugin
 M.setup = function()
-   utils.map("n", map_cfg.toggle, ":NvimTreeToggle <CR>")
-   utils.map("t", map_cfg.toggle, "<C-\\><C-n>:NvimTreeToggle <CR>")
+   utils.map("n", map_cfg.toggle, ":NvimTreeToggle<CR>")
+   utils.map("t", map_cfg.toggle, "<C-\\><C-n>:NvimTreeToggle<CR>")
 end
 
 -- packer config callback, after loading plugin
