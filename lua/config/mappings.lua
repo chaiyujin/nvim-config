@@ -3,10 +3,10 @@ local M = {}
 -- Window
 
 M.window_nav = {
-   move_left  = "<M-h>",
-   move_right = "<M-l>",
-   move_down  = "<M-j>",
-   move_up    = "<M-k>",
+   move_left  = "<C-h>",
+   move_right = "<C-l>",
+   move_down  = "<C-j>",
+   move_up    = "<C-k>",
 }
 
 M.window_resize = {
@@ -31,7 +31,7 @@ M.buffer = {
 }
 
 M.nvim_tree = {
-   toggle = "<C-0>",
+   toggle = "<C-e>",
    actions = {
       { key = {"<CR>", "o", "l", "<2-LeftMouse>"}, action = "edit" },
       { key = {"<C-]>", "<2-RightMouse>"},         action = "cd"},
