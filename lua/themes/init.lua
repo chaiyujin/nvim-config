@@ -35,6 +35,11 @@ M.setup_nord = function()
    require("nord").set()
 end
 
+M.setup_onenord = function()
+   local cfg = require('core.utils').load_config()
+   require("onenord").setup(cfg.ui.config.onenord)
+end
+
 M.setup_github = function()
    local cfg = require('core.utils').load_config()
    require("github-theme").setup(cfg.ui.config.github)

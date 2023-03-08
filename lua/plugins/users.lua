@@ -23,6 +23,7 @@ local M = {
    { "sainnhe/everforest" },
    { "projekt0n/github-nvim-theme" },
    { "arzg/vim-colors-xcode" },
+   { "rmehri01/onenord.nvim" },
 }
 
 -- ------------------------------------------------------------------------------------------------------------------ --
@@ -53,6 +54,10 @@ table.insert(M, {
    after = "plenary.nvim",
    event = "BufRead",
    config = function() require("plugins.details.todo_comments").config() end
+})
+
+table.insert(M, {
+   'j-hui/fidget.nvim'
 })
 
 -- Comment.
@@ -120,6 +125,23 @@ table.insert(M, {
          auto_session_suppress_dirs = {'~/', '~/Documents/', '~/Documents/Projects/' }
       }
    end
+})
+
+table.insert(M, {
+   "folke/noice.nvim",
+   config = function()
+      require("noice").setup({
+          -- add any options here
+      })
+   end,
+   requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      -- "rcarriga/nvim-notify",
+   }
 })
 
 -- ------------------------------------------------------------------------------------------------------------------ --
