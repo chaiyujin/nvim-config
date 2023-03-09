@@ -5,14 +5,17 @@ local M = {}
 M.setup = function()
    utils.map('n', map_cfg.floaterm.toggle, ':FloatermToggle<CR>')
    utils.map('t', map_cfg.floaterm.toggle, '<C-\\><C-n>:FloatermToggle<CR>')
-   vim.cmd[[autocmd TermOpen  * setlocal nonumber norelativenumber signcolumn=no nocul]]
+   vim.cmd[[autocmd TermOpen  * setlocal nonumber norelativenumber signcolumn=no nocul winbar=]]
    vim.cmd[[autocmd TermEnter * setlocal nonumber norelativenumber signcolumn=no nocul]]
 end
 
 M.config = function()
-   vim.g.floaterm_wintype  = 'split'
-   vim.g.floaterm_position = 'botright'
-   vim.g.floaterm_height   = 0.3
+   -- vim.g.floaterm_wintype  = 'float'
+   -- vim.g.floaterm_position = 'botright'
+   -- vim.g.floaterm_height   = 0.3
+   vim.g.floaterm_wintype = 'float'
+   vim.g.floaterm_height  = 0.8
+   vim.g.floaterm_width   = 0.8
 end
 
 return M
