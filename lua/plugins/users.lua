@@ -127,22 +127,22 @@ table.insert(M, {
    end
 })
 
-table.insert(M, {
-   "folke/noice.nvim",
-   config = function()
-      require("noice").setup({
-          -- add any options here
-      })
-   end,
-   requires = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      -- "rcarriga/nvim-notify",
-   }
-})
+-- table.insert(M, {
+--    "folke/noice.nvim",
+--    config = function()
+--       require("noice").setup({
+--           -- add any options here
+--       })
+--    end,
+--    requires = {
+--       -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--       "MunifTanjim/nui.nvim",
+--       -- OPTIONAL:
+--       --   `nvim-notify` is only needed, if you want to use the notification view.
+--       --   If not available, we use `mini` as the fallback
+--       -- "rcarriga/nvim-notify",
+--    }
+-- })
 
 -- ------------------------------------------------------------------------------------------------------------------ --
 --                                                     TreeSitter                                                     --
@@ -197,6 +197,26 @@ table.insert(M, {
    "windwp/nvim-autopairs",
    after = "nvim-cmp",
    config = function() require("plugins.details.misc").nvim_autopairs() end,
+})
+
+table.insert(M, {
+   "zbirenbaum/neodim",
+   event = "LspAttach",
+   config = function ()
+      require("neodim").setup({
+         alpha = 0.75,
+         blend_color = "#000000",
+         update_in_insert = {
+            enable = false,
+            delay = 100,
+         },
+         hide = {
+            virtual_text = true,
+            signs = true,
+            underline = true,
+         }
+      })
+   end
 })
 
 -- ------------------------------------------------------------------------------------------------------------------ --
