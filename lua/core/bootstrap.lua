@@ -2,7 +2,7 @@ local utils = require("core.utils")
 local cfg = utils.load_config()
 local M = {}
 
-M.plugins = function(lazypath)
+M.plugin = function(lazypath)
    -- Make sure lazy.nvim is installed.
    if lazypath == nil or lazypath == '' then
       lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -30,15 +30,15 @@ M.plugins = function(lazypath)
    vim.api.nvim_buf_delete(0, { force = true }) -- close lazy window
 end
 
-M.nvim_opts = function()
+M.nvim_opt = function()
    vim.g.mapleader = cfg.mapleader
    for k, v in pairs(cfg.opt) do
       vim.opt[k] = v
    end
 end
 
-M.basic_mappings = function()
-   local m = cfg.mappings
+M.basic_mapping = function()
+   local m = cfg.mapping
    local map = utils.map
 
    -- Window Navigation

@@ -1,5 +1,5 @@
 local utils = require("core.utils")
-local map_cfg = utils.load_config().mappings.nvim_tree
+local map_cfg = utils.load_config().mapping.nvim_tree
 local M = {"nvim-tree/nvim-tree.lua"}
 
 -- Lazy-load on command

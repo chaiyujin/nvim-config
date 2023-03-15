@@ -1,5 +1,5 @@
 return {
-   theme = "dracula",
+   using = "vscode",
 
    vscode = {
       style = "dark",

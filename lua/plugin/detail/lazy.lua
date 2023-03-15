@@ -1,6 +1,8 @@
+local cfg = require("core.utils").load_config()
+
 return {
    defaults = { lazy = true },
-   install = { colorscheme = { "dracula" } },
+   install = { colorscheme = { cfg.theme.using } },
   
    ui = {
       icons = {

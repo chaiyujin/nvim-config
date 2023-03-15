@@ -1,3 +1,3 @@
-require("core.bootstrap").nvim_opts()
-require("core.bootstrap").basic_mappings()
-require("core.bootstrap").plugins()
+require("core.bootstrap").nvim_opt()
+require("core.bootstrap").basic_mapping()
+require("core.bootstrap").plugin()

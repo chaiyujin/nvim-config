@@ -5,7 +5,7 @@ local M = {
 }
 
 M.config = function(_, _)
-   local cfg = require('core.utils').load_config().ui.dracula
+   local cfg = require('core.utils').load_config().theme.dracula
    require("dracula").setup(cfg)
    -- load the colorscheme here
    vim.cmd([[colorscheme dracula]])

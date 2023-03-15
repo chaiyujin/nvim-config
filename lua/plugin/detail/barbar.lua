@@ -1,6 +1,6 @@
 local utils = require("core.utils")
 local cfg = utils.load_config()
-local map_cfg = cfg.mappings.buffer
+local map_cfg = cfg.mapping.buffer
 
 local M = {
    'romgrk/barbar.nvim',

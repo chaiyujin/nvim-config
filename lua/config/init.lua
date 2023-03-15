@@ -30,11 +30,10 @@ M.opt = {
    laststatus = 3,  -- global statusline
 }
 
--- Options for UI
-M.ui = require("config.ui")
--- Load options for plugins
-M.plugins = require("config.plugins")
 -- Load optoins for mappings
-M.mappings = require("config.mappings")
+M.mapping = require("config.mapping")
+
+-- Options for themes.
+M.theme = require("config.theme")
 
 return M

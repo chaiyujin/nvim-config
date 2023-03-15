@@ -1,13 +1,9 @@
-local M = {
-}
+local cfg = require("core.utils").load_config()
+local M = {}
 
 M.default_plugins = {
    "nvim-lua/plenary.nvim",
    "nvim-tree/nvim-web-devicons",
-
-   -- Themes
-   require("plugin.theme.dracula"),
-   -- require("plugin.theme.onenord"),
 
    -- UI components.
    require("plugin.detail.nvim_tree"),  -- file explorer
@@ -29,6 +25,7 @@ M.default_plugins = {
    require("plugin.detail.misc").colorizer,
    require("plugin.detail.misc").indent_blankline,
    require("plugin.detail.misc").gitsigns,
+   require("plugin.detail.misc").tint,
 
    -- LSP.
    require("plugin.lang.mason"),
@@ -45,5 +42,8 @@ M.default_plugins = {
    -- TODO: "max397574/better-escape.nvim",
    -- TODO: 'windwp/nvim-spectre', -- Provide vscode-like workspace search and replacement.
 }
+
+-- Themes
+table.insert(M.default_plugins, require("plugin.theme." .. cfg.theme.using))
 
 return M
