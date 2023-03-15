@@ -7,6 +7,7 @@ M.default_plugins = {
 
    -- Themes
    require("plugin.theme.dracula"),
+   -- require("plugin.theme.onenord"),
 
    -- UI components.
    require("plugin.detail.nvim_tree"),  -- file explorer
