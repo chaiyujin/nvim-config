@@ -1,5 +1,5 @@
 return {
-   using = "vscode",
+   using = "dracula",
 
    vscode = {
       style = "dark",
