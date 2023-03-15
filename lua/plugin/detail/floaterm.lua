@@ -1,8 +1,11 @@
-local utils = require('core.utils')
-local map_cfg = utils.load_config().mappings
-local M = {}
+local M = {
+   "voldikss/vim-floaterm",
+   cmd = { "FloatermToggle", "FloatermNew" },
+}
 
-M.setup = function()
+M.init = function()
+   local utils = require('core.utils')
+   local map_cfg = utils.load_config().mappings
    utils.map('n', map_cfg.floaterm.toggle, ':FloatermToggle<CR>')
    utils.map('t', map_cfg.floaterm.toggle, '<C-\\><C-n>:FloatermToggle<CR>')
    vim.cmd[[autocmd TermOpen  * setlocal nonumber norelativenumber signcolumn=no nocul winbar=]]

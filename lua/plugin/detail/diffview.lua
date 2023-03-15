@@ -1,8 +1,7 @@
-local M = {}
-
-M.setup = function()
-   -- Nothing
-end
+local M = {
+   "sindrets/diffview.nvim",
+   cmd = "DiffviewOpen",
+}
 
 M.config = function()
    -- Lua
