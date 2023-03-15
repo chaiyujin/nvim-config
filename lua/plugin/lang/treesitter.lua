@@ -6,7 +6,7 @@ local M = {
 
 M.opts = {
    ensure_installed = {
-      "vim", "lua", "python", "cpp", "bash",
+      "vim", "lua", "python", "cpp", "bash", "yaml", "toml"
    },
    auto_install = false,
    highlight = {

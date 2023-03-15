@@ -74,8 +74,18 @@ M.opts = function() return {
 
          },
          glyphs = {
-            default = "",
+            default = "",
             symlink = "",
+            folder = {
+               default = "",
+               empty = "",
+               empty_open = "",
+               open = "",
+               symlink = "",
+               symlink_open = "",
+               arrow_open = "",
+               arrow_closed = "",
+            },
             git = {
                deleted = "",
                ignored = "◌",
@@ -84,14 +94,6 @@ M.opts = function() return {
                unmerged = "",
                unstaged = "✗",
                untracked = "★",
-            },
-            folder = {
-               default = "",
-               empty = "",
-               empty_open = "",
-               open = "",
-               symlink = "",
-               symlink_open = "",
             },
          },
       },

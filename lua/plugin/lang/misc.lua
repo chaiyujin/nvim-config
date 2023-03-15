@@ -3,8 +3,13 @@ local M = {}
 M.fidget = {
    "j-hui/fidget.nvim",
    event = "LspAttach",
-   config = function()
-      require("fidget").setup()
+   opts = {
+      text = {
+         spinner = "dots",
+      }
+   },
+   config = function(_, opts)
+      require("fidget").setup(opts)
    end
 }
 
