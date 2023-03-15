@@ -32,6 +32,7 @@ M.setup_nord = function()
    vim.g.nord_cursorline_transparent    = cfg.cursorline_transparent
    vim.g.nord_enable_sidebar_background = cfg.enable_sidebar_background
    vim.g.nord_italic                    = cfg.italic
+   vim.g.nord_bold                      = cfg.bold
    require("nord").set()
 end
 

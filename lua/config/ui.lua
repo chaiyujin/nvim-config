@@ -18,10 +18,11 @@ return {
          style = "dark",
          contrast = false,
          borders = true,
-         disable_background = false,
+         disable_background = true,
          cursorline_transparent = false,
          enable_sidebar_background = false,
          italic = false,
+         bold = false,
       },
       onenord = {
          theme = "dark", -- "dark" or "light". Alternatively, remove the option and set vim.o.background instead
