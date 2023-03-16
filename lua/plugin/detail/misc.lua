@@ -126,6 +126,7 @@ M.gitsigns = {
 
 M.tint = {
    "levouh/tint.nvim",
+   dependencies = {"barbecue"},  -- After barbecue so that it can tint winbar.
    lazy = false,
    opts = {
       tint = -45,  -- Darken colors, use a positive value to brighten
@@ -152,6 +153,7 @@ M.tint = {
 M.barbecue = {
    "utilyre/barbecue.nvim",
    name = "barbecue",
+   lazy = false,
    version = "*",
    event = "BufRead",
    dependencies = {
