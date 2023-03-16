@@ -1,6 +1,6 @@
 local M = {
    "hrsh7th/nvim-cmp",
-   event = "InsertEnter",
+   event = "BufRead",
    dependencies = {
       "nvim-lspconfig",
    },
@@ -48,7 +48,8 @@ M.opts = {}
 
 M.config = function(_, opts)
    local cmp = require'cmp'
-   cmp.setup({
+   local cfg = require("core.utils").load_config().plugin.cmp
+   opts = vim.tbl_deep_extend("force", opts, {
       snippet = {
          expand = function(args)
             require("luasnip").lsp_expand(args.body)
@@ -100,12 +101,35 @@ M.config = function(_, opts)
          { name = "nvim_lsp" },
          { name = "buffer" },
          { name = "path" },
-         { name = "cmdline" },
          { name = "nvim_lsp_signature_help" },
          { name = "luasnip" },
          { name = "nvim_lua" },
       },
+      completion = {
+         autocomplete = {'InsertEnter', 'TextChanged'}
+      },
    })
+   
+   -- Optional: delay autocompletion.
+   local delay = cfg.delay
+   if delay ~= nil and delay > 0 then
+      opts.completion.autocomplete = false
+      local timer = 0
+      local function do_complete()
+         cmp.complete({ reason = cmp.ContextReason.Auto })
+      end
+      vim.api.nvim_create_autocmd(
+         { "TextChangedI", },
+         {
+            callback = function()
+               vim.fn.timer_stop(timer)
+               timer = vim.fn.timer_start(delay, do_complete)
+            end,
+            pattern = "*",
+         }
+      )
+   end
+   cmp.setup(opts)
 
 end
 

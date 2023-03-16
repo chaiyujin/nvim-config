@@ -36,4 +36,7 @@ M.mapping = require("config.mapping")
 -- Options for themes.
 M.theme = require("config.theme")
 
+-- Options for plugin
+M.plugin = require("config.plugin")
+
 return M

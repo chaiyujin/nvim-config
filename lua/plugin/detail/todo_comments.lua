@@ -60,8 +60,8 @@ M.opts = {
    },
 }
 
-M.config = function()
-   require('todo-comments').setup(default)
+M.config = function(_, opts)
+   require('todo-comments').setup(opts)
 end
 
 return M

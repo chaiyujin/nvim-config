@@ -25,16 +25,17 @@ M.opts = {
 M.config = function(_, opts)
    require("mason-lspconfig").setup(opts)
    local lsp_cfg = require("plugin.lang.lspconfig")
+   local capabilities = require('cmp_nvim_lsp').default_capabilities()
    
    require("lspconfig")["pyright"].setup({
       on_attach = lsp_cfg.on_attach,
-      capabilities = lsp_cfg.capabilities,
+      capabilities = capabilities,
    })
 
    require("lspconfig").lua_ls.setup {
       on_attach = lsp_cfg.on_attach,
-      capabilities = lsp_cfg.capabilities,
-    
+      capabilities = capabilities,
+
       settings = {
          Lua = {
             diagnostics = {
