@@ -10,7 +10,7 @@ M.default_plugins = {
    require("plugin.detail.floaterm"),  -- terminal
    require("plugin.detail.lualine"), -- statusline
    require("plugin.detail.barbar"),
-   -- TODO: "utilyre/barbecue.nvim",  -- winbar
+   require("plugin.detail.misc").barbecue,  -- winbar
    -- TODO: bufferline: https://github.com/rafcamlet/tabline-framework.nvim, https://github.com/johann2357/nvim-smartbufs
 
    -- Git diffview.

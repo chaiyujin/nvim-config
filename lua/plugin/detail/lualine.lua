@@ -10,8 +10,8 @@ M.opts = {
       component_separators = { left = '', right = ''},
       section_separators = { left = '', right = ''},
       disabled_filetypes = {
-         statusline = {"NvimTree"},
-         winbar = {"NvimTree"},
+         statusline = {"NvimTree", "floaterm"},
+         winbar = {"NvimTree", "floaterm"},
       },
       ignore_focus = {},
       always_divide_middle = true,
@@ -39,15 +39,15 @@ M.opts = {
       lualine_z = {}
    },
    tabline = {},
-   winbar = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = {},
-      lualine_x = {},
-      lualine_y = {},
-      lualine_z = {}
-   },
-   inactive_winbar = {},
+   -- winbar = {
+   --    lualine_a = {},
+   --    lualine_b = {},
+   --    lualine_c = {},
+   --    lualine_x = {},
+   --    lualine_y = {},
+   --    lualine_z = {}
+   -- },
+   -- inactive_winbar = {},
    extensions = {"nvim-tree"}
 }
 

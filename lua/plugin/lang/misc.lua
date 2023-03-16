@@ -40,6 +40,7 @@ M.illuminate = {
    opts = {
       providers = { 'lsp', 'treesitter', 'regex' },
       delay = 100,  -- delay in milliseconds
+      filetypes_denylist = { 'dirvish', 'fugitive', 'floaterm', 'NvimTree' },
       modes_denylist = { 'i', 'ic', 'ix', 't' },
       min_count_to_highlight = 2,  -- minimum number of matches required to perform highlighting
    },
