@@ -33,7 +33,7 @@ M.default_plugins = {
    require("plugin.lang.mason-lspconfig"),
    require("plugin.lang.treesitter"),
    require("plugin.lang.cmp"),
-   require("plugin.lang.misc").fidget,
+   -- require("plugin.lang.misc").fidget,
    require("plugin.lang.misc").neodim,  -- dim unsed
    require("plugin.lang.misc").illuminate,  -- highlight hovering words
 

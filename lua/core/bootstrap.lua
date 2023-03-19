@@ -27,7 +27,9 @@ M.plugin = function(lazypath)
    local lazy_opt = require("plugin.detail.lazy")
 
    require("lazy").setup(plugins, lazy_opt)
-   vim.api.nvim_buf_delete(0, { force = true }) -- close lazy window
+   if vim.bo.filetype == "lazy" then
+      vim.api.nvim_buf_delete(0, { force = true }) -- close lazy window
+   end
 end
 
 M.nvim_opt = function()

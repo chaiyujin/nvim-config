@@ -10,7 +10,7 @@ local M = {
 M.opts = {
    -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "lua_ls" }
    -- This setting has no relation with the `automatic_installation` setting.
-   ensure_installed = {"lua-language-server", "pyright"},
+   ensure_installed = {"lua_ls", "pyright"},
 
    -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
    -- This setting has no relation with the `ensure_installed` setting.
