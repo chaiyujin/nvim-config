@@ -31,7 +31,7 @@ M.buffer = {
 }
 
 M.nvim_tree = {
-   toggle = "<C-n>",
+   toggle = "<C-e>",
 }
 
 M.better_escape = {
