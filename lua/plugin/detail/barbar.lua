@@ -16,6 +16,7 @@ M.init = function()
    utils.map("n", map_cfg.move_next,    ":BufferMoveNext <CR>")
    utils.map("n", map_cfg.move_prev,    ":BufferMovePrevious <CR>")
    utils.map("n", map_cfg.close_buffer, ":BufferClose<CR>")
+   utils.map("n", map_cfg.pick_buffer,  ":BufferPick<CR>")
 end
 
 M.opts = {
@@ -53,7 +54,7 @@ M.opts = {
          [vim.diagnostic.severity.ERROR] = {enabled = true, icon = 'ﬀ'},
          [vim.diagnostic.severity.WARN] = {enabled = false},
          [vim.diagnostic.severity.INFO] = {enabled = false},
-         [vim.diagnostic.severity.HINT] = {enabled = true},
+         [vim.diagnostic.severity.HINT] = {enabled = false},
       },
       filetype = {
          -- Sets the icon's highlight group.

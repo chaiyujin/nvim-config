@@ -1,8 +1,9 @@
+---@diagnostic disable: unused-local
 local M = {
    "neovim/nvim-lspconfig",
    event = "BufRead",
 }
- 
+
 M.capabilities = vim.lsp.protocol.make_client_capabilities()
 M.capabilities.textDocument.completion.completionItem = {
    documentationFormat = { "markdown", "plaintext" },
@@ -51,7 +52,7 @@ M.on_attach = function(client, bufnr)
    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 end
 
-function filter(arr, func)
+local function filter(arr, func)
    -- Filter in place
    -- https://stackoverflow.com/questions/49709998/how-to-filter-a-lua-array-inplace
    local new_index = 1
@@ -65,7 +66,7 @@ function filter(arr, func)
    for i = new_index, size_orig do arr[i] = nil end
 end
 
-function filter_diagnostics(diagnostic)
+local function filter_diagnostics(diagnostic)
    -- Only filter out Pyright stuff for now
    if diagnostic.source ~= "Pyright" then
       return true
@@ -88,7 +89,7 @@ function filter_diagnostics(diagnostic)
    return true
 end
 
-function custom_on_publish_diagnostics(a, params, client_id, c, config)
+local function custom_on_publish_diagnostics(a, params, client_id, c, config)
    filter(params.diagnostics, filter_diagnostics)
    vim.lsp.diagnostic.on_publish_diagnostics(a, params, client_id, c, config)
 end

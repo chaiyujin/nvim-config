@@ -26,6 +26,7 @@ M.buffer = {
    close_buffer = "<M-x>",
    prev_buffer  = "<M-,>",
    next_buffer  = "<M-.>",
+   pick_buffer  = "<M-p>",
    move_prev    = "<C-M-,>",
    move_next    = "<C-M-.>",
 }

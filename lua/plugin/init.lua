@@ -4,6 +4,7 @@ local M = {}
 M.default_plugins = {
    "nvim-lua/plenary.nvim",
    "nvim-tree/nvim-web-devicons",
+   "folke/neodev.nvim",  -- for neovim lua development.
 
    -- UI components.
    require("plugin.detail.nvim_tree"),  -- file explorer

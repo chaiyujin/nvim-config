@@ -30,8 +30,11 @@ M.opts = {
    },
    max_concurrent_installers = 10,
 }
- 
-M.config = function(_, opts)
+
+---comment
+---@param lazy any
+---@param opts table
+M.config = function(lazy, opts)
    require("mason").setup(opts)
    -- custom nvchad cmd to install all mason binaries listed
    vim.api.nvim_create_user_command("MasonInstallAll", function()

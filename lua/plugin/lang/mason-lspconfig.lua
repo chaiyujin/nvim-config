@@ -4,7 +4,7 @@ local M = {
    dependencies = {
       "mason.nvim",
       "nvim-lspconfig",
-   }, 
+   },
 }
 
 M.opts = {
@@ -24,16 +24,16 @@ M.opts = {
 
 M.config = function(_, opts)
    require("mason-lspconfig").setup(opts)
-   local lsp_cfg = require("plugin.lang.lspconfig")
+   local cfg = require("plugin.lang.lspconfig")
    local capabilities = require('cmp_nvim_lsp').default_capabilities()
-   
-   require("lspconfig")["pyright"].setup({
-      on_attach = lsp_cfg.on_attach,
+
+   local lspconfig = require("lspconfig")  ---@diagnostic disable-line
+   lspconfig["pyright"].setup({
+      on_attach = cfg.on_attach,
       capabilities = capabilities,
    })
-
-   require("lspconfig").lua_ls.setup {
-      on_attach = lsp_cfg.on_attach,
+   lspconfig["lua_ls"].setup {
+      on_attach = cfg.on_attach,
       capabilities = capabilities,
 
       settings = {
