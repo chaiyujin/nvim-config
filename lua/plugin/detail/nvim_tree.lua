@@ -30,7 +30,6 @@ M.opts = function() return {
    on_attach = M._on_attach,
    view = {
       width = 30,
-      hide_root_folder = true,
       side = 'left',
       preserve_window_proportions = false,
       number = false,
@@ -59,6 +58,7 @@ M.opts = function() return {
       },
    },
    renderer = {
+      root_folder_label = false,
       root_folder_modifier = table.concat { ":t:gs?$?/..", string.rep(" ", 1000), "?:gs?^??" },
       add_trailing = false, -- append a trailing slash to folder names
       highlight_git = true,

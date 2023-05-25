@@ -50,6 +50,9 @@ M.on_attach = function(client, bufnr)
    vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>dq', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
    vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
+
+   -- -- NOTE: disable semanticTokens.
+   -- client.server_capabilities.semanticTokensProvider = nil
 end
 
 local function filter(arr, func)
