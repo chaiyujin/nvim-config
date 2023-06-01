@@ -15,7 +15,11 @@ end
 -- Setting this value will imply Plugin.config().
 M.opts = function() return {
    filters = {
-      dotfiles = false,
+      dotfiles = true,
+      git_clean = false,
+      no_buffer = false,
+      custom = {".DS_Store"},
+      exclude = {".gitignore"},
    },
    disable_netrw = true,
    hijack_netrw = true,
