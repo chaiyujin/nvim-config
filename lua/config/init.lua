@@ -26,7 +26,7 @@ M.opt = {
    fillchars = { eob = " " },
    cursorline = true,
    termguicolors = true,
-   guifont = 'CartographCF NF:h13',
+   guifont = 'OperatorMono Nerd Font:h16',
    laststatus = 3,  -- global statusline
 }
 
