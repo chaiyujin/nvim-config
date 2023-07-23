@@ -1,5 +1,5 @@
 return {
-   using = "everforest",
+   using = "rose-pine",
 
    vscode = {
       style = "dark",
@@ -121,6 +121,8 @@ return {
       highlight_groups = {
          ["@variable"] = { italic = false },
          ["@property"] = { italic = false },
+         ["@parameter"] = { italic = false },
+         ["@method"] = { italic = false },
          StatusLine = { fg = "love", bg = "love", blend = 10 },
          StatusLineNC = { fg = "subtle", bg = "surface" },
       },

@@ -77,20 +77,17 @@ local cell = function(index, buf)
    local hl = (isSelected and '%#TabLineSel#' or '%#TabLine#')
 
    return hl .. '%' .. index .. 'T' .. ' ' ..
+      index .. " " ..
+      devicon(buf, isSelected) .. '%T' ..
       title(buf) .. ' ' ..
       modified(buf) ..
-      devicon(buf, isSelected) .. '%T' ..
       separator(index)
 end
 
 local tabline = function()
-   local line = ''
+   local line = '   '
    local bufs = vim.fn.getbufinfo({buflisted = 1})
    for i, buf in ipairs(bufs) do
-      -- if i > 1 then
-      --    -- TODO: spliter
-      --    line = line .. "|"
-      -- end
       line = line .. cell(i, buf)
    end
    line = line .. '%#TabLineFill#%='
