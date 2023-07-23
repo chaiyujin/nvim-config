@@ -26,8 +26,10 @@ M.opt = {
    fillchars = { eob = " " },
    cursorline = true,
    termguicolors = true,
-   guifont = 'OperatorMono Nerd Font:h16',
+   guifont = 'Liga SFMono Nerd Font:h18:#e-subpixelantialias:#h-none',
    laststatus = 3,  -- global statusline
+   statusline = "  %f %m %= %l:%c  ",
+   showtabline = 2,
 }
 
 -- Load optoins for mappings

@@ -9,9 +9,11 @@ M.default_plugins = {
    -- UI components.
    require("plugin.detail.nvim_tree"),  -- file explorer
    require("plugin.detail.floaterm"),  -- terminal
-   require("plugin.detail.lualine"), -- statusline
-   require("plugin.detail.barbar"),
-   require("plugin.detail.misc").barbecue,  -- winbar
+   -- require("plugin.detail.lualine"), -- statusline
+   -- require("plugin.detail.barbar"),
+   require("plugin.detail.luatab"),
+   require("plugin.detail.smartbufs"),
+   -- require("plugin.detail.misc").barbecue,  -- winbar
    -- TODO: bufferline: https://github.com/rafcamlet/tabline-framework.nvim, https://github.com/johann2357/nvim-smartbufs
 
    -- Git diffview.
@@ -24,7 +26,8 @@ M.default_plugins = {
    require("plugin.detail.todo_comments"),
    require("plugin.detail.misc").comment,
    require("plugin.detail.misc").colorizer,
-   require("plugin.detail.misc").indent_blankline,
+   -- require("plugin.detail.misc").indent_blankline,
+   require("plugin.detail.misc").indentscope,
    require("plugin.detail.misc").gitsigns,
    require("plugin.detail.misc").tint,
 

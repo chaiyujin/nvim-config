@@ -109,4 +109,20 @@ return {
       dim_inactive = false,
       transparent_mode = false,
    },
+   xcode = {
+      style = "xcodelight",
+   },
+   ["rose-pine"] = {
+      variant = "dawn",
+      dark_variant = "main",
+      bold_vert_split = false,
+      dim_nc_background = false,
+      disable_italics = false,
+      highlight_groups = {
+         ["@variable"] = { italic = false },
+         ["@property"] = { italic = false },
+         StatusLine = { fg = "love", bg = "love", blend = 10 },
+         StatusLineNC = { fg = "subtle", bg = "surface" },
+      },
+   },
 }
