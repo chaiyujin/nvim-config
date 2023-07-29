@@ -1,5 +1,5 @@
 return {
-   using = "rose-pine",
+   using = "everforest",
 
    vscode = {
       style = "dark",
@@ -125,6 +125,9 @@ return {
          ["@method"] = { italic = false },
          StatusLine = { fg = "love", bg = "love", blend = 10 },
          StatusLineNC = { fg = "subtle", bg = "surface" },
+         TabLine = { fg = "love", bg = "love", blend = 10 },
+         TabLineSel = { fg = "subtle", bg = "background" },
+         TabLineFill = { fg = "love", bg = "love", blend = 10 },
       },
    },
 }

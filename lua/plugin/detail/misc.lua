@@ -111,7 +111,7 @@ M.indentscope = {
          options = {
             -- Type of scope's border: which line(s) with smaller indent to
             -- categorize as border. Can be one of: 'both', 'top', 'bottom', 'none'.
-            border = 'both',
+            border = 'none',
 
             -- Whether to use cursor column when computing reference indent.
             -- Useful to see incremental scopes with horizontal cursor movements.
@@ -184,8 +184,8 @@ M.tint = {
    -- dependencies = {"barbecue"},  -- After barbecue so that it can tint winbar.
    lazy = false,
    opts = {
-      tint = -45,  -- Darken colors, use a positive value to brighten
-      saturation = 0.6,  -- Saturation to preserve
+      tint = -10,  -- Darken colors, use a positive value to brighten
+      saturation = 1.0,  -- Saturation to preserve
       tint_background_colors = true,  -- Tint background portions of highlight groups
       highlight_ignore_patterns = { "WinSeparator", "Status.*" },  -- Highlight group patterns to ignore, see `string.find`
       window_ignore_function = function(winid)
