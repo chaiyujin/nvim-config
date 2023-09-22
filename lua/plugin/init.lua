@@ -9,11 +9,11 @@ M.default_plugins = {
    -- UI components.
    require("plugin.detail.nvim_tree"),  -- file explorer
    require("plugin.detail.floaterm"),  -- terminal
-   -- require("plugin.detail.lualine"), -- statusline
-   -- require("plugin.detail.barbar"),
-   require("plugin.detail.luatab"),
-   require("plugin.detail.smartbufs"),
-   -- require("plugin.detail.misc").barbecue,  -- winbar
+   require("plugin.detail.lualine"), -- statusline
+   require("plugin.detail.barbar"),
+   -- require("plugin.detail.luatab"),
+   -- require("plugin.detail.smartbufs"),
+   require("plugin.detail.misc").barbecue,  -- winbar
    -- TODO: bufferline: https://github.com/rafcamlet/tabline-framework.nvim, https://github.com/johann2357/nvim-smartbufs
 
    -- Git diffview.
@@ -38,7 +38,7 @@ M.default_plugins = {
    require("plugin.lang.treesitter"),
    require("plugin.lang.cmp"),
    -- require("plugin.lang.misc").fidget,
-   require("plugin.lang.misc").neodim,  -- dim unsed
+   -- require("plugin.lang.misc").neodim,  -- WARNING: currently need nvim0.10.0
    require("plugin.lang.misc").illuminate,  -- highlight hovering words
 
    -- Others.

@@ -6,7 +6,7 @@ M.auto_session = {
    config = function()
       require('auto-session').setup {
          log_level = 'error',
-         auto_session_suppress_dirs = {'~/', '~/Documents/', '~/Projects/' }
+         auto_session_suppress_dirs = {'~/', '~/Documents/', '~/Projects/', '/'}, 
       }
    end
 }

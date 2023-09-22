@@ -1,17 +1,31 @@
 return {
    using = "everforest",
 
-   vscode = {
+   everforest = {
+      -- light or dark.
       style = "dark",
-      transparent = true,
-      italic_comments = true,
-      disable_nvimtree_bg = false,
+      -- Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
+      background = "medium",
+      -- How much of the background should be transparent. Options are 0, 1 or 2.
+      -- 2 will have more UI components be transparent (e.g. status line background).
+      transparent_background_level = 1,
+      -- Whether italics should be used for keywords, builtin types and more.
+      italics = false,
+      -- Disable italic fonts for comments. Comments are in italics by default, set
+      -- this to `true` to make them _not_ italic!
+      disable_italic_comments = false,
    },
    dracula = {
       show_end_of_buffer = false,
       transparent_bg = true,
       italic_comment = true,
       lualine_bg_color = nil,
+   },
+   vscode = {
+      style = "dark",
+      transparent = true,
+      italic_comments = true,
+      disable_nvimtree_bg = false,
    },
    nord = {
       style = "dark",
@@ -49,37 +63,46 @@ return {
       custom_colors = {}, -- Overwrite default colors
    },
    github = {
-      theme_style = "light",
-      comment_style = "italic",
-      keyword_style = "NONE",
-      function_style = "bold",
-      variable_style = "NONE",
-      sidebars = {"qf", "vista_kind", "terminal", "packer"},
-      -- Change the "hint" color to the "orange" color, and make the "error" color bright red
-      -- colors = {hint = "orange", error = "#ff0000"},
-      -- Overwrite the highlight groups
-      overrides = function(c)
-         return {
-            htmlTag = {fg = c.red, bg = "#282c34", sp = c.hint, style = "underline"},
-               DiagnosticHint = {link = "LspDiagnosticsDefaultHint"},
-            -- this will remove the highlight groups
-            TSField = {},
-         }
-      end,
-   },
-   everforest = {
-      -- light or dark.
-      style = "dark",
-      -- Controls the "hardness" of the background. Options are "soft", "medium" or "hard".
-      background = "medium",
-      -- How much of the background should be transparent. Options are 0, 1 or 2.
-      -- 2 will have more UI components be transparent (e.g. status line background).
-      transparent_background_level = 1,
-      -- Whether italics should be used for keywords, builtin types and more.
-      italics = false,
-      -- Disable italic fonts for comments. Comments are in italics by default, set
-      -- this to `true` to make them _not_ italic!
-      disable_italic_comments = false,
+      style = "dark_tritanopia",
+      options = {
+         -- Compiled file's destination location
+         compile_path = vim.fn.stdpath('cache') .. '/github-theme',
+         compile_file_suffix = '_compiled', -- Compiled file suffix
+         hide_end_of_buffer = true, -- Hide the '~' character at the end of the buffer for a cleaner look
+         hide_nc_statusline = true, -- Override the underline style for non-active statuslines
+         transparent = true,       -- Disable setting background
+         terminal_colors = true,    -- Set terminal colors (vim.g.terminal_color_*) used in `:terminal`
+         dim_inactive = false,      -- Non focused panes set to alternative background
+         module_default = true,     -- Default enable value for modules
+         styles = {                 -- Style to be applied to different syntax groups
+            comments = 'NONE',       -- Value is any valid attr-list value `:help attr-list`
+            functions = 'NONE',
+            keywords = 'NONE',
+            variables = 'NONE',
+            conditionals = 'NONE',
+            constants = 'NONE',
+            numbers = 'NONE',
+            operators = 'NONE',
+            strings = 'NONE',
+            types = 'NONE',
+         },
+         inverse = {                -- Inverse highlight for different types
+            match_paren = false,
+            visual = false,
+            search = false,
+         },
+         darken = {                 -- Darken floating windows and sidebar-like windows
+            floats = false,
+            sidebars = {
+               enable = true,
+               list = {},             -- Apply dark background to specific windows
+            },
+         },
+         modules = {},                -- List of various plugins and additional options
+      },
+      palettes = {},
+      specs = {},
+      groups = {},
    },
    gruvbox_baby = {
       function_style = "NONE",
@@ -107,7 +130,7 @@ return {
       palette_overrides = {},
       overrides = {},
       dim_inactive = false,
-      transparent_mode = false,
+      transparent_mode = true,
    },
    xcode = {
       style = "xcodelight",

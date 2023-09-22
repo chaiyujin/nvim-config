@@ -35,6 +35,7 @@ M.config = function(_, opts)
    lspconfig["zls"].setup({})
    lspconfig["rust_analyzer"].setup({})
    lspconfig["fsautocomplete"].setup({})
+   lspconfig["clangd"].setup({})
    lspconfig["lua_ls"].setup {
       on_attach = cfg.on_attach,
       capabilities = capabilities,
