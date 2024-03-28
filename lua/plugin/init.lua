@@ -45,6 +45,8 @@ M.default_plugins = {
    -- TODO: 'nvim-telescope/telescope.nvim',
    -- TODO: "max397574/better-escape.nvim",
    -- TODO: 'windwp/nvim-spectre', -- Provide vscode-like workspace search and replacement.
+
+   require("plugin.detail.vimtex"),
 }
 
 -- Themes
