@@ -230,4 +230,32 @@ M.barbecue = {
    end
 }
 
+M.vim_tmux_navigator = {
+  "christoomey/vim-tmux-navigator",
+  cmd = {
+    "TmuxNavigateLeft",
+    "TmuxNavigateDown",
+    "TmuxNavigateUp",
+    "TmuxNavigateRight",
+    "TmuxNavigatePrevious",
+    "TmuxNavigatorProcessList",
+  },
+  keys = {
+    { "<C-h>",  ":TmuxNavigateLeft<cr>" },
+    { "<C-j>",  ":TmuxNavigateDown<cr>" },
+    { "<C-k>",  ":TmuxNavigateUp<cr>" },
+    { "<C-l>",  ":TmuxNavigateRight<cr>" },
+    { "<C-\\>", ":TmuxNavigatePrevious<cr>" },
+  },
+}
+
+M.vim_tpipeline = {
+   "vimpostor/vim-tpipeline",
+   config = function(_, _)
+      vim.g.tpipeline_autoembed = 1
+      vim.g.tpipeline_restore = 1
+      vim.g.tpipeline_clearstl = 1
+   end
+}
+
 return M

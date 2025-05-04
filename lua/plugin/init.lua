@@ -46,7 +46,10 @@ M.default_plugins = {
    -- TODO: "max397574/better-escape.nvim",
    -- TODO: 'windwp/nvim-spectre', -- Provide vscode-like workspace search and replacement.
 
+   require("plugin.detail.noice"),
    require("plugin.detail.vimtex"),
+   require("plugin.detail.misc").vim_tmux_navigator,
+   require("plugin.detail.misc").vim_tpipeline,
 }
 
 -- Themes
