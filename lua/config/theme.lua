@@ -1,5 +1,5 @@
 return {
-   using = "kanagawa",
+   using = "everforest",
 
    everforest = {
       -- light or dark.
@@ -153,7 +153,7 @@ return {
          TabLineFill = { fg = "love", bg = "love", blend = 10 },
       },
    },
-   {
+   kanagawa = {
       compile = false,             -- enable compiling the colorscheme
       undercurl = true,            -- enable undercurls
       commentStyle = { italic = true },
@@ -176,6 +176,5 @@ return {
          dark = "wave",           -- try "dragon" !
          light = "lotus"
       },
-   }
-
+   },
 }

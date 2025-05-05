@@ -19,7 +19,7 @@ M.window_resize = {
 -- Plugins
 
 M.floaterm = {
-   toggle = "<M-t>"
+   toggle = "<leader>t"
 }
 
 M.buffer = {
@@ -27,16 +27,12 @@ M.buffer = {
    prev_buffer  = "<M-,>",
    next_buffer  = "<M-.>",
    pick_buffer  = "<M-p>",
-   move_prev    = "<C-M-,>",
-   move_next    = "<C-M-.>",
+   move_prev    = "<S-M-,>",
+   move_next    = "<S-M-.>",
 }
 
 M.nvim_tree = {
    toggle = "<C-e>",
-}
-
-M.better_escape = {
-   esc_insertmode = "jk",
 }
 
 return M
