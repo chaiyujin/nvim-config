@@ -47,7 +47,7 @@ M.default_plugins = {
    -- TODO: 'windwp/nvim-spectre', -- Provide vscode-like workspace search and replacement.
 
    require("plugin.detail.noice"),
-   require("plugin.detail.vimtex"),
+   -- require("plugin.detail.vimtex"),
    require("plugin.detail.misc").vim_tmux_navigator,
    require("plugin.detail.misc").vim_tpipeline,
 }
