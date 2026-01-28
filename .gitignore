@@ -1,4 +1,4 @@
-.backup
+.DS_Store
 packer_compiled.vim
 packer_compiled.lua
-lazy-lock.json
+.backup

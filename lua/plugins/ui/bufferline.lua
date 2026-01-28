@@ -1,11 +1,18 @@
-local utils = require("core.utils")
-local cfg = utils.load_config()
-local map_cfg = cfg.mapping.buffer
+local utils = require("utils")
 
 local M = {
    'romgrk/barbar.nvim',
    lazy = false,
    dependencies = { "nvim-web-devicons" },
+}
+
+local map_cfg = {
+   close_buffer = "<M-x>",
+   prev_buffer  = "<M-,>",
+   next_buffer  = "<M-.>",
+   pick_buffer  = "<M-p>",
+   move_prev    = "<S-M-,>",
+   move_next    = "<S-M-.>",
 }
 
 M.init = function()

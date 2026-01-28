@@ -1,8 +1,6 @@
 local M = {}
 
--- Options for vim, vim.opt
-M.mapleader = " "
-M.opt = {
+local opts = {
    clipboard = "unnamedplus",
    cmdheight = 1,
    wrap = false,
@@ -33,13 +31,10 @@ M.opt = {
    showtabline = 2,
 }
 
--- Load optoins for mappings
-M.mapping = require("config.mapping")
-
--- Options for themes.
-M.theme = require("config.theme")
-
--- Options for plugin
-M.plugin = require("config.plugin")
+M.setup = function()
+   for k, v in pairs(opts) do
+      vim.opt[k] = v
+   end
+end
 
 return M

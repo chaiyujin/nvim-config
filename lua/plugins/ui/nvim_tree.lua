@@ -1,5 +1,4 @@
-local utils = require("core.utils")
-local map_cfg = utils.load_config().mapping.nvim_tree
+local utils = require("utils")
 local M = {"nvim-tree/nvim-tree.lua"}
 
 -- Lazy-load on command
@@ -7,8 +6,8 @@ M.cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeOpen" }
 
 -- `init` functions are always executed during startup
 M.init = function()
-   utils.map("n", map_cfg.toggle, ":NvimTreeToggle<CR>")
-   utils.map("t", map_cfg.toggle, "<C-\\><C-n>:NvimTreeToggle<CR>")
+   utils.map("n", "<C-e>", ":NvimTreeToggle<CR>")
+   utils.map("t", "<C-e>", "<C-\\><C-n>:NvimTreeToggle<CR>")
 end
 
 -- The table will be passed to the Plugin.config() function.
