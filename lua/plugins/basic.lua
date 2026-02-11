@@ -5,15 +5,5 @@ return {
    "folke/neodev.nvim",  -- for neovim lua development.
 
    -- lsp config.
-   {
-      "mason-org/mason-lspconfig.nvim",
-      opts = {
-         ensure_installed = { "lua_ls", "vimls", "pyright" },
-         automatic_enable = { "lua_ls", "vimls", "pyright" },
-      },
-      dependencies = {
-          { "mason-org/mason.nvim", opts = {} },
-          "neovim/nvim-lspconfig",
-      },
-   }
+   { "mason-org/mason.nvim", opts = {}, },
 }

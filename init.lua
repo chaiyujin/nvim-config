@@ -8,4 +8,5 @@ else
    -- neovim.
    require("config.basic").setup()
    require("config.lazy").setup()
+   require("config.lsp").setup()
 end
